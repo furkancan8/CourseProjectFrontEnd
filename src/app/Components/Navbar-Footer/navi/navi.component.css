@@ -1,0 +1,17 @@
+#cap{
+    width: 100%;
+    height: 90px;
+    background-color: var(--main-color);
+    color: rgba(255, 255, 255, 0.814);
+    font-size: 2rem;
+}
+#cap-first_flex{
+    margin-left: 300px;
+    padding-top: 30px;
+}
+#navi-right-section{
+    margin-left: 200px;
+}
+#navi_user{
+    margin-left: -5px;
+}

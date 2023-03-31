@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+*{margin: 0; padding: 0;}
+:root{
+    --main-color:rgba(63, 22, 2, 0.901);
+}
+html{font-size:10px;scroll-behavior: smooth;box-sizing: border-box;}
+ul{list-style: none;}
+a{text-decoration: none; color: white;}
+
+.btn{
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+}
+.btn:hover{
+    opacity: 0.9;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.col-1{flex: 0 0 auto;width: 6.666666666666667%!important;}
+.col-2{flex: 0 0 auto;width: 13.33333333333333%!important;}
+.col-3{flex: 0 0 auto;width: 20%!important;}
+.col-4{flex: 0 0 auto;width: 26.666666666666667%!important;}
+.col-5{flex: 0 0 auto;width: 33.33333333333333%!important;}
+.col-6{flex: 0 0 auto;width: 40%!important;}
+.col-7{flex: 0 0 auto;width: 46.666666666666667%!important;}
+.col-8{flex: 0 0 auto;width: 53.33333333333334%!important;}
+.col-9{flex: 0 0 auto;width: 60%!important;}
+.col-10{flex: 0 0 auto;width: 66.66666666666667%!important;}
+.col-11{flex: 0 0 auto;width: 73.33333333333334%!important;}
+.col-12{flex: 0 0 auto;width: 80%!important;}
+.col-13{flex: 0 0 auto;width: 86.66666666666667%!important;}
+.col-14{flex: 0 0 auto;width: 93.33333333333334%!important;}
+.col-15{flex: 0 0 auto;width: 100%!important;}
