@@ -1,0 +1,62 @@
+#contact-cap{
+margin-top: 50px;
+height: 400px;
+margin-right: 50px;
+position: relative;
+}
+.form-subject{
+    margin-left: 220px;
+}
+.form-subject input{
+    font-size: 18px;
+    padding: 10px;
+    width: 450px;
+    border-radius: 3px;
+    border: 1px solid rgb(164, 164, 164);
+}
+.form-description{
+margin-left: 30px;
+margin-top: 30px;
+position: relative;
+}
+.form-description textarea{
+    display: block;
+    font-size: 16px;
+    font-family:'Tw Cen MT',sans-serif,Verdana;
+    width: 84%;
+    height: 230px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid rgb(164, 164, 164);
+    resize: none;
+
+}
+.form-description textarea::placeholder{
+  margin: 15px;
+}
+.form-button{
+    text-align: right;
+}
+.form-button button{
+    font-size: 17px;
+    width: 100px;
+    height: 41px;
+    border-radius: 4px;
+    margin-top: 35px;
+    color: white;
+    background-color: var(--main-color)!important;
+    border: 1px solid rgb(169, 169, 169);
+}
+.message-contact-cap{
+    display: none;
+    position: absolute;
+    font-size: 18px;
+    color: rgb(47, 173, 47);
+    background-color: rgba(0, 255, 0, 0.3);
+    width:79.3%;
+    padding: 10px;
+    border:1px green solid;
+    border-radius: 3px;
+    bottom: 15px;
+    left: 45px;
+}

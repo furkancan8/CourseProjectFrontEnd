@@ -1,0 +1,34 @@
+<div class="page-cap">
+ <div class="flex">
+     <div class="col-4">
+        <app-user-menu></app-user-menu>
+     </div>
+     <div class="col-11">
+        <div class="profile light-cap">
+          <div class="profile-title">
+            <p>Hesap Bilgileri</p>
+          </div>
+          <div class="profile-main">
+           <form [formGroup]="this.userFormGroup">
+            <div><input placeholder="Ad-Soyad" formControlName="fullName"></div>
+            <div><input placeholder="Email" formControlName="E-Mail"></div>
+            <div class="input-number">
+             <input placeholder="Numara" formControlName="number">
+             <p>Hesabınızı güvende tutmak için önemli !</p>
+            </div>
+            <div class="input-checkbox">
+                <label class="switch">
+                  <input type="checkbox" formControlName="isMail">
+                  <span class="slider round"></span>
+                </label>
+                <p>Course den Haber içerikli e-postalar almak istiyorum</p>
+            </div>
+           </form>
+          </div>
+          <div class="button-div">
+            <button appUpdate [entityId]="this.userId" [entity]="'user'" [entityFormGroup]="this.userFormGroup">Güncelle</button>
+         </div>
+        </div>
+     </div>
+ </div>
+</div>

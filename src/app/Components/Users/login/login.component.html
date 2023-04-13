@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="page-cap">
+ <main>
+    <div id="login-cap" class="light-cap">
+      <h1 class="login-title">Giriş Yap</h1>
+      <div style="opacity: 0;;margin-top: 15px;">""</div>
+      <div *ngIf="this.loginError" id="warning-error-login">
+        <h6>E-posta adresiniz ve/veya şifreniz hatalı.</h6>
+      </div>
+      <form [formGroup]="loginForm">
+        <div id="form-eposta-cap">
+          <input type="email"
+          formControlName="email"
+           class="forms"
+           id="form-eposta"
+           placeholder="E-Posta" #email>
+        </div>
+        <div>
+          <input type="password"
+          formControlName="password"
+            class="forms"
+            id="form-password"
+             placeholder="Şifre">
+        </div>
+        <div id="login-remember-password">
+          <h6>Şifremi Unuttum</h6>
+        </div>
+        <div>
+          <button (click)="login(email.value)" id="login-btn">Giriş yap</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>

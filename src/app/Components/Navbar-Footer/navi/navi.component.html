@@ -3,11 +3,25 @@
     <div class="col-5">
         <a href="">Logo</a>
     </div>
-    <div class="flex col-10" id="navi-right-section">
-         <div class="col-3">Tüm Kurslar</div>
-         <div class="col-3">Egitim Verin</div>
-         <div class="col-3" id="navi_user">User</div>
-         <!-- <div class="col-3">Kurslarım</div> -->
+    <div class="flex" id="navi-right-section">
+         <div routerLink="">Tüm Kurslar</div>
+         <div routerLink="">Egitim Verin</div>
+         <div routerLink="/user/courses">Kurslarım</div>
+           <div routerLink="/login" class="special-div" *ngIf="IsUserActive==false">Giriş Yap</div>
+           <div routerLink="/register" class="special-div" *ngIf="IsUserActive==false">Kayıt Ol</div>
+         <div id="navi_user" *ngIf="IsUserActive">
+           <div (click)="toggleDropdown()">Hesabım</div>
+           <div id="dropdown-toggle-cap" class="light-cap" *ngIf="showDropdown">
+            <ul>
+              <li routerLink="/user/user_profile">Profil</li>
+              <li routerLink="/user/payment">Ödeme bilgileri</li>
+              <li routerLink="/user/courses">Kurslarım</li>
+              <li routerLink="/user/contact">İletişim</li>
+              <li (click)="ExitUser()">Çıkış yap</li>
+             </ul>
+           </div>
+         </div>
+
     </div>
   </div>
 </div>

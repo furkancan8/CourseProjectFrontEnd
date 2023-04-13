@@ -1,0 +1,29 @@
+<div class="page-cap">
+  <div class="flex">
+    <div class="col-4">
+       <app-user-menu></app-user-menu>
+    </div>
+    <div class="col-11">
+       <div class="course" *ngFor="let c of course">
+         <div class="course-image-div">
+            <img class="course-image" [src]="this.imageUrl+c.image">
+         </div>
+         <div class="course-name">
+            <span>{{c.name}}</span>
+         </div>
+         <div class="flex course-card-bottom">
+            <div class="course-complated">
+                <span>{{c.completed}}%</span> Tamamlandı
+             </div>
+             <div class="course-teacher">
+                <img class="teacher-image" [src]="this.userImageUrl">
+                <span>Furkan can</span>
+             </div>
+         </div>
+         <div class="course-bar-div">
+            <div class="bar" [style.--completed-width]="c.completed+'%'"></div>
+         </div>
+       </div>
+    </div>
+  </div>
+</div>

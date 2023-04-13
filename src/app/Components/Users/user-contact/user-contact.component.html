@@ -1,1 +1,26 @@
-<p>user-contact works!</p>
+<div class="page-cap">
+ <div class="flex">
+  <div class="col-4">
+    <app-user-menu></app-user-menu>
+  </div>
+  <div class="col-11">
+     <div id="contact-cap" class="light-cap">
+       <div class="form-cap">
+        <form [formGroup]="this.entityFormGroup">
+         <div class="form-subject">
+           <input formControlName="subject" required [class.warning-border]="entityFormGroup.controls['subject'].errors" minlength="3" type="text" placeholder="Konu">
+         </div>
+         <div class="form-description">
+           <textarea formControlName="description" required [class.warning-border]="entityFormGroup.controls['description'].errors" minlength="3" rows="8" cols="100" type="text" placeholder="Açıklama"></textarea>
+         </div>
+        </form>
+       </div>
+       <div (click)="asd()" class="form-button" appAdd [entity]="'contact'" [entityAddForm]="this.entityFormGroup"><button >Gönder</button></div>
+
+       <div  [class.d-block]="this.IsSuccess" class="message-contact-cap">
+         <div class="message">Mesajınızı aldık teşekkürler.</div>
+       </div>
+     </div>
+  </div>
+ </div>
+</div>

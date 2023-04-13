@@ -1,0 +1,45 @@
+<div class="page-cap">
+  <div class="flex">
+    <div class="col-4">
+        <app-user-menu></app-user-menu>
+    </div>
+    <div class="col-11">
+      <div class="flex">
+        <div class="light-cap col-6 card" *ngFor="let p of payment">
+          <div class="card-number">{{p.cardNumber}}</div>
+          <div class="card-name">{{p.cardName}}</div>
+          <div class="back-icon"><img [src]="this.zirratIcon"></div>
+          <div (click)="refreshPayment()" class="delete-icon"  appDelete [entityId]="p.id" [entity]="'payment'"><img [src]="this.delteUrl"></div>
+        </div>
+        <div (click)="activeCard()" class="light-cap col-6 card" *ngIf="this.payment.length<2">
+          <div class="new-card">+ Yeni kart ekleyin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div [class.d-block]="IsClicked" class="add-card-cap light-cap">
+  <div class="add-card">
+   <div class="new-card-title">Kart Ekle</div>
+   <form [formGroup]="this.entityFormGroup" >
+   <div  class="new-card_namme">
+    <input [class.warning-border]="entityFormGroup.controls['cardName'].errors" class="" formControlName="cardName" placeholder="Kart Sahibi" pattern="^[a-zA-Z]+\s[a-zA-Z]+$">
+  </div>
+   <div class="new-card_number">
+    <input [class.warning-border]="entityFormGroup.controls['cardNumber'].errors" maxlength="19" formControlName="cardNumber" placeholder="Kart Numara"   pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}">
+  </div>
+  <div class="new-card_expretion">
+    <input (input)="addSlash($event)" maxlength="4" [class.warning-border]="entityFormGroup.controls['expiration'].errors" formControlName="expiration" placeholder="00/0" pattern="[0-9]{2}/[0-9]{1}">
+  </div>
+   <div class="new-card_cvc">
+    <input [class.warning-border]="entityFormGroup.controls['cvc'].errors" maxlength="3" formControlName="cvc" placeholder="000"  pattern="^\d{3}$">
+  </div>
+   <div class="new-card_check"><input (change)="changeCheck()" id="form-check" type="checkbox"><div>Kartımın alışverişler için Site ismi'nde aydınlatma metni kapsamında kaydedilsin.</div></div>
+  </form>
+  </div>
+  <div class="new-card-button"><button [disabled]="entityFormGroup.invalid || this.IsCheck==false" (click)="disabledCard();createFormGroup();refreshPayment()" appAdd [entity]="'payment'" [entityAddForm]="this.entityFormGroup"><span >Ekle</span></button></div>
+  <div (click)="disabledCard()" class="delete-icon-cap">
+    <img [src]="this.delteUrl">
+  </div>
+</div>

@@ -1,0 +1,90 @@
+:root {
+    --completed-width: 0%;
+}
+.course{
+    cursor: pointer;
+    width: 330px;
+    height: 320px;
+    border: 1px solid rgb(105, 141, 6);
+    border-radius: 5px;
+    border-top-right-radius: 15px;
+    margin: 20px;
+    background-color: #fff;
+    border-top: 2px solid rgb(177, 94, 5);
+    border-left: 2px solid rgb(171, 90, 3);
+    transition: all .2s ease;
+    box-sizing: border-box;
+}
+.course:hover{
+    border-top: 2px solid rgb(129, 66, 0);
+    border-left: 2px solid rgb(137, 71, 0)
+
+}
+.course-image-div{
+    height: 170px;
+    border-bottom: 1px solid rgb(225, 225, 225);
+}
+.course-image{
+    width: 100%;
+    height: 170px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 15px;
+}
+.course-name{
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: rgb(50, 50, 50);
+    text-align: left;
+    margin-left: 10px;
+}
+.course-langue{
+    font-size: 27px;
+    font-weight: 400!important;
+    margin-left: 15px;
+}
+.course-teacher{
+    text-align: center;
+    font-size: 17px;
+    font-weight: 200;
+    margin-right: 15px;
+}
+.teacher-image{
+    margin-bottom: -7px;
+    margin-right: 5px;
+    width: 33px;
+    height: 33px;
+}
+.course-complated{
+    margin-top: 7px;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 11px;
+    color: rgb(88, 88, 88);
+}
+.course-complated span{
+    color:rgb(0, 0, 0);
+    font-size: 15px;
+}
+.course-card-bottom{
+    margin-top: 35px;
+    justify-content: space-between;
+}
+.course-bar-div{
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.bar {
+    width: 300px;
+    height: 10px;
+    border-radius: 30px;
+    background-color: rgb(206, 206, 206)!important;
+}
+.bar::after {
+    border-radius: 30px;
+    width: var(--completed-width);
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: rgba(171, 90, 3);
+}

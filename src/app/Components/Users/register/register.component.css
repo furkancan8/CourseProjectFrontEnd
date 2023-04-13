@@ -1,0 +1,99 @@
+#login-cap{
+    background-color: rgb(241, 241, 241);
+    border-radius: 2px;
+    width: 450px;
+    height: 500px;
+    margin: 0 auto;
+    padding:15px;
+    margin-top: 30px;
+  }
+  #title{
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(41, 41, 41);
+    margin-top: 35px;
+    margin-bottom: 25px;
+    margin-left: -40px;
+    font-family:'Tw Cen MT';
+  }
+  .forms{
+    display: block;
+    width: 320px!important;
+    height: 40px!important;
+    margin-left: 60px;
+    border-radius: 3px;
+    border: 1px rgb(198, 198, 198) solid;
+  }
+  .forms-title{
+    font-size: 16px;
+    margin-left:60px ;
+    margin-bottom: 5px;
+  }
+  #form-eposta-cap{
+    padding-top: 30px;
+  }
+  #form-eposta{
+    margin-bottom: 30px;
+  }
+  #login-btn{
+    color: white;
+    font-size: 25px;
+    margin-left: 70px;
+    margin-top:40px;
+    padding-bottom: 40px;
+    padding-top: 15px;
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    cursor: pointer;
+  }
+  #login-remember-password{
+    color: rgb(70, 136, 70);
+    font-family:'Gill Sans';
+    font-size: 12px;
+    text-decoration:underline;
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 10px;
+  }
+  #warning-error-login{
+    color: rgb(189, 63, 63);
+    border: 1px rgb(219, 60, 60) solid;
+    background-color:rgb(255, 200, 200);
+    width: 360px;
+    text-align: center;
+    margin-left:50px;
+    margin-bottom: 5px;
+    padding-top:10px ;
+    padding-bottom: 10px;
+    border-radius: 3px;
+
+  }
+  #warning-error-login h6{
+    font-size: 14px;
+  }
+  #account-warning{
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
+    padding-left: 25px;
+  }
+  #account-warning a{
+    color: var(--main-color);
+    margin-left: 5px;
+  }
+input{
+  border: 1px solid rgb(175, 175, 175)!important;
+  font-size: 15px;
+}
+input:focus{
+  border:1px solid white!important;
+  border-color: white!important;
+}
+input::placeholder{
+  padding-left: 10px;
+  font-size: 14px;
+}

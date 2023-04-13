@@ -1,0 +1,160 @@
+.payment-cap{
+    margin-top: 50px;
+    margin-right: 50px;
+}
+.light-cap{
+    margin: 30px;
+    font-size: 19px;
+    color: rgb(50, 50, 50);
+    border-radius: 10px;
+    margin-top: 50px;
+    width: 230px!important;
+    height: 110px;
+    position: relative;
+}
+.card-number{
+    margin-bottom: 30px;
+}
+.card-name{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.delete-icon{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.delete-icon img{
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+.back-icon img{
+  width: 250px!important;
+  position: absolute;
+  bottom: -28px;
+  right: -50px;
+}
+.new-card{
+ font-size: 15px;
+ transform: translate(23%,230%);
+}
+/* -------------------------- */
+.add-card-cap{
+  display: none;
+  width: 550px!important;
+  height: 250px;
+  position: absolute;
+  top: 20%;
+  right: 30%;
+  padding: 30px;
+}
+.add-card{
+    margin-left:40px;
+}
+.new-card-title{
+    font-size: 23px;
+    color: rgb(78, 78, 78);
+    margin-left: 90px;
+    margin-bottom: 10px;
+}
+input{
+    width: 400px;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.new-card_expretion{
+ float: left;
+ margin-right: 270px;
+}
+.new-card_expretion input{
+    width: 70px!important;
+    padding: 7px!important;
+}
+.new-card_cvc input{
+
+    width: 50px!important;
+    padding: 7px!important;
+}
+.new-card_check{
+    width: 420px!important;
+}
+.new-card_check input{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+#form-check{
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid var(--main-color);
+    width: 15px;
+    height: 15px;
+    outline: none;
+    margin-right: 5px;
+    vertical-align:baseline;
+    position: relative;
+    top: 3px;
+    margin: 0!important;
+    margin-right: 5px!important;
+    padding: 8px!important;
+}
+#form-check:checked::before{
+    content: '\2713';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color);
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    line-height: 1;
+}
+.new-card_check div{
+    display: inline;
+    font-size: 11px;
+    line-height: -1px!important;
+    vertical-align:middle;
+    width: 100px!important;
+}
+.new-card-button{
+    text-align: right;
+    margin-top:10px;
+}
+.new-card-button button{
+    width: 100px;
+    height: 37px;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--main-color)!important;
+    border: 1px solid rgb(169, 169, 169);
+    margin-right: -13px;
+}
+.new-card-button span{
+    font-weight: 600;
+    color: rgb(235, 255, 235);
+}
+.new-card-button button:disabled{
+    background-color: rgba(25, 162, 4, 0.608)!important;
+    cursor:auto;
+}
+.card{
+    cursor: pointer;
+}
+.delete-icon-cap{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    cursor: pointer;
+}
+.delete-icon-cap img{
+    width: 15px!important;
+    height: 15px!important;
+}

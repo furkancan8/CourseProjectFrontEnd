@@ -1,0 +1,86 @@
+#login-cap{
+    background-color: rgb(241, 241, 241);
+    border-radius: 5px;
+    width: 450px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 35px;
+  }
+  .login-title{
+    text-align: center;
+    font-size: 3.2rem;
+    color: rgb(41, 41, 41);
+    margin-top: 50px;
+    margin-left: -40px;
+    margin-bottom: 20px;
+    font-family:'Tw Cen MT';
+  }
+  .forms{
+    display: block;
+    width: 320px!important;
+    height: 40px!important;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px rgb(198, 198, 198) solid;
+  }
+  .forms-title{
+    font-size: 16px;
+    margin-left:60px ;
+    margin-bottom: 5px;
+  }
+  #form-eposta-cap{
+    padding-top: 10px;
+    margin-bottom: 50px;
+  }
+  #form-eposta{
+    margin-bottom: 30px;
+  }
+  #login-btn{
+    color: white;
+    font-size: 19px;
+    padding-bottom: 40px;
+    padding-top: 15px;
+    margin-left: 70px;
+    margin-top:50px;
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    cursor: pointer;
+  }
+  #login-remember-password{
+    color: rgb(92, 92, 92);
+    font-family:'Tw Cen MT';
+    font-size: 24px;
+    text-decoration:underline;
+    text-align: right;
+    margin-right: 80px;
+    margin-top: 10px;
+  }
+  #warning-error-login{
+    color: rgb(189, 63, 63);
+    border: 1px rgb(219, 60, 60) solid;
+    background-color:rgb(255, 200, 200);
+    width: 360px;
+    text-align: center;
+    margin-left:50px;
+    padding-top:5px ;
+    border-radius: 3px;
+  }
+  #warning-error-login h6{
+    font-size: 12px;
+  }
+  input{
+    border: 1px solid rgb(175, 175, 175)!important;
+    font-size: 15px;
+  }
+  input:focus{
+    border:1px solid white!important;
+    border-color: white!important;
+  }
+  input::placeholder{
+    padding-left: 10px;
+    font-size: 14px;
+  }

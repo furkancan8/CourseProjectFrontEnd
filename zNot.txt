@@ -1,0 +1,6 @@
+[style.--completed-width]="c.completed+'%'"=html den elementin css e ulaşma
+:root {
+    --completed-width: 0%;
+}=css de deger oluşturma
+
+  imageUrl:string="https://localhost:44350/Uploads/Images/";

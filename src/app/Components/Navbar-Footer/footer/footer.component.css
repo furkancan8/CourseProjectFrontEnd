@@ -1,0 +1,21 @@
+#cap-footer{
+    margin-top: 30px;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(35, 35, 35);
+    color: rgb(244, 244, 244);
+    font-size: 20px;
+}
+#flex-cap{
+    padding-top: 35px!important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.first-div{
+    margin-left: 50px;
+
+}
+.second-div{
+    margin-right: 50px;
+}
