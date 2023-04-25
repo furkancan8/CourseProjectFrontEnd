@@ -10,7 +10,9 @@ import { SingleResponseModel } from 'src/app/models/singleResponseModel';
   providedIn: 'root'
 })
 export class AuthService {
-
+  id=localStorage.getItem(('i_u'))
+  userId=parseInt(this.id)
+  IsChangePassword:boolean=false
   apiUrl="https://localhost:44350/api/auth/";
   constructor(private httpClient:HttpClient) { }
   login(loginModel:LoginModel){
@@ -20,6 +22,14 @@ export class AuthService {
   register(registerModel:RegisterModel)
   {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
+  }
+  changePassword(registerModel:RegisterModel,id:number):Observable<SingleResponseModel<TokenModel>>
+  {
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"changepassword?id="+id,registerModel)
+  }
+  verifyPasswordUser(loginModel:LoginModel):Observable<SingleResponseModel<LoginModel>>
+  {
+    return this.httpClient.post<SingleResponseModel<LoginModel>>(this.apiUrl+"verifypassword",loginModel)
   }
   isAuthenticate(){
     if(localStorage.getItem("token")){

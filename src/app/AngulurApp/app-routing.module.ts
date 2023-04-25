@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from '../Components/Home/home-page/home-page.component';
+import { ChangePasswordComponent } from '../Components/Users/change-password/change-password.component';
 import { LoginComponent } from '../Components/Users/login/login.component';
 import { RegisterComponent } from '../Components/Users/register/register.component';
 import { UserContactComponent } from '../Components/Users/user-contact/user-contact.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:"",pathMatch:"full",component:HomePageComponent},
   {path:"register",component:RegisterComponent},
   {path:"login",component:LoginComponent},
+  {path:"login/change_password",component:ChangePasswordComponent},
   {path:"user/user_profile",component:UserProfileComponent},
   {path:"user/courses",component:UserCoursesComponent},
   {path:"user/contact",component:UserContactComponent},

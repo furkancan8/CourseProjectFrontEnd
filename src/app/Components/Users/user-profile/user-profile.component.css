@@ -55,14 +55,29 @@ input::placeholder{
     width: 201px;
     height: 51px;
     font-size: 21px;
-    background-color: rgb(75, 75, 75);
+    background-color: var(--main-color);
     color: white;
     border: unset;
     border-radius: 1px;
     transition: all .3s ease-in;
 }
 .button-div button:hover{
-  background-color: rgb(43, 43, 43);
+  background-color: var(--title-color);
+}
+.mail-varify-warning{
+  display: flex;
+  font-size: 15px;
+  width: 550px;
+  margin-top: 10px;
+  color: var(--main-color);
+  border-radius: 3px;
+  padding: 10px;
+  background-color: rgb(234, 234, 234);
+}
+.mail-varify-warning div{
+  text-align: center;
+  line-height: 35px;
+  margin-right: 20px;
 }
 input{
     font-size: 17px;

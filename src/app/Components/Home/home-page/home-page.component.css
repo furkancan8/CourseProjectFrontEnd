@@ -1,0 +1,210 @@
+:root {
+    --completed-width: 0%;
+}
+.course{
+    cursor: pointer;
+    width: 330px;
+    height: 340px;
+    border: 1px solid rgb(105, 141, 6);
+    border-radius: 5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin: 20px;
+    background-color: rgb(252, 252, 252);
+    border-top: 2px solid var(--title-color-2);
+    border-left: 2px solid var(--title-color-2);
+    transition: all .2s ease;
+    box-sizing: border-box;
+}
+.course:hover{
+   border-radius:0px ;
+}
+.course-image-div{
+    height: 170px;
+    border-bottom: 1px solid rgb(225, 225, 225);
+}
+.course-image{
+    width: 100%;
+    height: 170px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    transition: all .2s ease;
+}
+.course-image:hover{
+    border-radius: 0px;
+}
+.course-name{
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: var(--title-color-2);
+    text-align: left;
+    margin-left: 10px;
+}
+.course-description{
+    font-size: 13px;
+    font-weight: 300;
+    margin-left: 13px;
+    margin-top: 10px;
+    height: 45px;
+    opacity: .9;
+}
+.course-langue{
+    font-size: 27px;
+    font-weight: 400!important;
+    margin-left: 15px;
+}
+.course-teacher{
+    text-align: center;
+    font-size: 17px;
+    font-weight: 200;
+    margin-right: 15px;
+}
+.teacher-image{
+    margin-bottom: -7px;
+    margin-right: 5px;
+    width: 33px;
+    height: 33px;
+    border-radius:130px;
+}
+.course-complated{
+    margin-top: 7px;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 11px;
+    color: rgb(88, 88, 88);
+}
+.course-complated span{
+    color:rgb(0, 0, 0);
+    font-size: 15px;
+}
+.course-card-bottom{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+.course-bar-div{
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.bar {
+    width: 300px;
+    height: 10px;
+    border-radius: 30px;
+    background-color: rgb(206, 206, 206)!important;
+}
+.bar::after {
+    border-radius: 30px;
+    width: var(--completed-width);
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: var(--main-color);
+}
+.search-input-cap{
+    margin-left: 21.4%;
+}
+.search-input{
+    font-size: 20px;
+    width: 550px;
+    padding: 10px;
+    margin-top: 55px;
+    border: 2px solid rgb(167, 167, 167);
+    opacity: 0.7;
+    border-radius: 7px;
+}
+.search-input::placeholder{
+    color: rgb(123, 123, 123);
+    font-size: 18px;
+    padding-left: 10px;
+}
+.category-cap{
+    transition: all .3s ease;
+    font-size: 17px;
+    border-radius: 10px;
+    text-align: left;
+    width:180px;
+    height: 40px;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+.down-arrow{
+    width: 20px;
+    height: 20px;
+    margin-bottom:-4px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.category-title{
+    margin-left: 10px;
+    font-size: 21px;
+    color:rgb(37, 74, 41);
+    cursor: pointer;
+}
+.category{
+    color: var(--title-color-2);
+    display: none;
+    flex-direction: column;
+    margin-top: 5px;
+    padding-top: 3px;
+}
+.category-all{
+    display: none;
+    cursor: pointer;
+    border-top: 1px solid rgb(168, 168, 168);
+    margin-top: 5px;
+    width: 88%;
+    margin-left: 10px;
+    padding-top: 3px;
+}
+.category div{
+    font-size: 18px;
+    margin-left: 10px;
+    margin-bottom: 11px;
+    cursor: pointer;
+}
+.teacher-cap{
+    transition: all .3s ease;
+    font-size: 17px;
+    border-radius: 10px;
+    text-align: left;
+    width:180px;
+    height: 40px;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+.teacher{
+    color: var(--title-color-2);
+    display: none;
+    flex-direction: column;
+    margin-top: 5px;
+    padding-top: 3px;
+}
+.teacher-all{
+    display: none;
+    cursor: pointer;
+    border-top: 1px solid rgb(168, 168, 168);
+    margin-top: 5px;
+    width: 88%;
+    margin-left: 10px;
+    padding-top: 3px;
+}
+.teacher-title{
+    margin-left: 10px;
+    font-size: 21px;
+    color:rgb(37, 74, 41);
+    cursor: pointer;
+}
+.teacher div{
+    font-size: 18px;
+    margin-left: 10px;
+    margin-bottom: 11px;
+    cursor: pointer;
+}
+.flex-class{
+    display: flex;
+}

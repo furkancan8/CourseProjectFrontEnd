@@ -21,13 +21,52 @@
             id="form-password"
              placeholder="Şifre">
         </div>
-        <div id="login-remember-password">
+        <div (click)="changeRemmberPasword()" id="login-remember-password">
           <h6>Şifremi Unuttum</h6>
         </div>
-        <div>
-          <button (click)="login(email.value)" id="login-btn">Giriş yap</button>
-        </div>
       </form>
+      <div>
+        <button (click)="login(email.value)" id="login-btn">Giriş yap</button>
+      </div>
+      <div id="remember-account">Bir hesabın yok mu?<div routerLink="/register">Kayıt Ol</div></div>
+    </div>
+
+  <!-- -------------------------------------------------------------------------------------------------- -->
+    <div class="light-cap" id="password-remember-cap" [class.d-block]="this.IsrememberPassword">
+      <div id="password-remember">
+        <div class="password-remember-title">Şifre Hatırla</div>
+        <div class="warning-cap">
+          <div *ngIf="this.mailWarningMailError">Böyle bir E-posta bulunmuyor</div>
+          <div *ngIf="this.mailWarningCodeError">Kod hatalı</div>
+        </div>
+        <form [formGroup]="this.verifyFormGroup">
+         <div *ngIf="this.IsSuccessMail==false" id="remember-form-eposta-cap">
+          <input type="email"
+          formControlName="userMail"
+           class="forms"
+           id="remember-form-eposta"
+           placeholder="E-Posta">
+         </div>
+         <div *ngIf="this.IsSuccessMail">
+          <input type="text"
+           formControlName="randomCode"
+           class="forms"
+           id="remember-form-code"
+           placeholder="Kod">
+         </div>
+         <div class="mail-counter-div" [class.d-onyl-block]="this.IsMailCounter">
+          <div>{{this.mailCounterMinute}}:</div>
+          <div>{{this.mailCounterSecond}}</div>
+         </div>
+        </form>
+        <div id="password-remember-button">
+          <button *ngIf="this.IsSuccessMail==false" (click)="changeRememberInput()"
+          type="submit" appAdd [entity]="'verifycode'" [entityAddForm]="this.verifyFormGroup" class="button">Gönder</button>
+        </div>
+        <div *ngIf="this.IsSuccessMail" id="password-remember-button">
+          <button (click)="getCodeInput()" type="submit" class="button">Doğrula</button>
+        </div>
+      </div>
     </div>
   </main>
 </div>

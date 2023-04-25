@@ -4,3 +4,7 @@
 }=css de deger oluşturma
 
   imageUrl:string="https://localhost:44350/Uploads/Images/";
+
+router yönlendirme=this.router.navigate(['/login/change_password'])
+
+local stroge=localStorage.setItem('i_u_c-p',userId);

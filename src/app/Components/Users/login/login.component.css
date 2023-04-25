@@ -9,7 +9,7 @@
   .login-title{
     text-align: center;
     font-size: 3.2rem;
-    color: rgb(41, 41, 41);
+    color: var(--title-color);
     margin-top: 50px;
     margin-left: -40px;
     margin-bottom: 20px;
@@ -47,10 +47,11 @@
     height: 40px;
     border: none;
     border-radius: 3px;
-    background-color: var(--main-color);
+    background-color: var(--button-color);
     cursor: pointer;
   }
   #login-remember-password{
+    cursor: pointer;
     color: rgb(92, 92, 92);
     font-family:'Tw Cen MT';
     font-size: 24px;
@@ -72,15 +73,65 @@
   #warning-error-login h6{
     font-size: 12px;
   }
-  input{
-    border: 1px solid rgb(175, 175, 175)!important;
+  #remember-account{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 35px;
+  }
+  #remember-account div{
+    cursor: pointer;
     font-size: 15px;
+    margin-top: 3px;
+    font-weight: 500;
+    color: rgb(40, 28, 133);
   }
-  input:focus{
-    border:1px solid white!important;
-    border-color: white!important;
+  /*password-remember  */
+  #password-remember-cap{
+    display: none;
+    position: absolute;
+    top: 125px;
+    left: 50px;
+    height: 250px;
   }
-  input::placeholder{
-    padding-left: 10px;
+  .password-remember-title{
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--title-color);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 65px;
+  }
+  #remember-form-eposta-cap input{
+    margin-left:0!important;
+    margin-bottom: 30px;
+  }
+  #remember-form-code{
+    margin-left:0!important;
+    margin-bottom: 35px;
+  }
+  #password-remember-button,#verify-password-remember-button{
+    text-align: center;
+    margin-top:15px;
+  }
+  .mail-counter-div{
+  text-align: right;
+  display: none;
+  margin-bottom: 10px;
+  margin-top:-20px;
+  font-size: 17px;
+  }
+  .mail-counter-div div{
+    display: inline;
+    margin-right:1px;
+  }
+  .warning-cap{
+    color: rgb(255, 41, 41);
     font-size: 14px;
+    margin-top: -25px;
+  }
+  .warning-cap div{
+    margin-bottom: 5px;
+  }
+  .d-onyl-block{
+    display: block;
   }

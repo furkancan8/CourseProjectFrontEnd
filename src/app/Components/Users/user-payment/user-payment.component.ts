@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Payment } from 'src/app/models/User/payment';
+import { AuthService } from 'src/app/services/User/auth.service';
 import { PaymentService } from 'src/app/services/User/payment.service';
 
 @Component({
@@ -9,8 +10,7 @@ import { PaymentService } from 'src/app/services/User/payment.service';
   styleUrls: ['./user-payment.component.css']
 })
 export class UserPaymentComponent implements OnInit{
-  id=localStorage.getItem(('i_u'))
-  userId=parseInt(this.id)
+
   payment:Payment[]=[]
   cardName:string
   delteUrl:string="https://localhost:44350/Uploads/Images/delete.png";
@@ -20,12 +20,12 @@ export class UserPaymentComponent implements OnInit{
   IsClicked:boolean=false
   IsCheck:boolean=false
   formCheck = document.getElementById("form-check");
-  constructor(private paymentService:PaymentService,private formBuilder:FormBuilder) {
+  constructor(private paymentService:PaymentService,private formBuilder:FormBuilder,private authService:AuthService) {
 
   }
 
   ngOnInit(): void {
-  this.getPaymentByUserId(this.userId)
+  this.getPaymentByUserId(this.authService.userId)
   this.createFormGroup()
   }
   getPaymentByUserId(userId:number)
@@ -42,7 +42,7 @@ export class UserPaymentComponent implements OnInit{
       cardNumber:new FormControl("",Validators.required),
       expiration:new FormControl("",Validators.required),
       cvc:new FormControl("",Validators.required),
-      userId:[this.userId],
+      userId:[this.authService.userId],
     })
   }
   activeCard(){

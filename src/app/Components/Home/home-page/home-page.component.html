@@ -1,1 +1,52 @@
-
+<div class="cap">
+ <div class="search-input-cap">
+   <input class="search-input" placeholder="Kurs Ara">
+ </div>
+ <div class="flex">
+  <div class="col-3">
+    <div class="category-cap" #categoryCap>
+      <div (click)="addClassCategory()" class="category-title">Kategoriler <img class="down-arrow" [src]="this.imageUrl+'down-arrow.png'"></div>
+      <div (click)="this.allCategoryOfCourse()" [class.d-block]="this.IsActiveCategory" class="category-all">Tümü</div>
+      <div [class.flex-class]="this.IsActiveCategory" class="category" *ngFor="let c of categories">
+         <div (click)="changeCategoryOfCourse(c.id)">{{c.name}}</div>
+      </div>
+    </div>
+    <div class="teacher-cap" #teacherCap>
+      <div (click)="addClassTeacher()" class="teacher-title">Egitmenler <img class="down-arrow" [src]="this.imageUrl+'down-arrow.png'"></div>
+      <div (click)="this.allCategoryOfCourse()" [class.d-block]="this.IsActiveTeacher" class="teacher-all">Tümü</div>
+      <div [class.flex-class]="this.IsActiveTeacher" class="teacher" *ngFor="let t of teachers">
+         <div (click)="changeTeacherOfCourse(t.teacherId)">{{t.name}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+   <div class="flex">
+    <div class="course " *ngFor="let c of course" >
+     <div class="course-image-div">
+        <img class="course-image" [src]="this.imageUrl+c.image">
+     </div>
+     <div class="course-name">
+        <span>{{c.name}}</span>
+     </div>
+     <div class="course-description">
+      <span>{{c.description}}</span>
+   </div>
+      <div class="flex course-card-bottom">
+        <div class="course-complated">
+            <span>{{c.completed}}%</span> Tamamlandı
+         </div>
+         <div class="course-teacher" *ngFor="let t of teachers">
+           <div *ngIf="t.teacherId==c.teacherId">
+            <img class="teacher-image" [src]="this.imageUrl+t.imageUrl">
+            <span>{{t.name}}</span>
+           </div>
+        </div>
+      </div>
+     <div class="course-bar-div">
+        <div class="bar" [style.--completed-width]="c.completed+'%'"></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

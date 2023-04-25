@@ -24,4 +24,16 @@
     height:181px!important;
     margin-left: 15px;
     margin-bottom: 50px;
+    border-radius:130px ;
+}
+.image-upload{
+    margin-bottom:35px;
+}
+.image-upload input{
+    display: none;
+}
+.image-upload label{
+    cursor: pointer;
+    font-size: 13px;
+    color: rgb(14, 14, 125);
 }

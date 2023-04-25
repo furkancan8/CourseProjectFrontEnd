@@ -4,4 +4,6 @@ export interface User{
     email:string,
     number:string,
     isSendMail:boolean,
+    imageUrl:string,
+    verifyMail:boolean,
   }

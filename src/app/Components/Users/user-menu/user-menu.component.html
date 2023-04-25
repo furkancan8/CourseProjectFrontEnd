@@ -1,5 +1,9 @@
 <div class="light-cap cap">
   <div class="image"><img [src]="this.imageUrl"></div>
+  <div class="image-upload">
+    <label for="fileInput">Profil fotografını degiştir</label>
+    <input id="fileInput" type="file" (change)="uploadFile($event)" accept="image/*">
+  </div>
   <div id="">
     <ul>
         <li routerLink="/user/user_profile">Profil</li>

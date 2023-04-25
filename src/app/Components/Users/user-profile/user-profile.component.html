@@ -11,19 +11,23 @@
           <div class="profile-main">
            <form [formGroup]="this.userFormGroup">
             <div><input placeholder="Ad-Soyad" formControlName="fullName"></div>
-            <div><input placeholder="Email" formControlName="E-Mail"></div>
+            <div><input placeholder="Email" formControlName="email"></div>
             <div class="input-number">
              <input placeholder="Numara" formControlName="number">
              <p>Hesabınızı güvende tutmak için önemli !</p>
             </div>
             <div class="input-checkbox">
                 <label class="switch">
-                  <input type="checkbox" formControlName="isMail">
+                  <input type="checkbox" formControlName="isSendMail">
                   <span class="slider round"></span>
                 </label>
                 <p>Course den Haber içerikli e-postalar almak istiyorum</p>
             </div>
            </form>
+          </div>
+          <div class="mail-varify-warning" *ngIf="this.IsVerifyMail==false">
+            <div>Lütfen güvenliğiniz için E-posta dogrulamayı gerçekleştirin</div>
+            <div><button class="button">Dogrula</button></div>
           </div>
           <div class="button-div">
             <button appUpdate [entityId]="this.userId" [entity]="'user'" [entityFormGroup]="this.userFormGroup">Güncelle</button>

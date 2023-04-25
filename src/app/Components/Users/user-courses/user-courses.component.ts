@@ -3,6 +3,7 @@ import { Course } from 'src/app/models/Course/course';
 import { CourseUser } from 'src/app/models/Course/courseUser';
 import { CourseUserService } from 'src/app/services/Course/course-user.service';
 import { CourseService } from 'src/app/services/Course/course.service';
+import { AuthService } from 'src/app/services/User/auth.service';
 
 @Component({
   selector: 'app-user-courses',
@@ -10,17 +11,15 @@ import { CourseService } from 'src/app/services/Course/course.service';
   styleUrls: ['./user-courses.component.css']
 })
 export class UserCoursesComponent implements OnInit{
-   id=localStorage.getItem(('i_u'))
-   userId=parseInt(this.id)
    courseUser:CourseUser[]=[]
    course:Course[]=[]
    userImageUrl:string="https://localhost:44350/Uploads/Images/avatar-scaled.jpeg";
    imageUrl:string="https://localhost:44350/Uploads/Images/";
-  constructor(private courseUserService:CourseUserService,private courseService:CourseService) {
+  constructor(private courseUserService:CourseUserService,private courseService:CourseService,private authService:AuthService) {
 
   }
   ngOnInit(): void {
-    this.getCourseByUserId(this.userId)
+    this.getCourseByUserId(this.authService.userId)
   }
   getCourseByUserId(userId:number)
   {

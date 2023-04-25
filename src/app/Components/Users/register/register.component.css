@@ -10,7 +10,7 @@
   #title{
     text-align: center;
     font-size: 3rem;
-    color: rgb(41, 41, 41);
+    color: var(--title-color);
     margin-top: 35px;
     margin-bottom: 25px;
     margin-left: -40px;
@@ -84,6 +84,18 @@
   #account-warning a{
     color: var(--main-color);
     margin-left: 5px;
+  }
+  #remember-account{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 35px;
+  }
+  #remember-account div{
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 3px;
+    font-weight: 500;
+    color: rgb(40, 28, 133);
   }
 input{
   border: 1px solid rgb(175, 175, 175)!important;

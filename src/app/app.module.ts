@@ -20,6 +20,7 @@ import { UserProfileComponent } from './Components/Users/user-profile/user-profi
 import { UserCoursesComponent } from './Components/Users/user-courses/user-courses.component';
 import { UserPaymentComponent } from './Components/Users/user-payment/user-payment.component';
 import { UserMenuComponent } from './Components/Users/user-menu/user-menu.component';
+import { ChangePasswordComponent } from './Components/Users/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UserMenuComponent } from './Components/Users/user-menu/user-menu.compon
     UserCoursesComponent,
     UserPaymentComponent,
     UserMenuComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

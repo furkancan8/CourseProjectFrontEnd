@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/User/auth.service';
 import { UserService } from 'src/app/services/User/user.service';
 
 @Component({
@@ -9,10 +10,8 @@ import { UserService } from 'src/app/services/User/user.service';
 })
 export class UserContactComponent implements OnInit{
   entityFormGroup:FormGroup
-  id=localStorage.getItem(('i_u'))
-  userId=parseInt(this.id)
   IsSuccess:boolean;
-  constructor(private formBuilder:FormBuilder,private userService:UserService) {
+  constructor(private formBuilder:FormBuilder,private userService:UserService,private authService:AuthService) {
 
   }
   ngOnInit(): void {
@@ -23,7 +22,7 @@ export class UserContactComponent implements OnInit{
     this.entityFormGroup=this.formBuilder.group({
       subject:[""],
       description:[""],
-      userId:[this.userId]
+      userId:[this.authService.userId]
     })
   }
   asd()
