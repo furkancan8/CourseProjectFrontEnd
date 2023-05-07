@@ -1,0 +1,108 @@
+#cap{
+    height: 480px;
+}
+#main-cap{
+    font-size: 13px;
+    width: 95%;
+    height: 50rem;
+    margin: 10px;
+    display: flex;
+}
+.title{
+    font-size: 35px;
+}
+#student-list-cap{
+    color: white!important;
+    background-color: rgb(62, 62, 62);
+    border-radius: 10px;
+    height:43rem;
+    overflow-y:scroll ;
+    width: 70rem;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+#student-list{
+    margin:10px;
+}
+.student{
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+
+}
+.image{
+    width:33px!important;
+    height:33px!important;
+    border-radius:130px ;
+    margin: 7px;
+}
+.student-name{
+    margin-top: 15px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+thead{
+ border-bottom:1px solid rgb(230, 230, 230) ;
+ color: black;
+}
+thead th{
+  opacity: .6;
+  color: white!important;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+  font-weight: 400!important;
+}
+
+#course-list-cap{
+  width: 50%;
+  height: 86%;
+}
+#course-list{
+  display: flex;
+  height: 435px;
+  overflow-x:scroll;
+}
+.course{
+    cursor: pointer;
+    width: 3200px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px;
+    background-color: rgb(252, 252, 252);
+    transition: all .2s ease;
+    box-sizing: border-box;
+}
+.course-image img{
+    border-radius: 5px;
+    width: 100%;
+    height: 170px;
+    transition: all .2s ease;
+}
+.course-name{
+    margin-left: 5px;
+    font-size: 21px;
+    margin-top: 3px;
+}
+.course-name p{
+    overflow:hidden;
+    width: 300px;
+    height: 26px;
+}
+.course-button{
+    margin-top: 5px;
+}
+.course-button button{
+    width: 100%;
+    font-size: 19px!important;
+    margin: 0!important;
+    padding-left: 5px!important;
+    padding-bottom: 12px;
+    border: none;
+    border-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

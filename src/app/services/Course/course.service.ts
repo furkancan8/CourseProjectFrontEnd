@@ -9,18 +9,21 @@ import { SingleResponseModel } from 'src/app/models/singleResponseModel';
   providedIn: 'root'
 })
 export class CourseService {
-  apiUrl="https://localhost:44350/api/usercourse/";
-  courseUrl="https://localhost:44350/api/course/";
+  apiUrl="https://localhost:44350/api/course/";
   constructor(private httpClient:HttpClient) { }
-
+  getAll():Observable<ListResponseModel<Course>>
+  {
+   var newPath=this.apiUrl+"getall";
+   return this.httpClient.get<ListResponseModel<Course>>(newPath);
+  }
+  getAllTeachingCourse(teacherId:number)
+  {
+    var newPath=this.apiUrl+"getallteachingcourse?teacherId="+teacherId;
+    return this.httpClient.get<ListResponseModel<Course>>(newPath);
+  }
   getCourseById(courseId:number):Observable<SingleResponseModel<Course>>
   {
     var newPath=this.apiUrl+"getcourse?courseId="+courseId;
     return this.httpClient.get<SingleResponseModel<Course>>(newPath);
-  }
-  getAll():Observable<ListResponseModel<Course>>
-  {
-   var newPath=this.courseUrl+"getall";
-   return this.httpClient.get<ListResponseModel<Course>>(newPath);
   }
 }

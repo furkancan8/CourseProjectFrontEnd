@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from '../Components/Home/home-page/home-page.component';
+import { TeacherContactComponent } from '../Components/Teacher/Teacher-Page-Cap/teacher-contact/teacher-contact.component';
+import { TeacherPageComponent } from '../Components/Teacher/Teacher-Page-Cap/teacher-page/teacher-page.component';
+import { TeacherPaymentComponent } from '../Components/Teacher/Teacher-Page-Cap/teacher-payment/teacher-payment.component';
+import { TeacherStudentComponent } from '../Components/Teacher/Teacher-Page-Cap/teacher-student/teacher-student.component';
 import { ChangePasswordComponent } from '../Components/Users/change-password/change-password.component';
 import { LoginComponent } from '../Components/Users/login/login.component';
 import { RegisterComponent } from '../Components/Users/register/register.component';
@@ -19,6 +23,10 @@ const routes: Routes = [
   {path:"user/courses",component:UserCoursesComponent},
   {path:"user/contact",component:UserContactComponent},
   {path:"user/payment",component:UserPaymentComponent},
+  {path:"teacher",component:TeacherPageComponent},
+  {path:"teacher/contact",component:TeacherContactComponent},
+  {path:"teacher/payment",component:TeacherPaymentComponent},
+  {path:"teacher/student",component:TeacherStudentComponent},
 ];
 
 @NgModule({

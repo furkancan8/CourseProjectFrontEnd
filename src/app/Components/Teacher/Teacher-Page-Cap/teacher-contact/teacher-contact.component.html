@@ -1,0 +1,40 @@
+<div id="teacher-contact-cap">
+ <div class="flex" id="teacher-contact">
+  <div id="contact-side-bar">
+    <div id="contact-side-bar-title">Mesajlar</div>
+    <div id="side-bar_message">
+      <div class="bar-message" (click)="mainContactChange(s)"*ngFor="let s of supportContact">
+       <div class="bar-subject">{{s.subject}}</div>
+       <div class="bar-description">{{s.message}}</div>
+       <div class="bar-datetime">{{s.dateTime |date:"dd.MM.yyyy"}}</div>
+       <div class="bar-message-warning" *ngIf="s.isRead"></div>
+       <div class="bar-have-message" *ngIf="s.haveId===this.teacherId">Destek</div>
+      </div>
+    </div>
+  </div>
+  <div id="contact-main-cap">
+    <div *ngIf="this.contactMain.length==0" id="contact-main-message">Bir sorununuz veya isteğiniz varsa lütfen bize iletin</div>
+    <div class="support-message" *ngFor="let ms of contactMain">
+      <div class="support-message-subject">{{ms.subject}}</div>
+       <div class="support-message-description">
+        {{ms.message}}
+       </div>
+       <div class="support-message-datetime">{{ms.dateTime}}</div>
+    </div>
+    <div class="contact-main-teacher">
+      <form [formGroup]="this.supportFormGroup">
+        <input id="form-subject" formControlName="subject" type="text" placeholder="Başlık">
+        <input id="form-message" formControlName="message" type="text" placeholder="İsterseniz açıklama yapabilirsiniz">
+      </form>
+      <button (click)="submitMessage()" class="button support-message-button" appAdd [entity]="'supportcontact'" [entityAddForm]="this.supportFormGroup">Gönder</button>
+    </div>
+  </div>
+ </div>
+</div>
+
+<div *ngIf="this.IsSuccessMessage" id="success-message-cap">
+ <div class="success-message">İletinizi aldık en yakın zamanda dönüş yapıcaz</div>
+</div>
+
+
+<app-side-bar></app-side-bar>

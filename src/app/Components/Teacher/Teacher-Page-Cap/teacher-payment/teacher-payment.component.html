@@ -1,0 +1,25 @@
+<div class="cap">
+  <div class="flex">
+    <div class="card" *ngFor="let p of payment">
+      <div class="card-number-cap">
+        <div class="text-op">Kart Numarası:</div>
+        <div class="card-number">{{p.cardNumber}}</div>
+      </div>
+      <div class="flex">
+        <div class="card-name-cap">
+          <div class="text-op">Kart sahibi:</div>
+          <div class="card-name">{{p.cardName}}</div>
+        </div>
+        <div class="card-expiration-cap">
+          <div class="text-op">Tarih:</div>
+          <div class="card-expiration">{{p.expiration}}</div>
+        </div>
+        <div class="card-cvc-cap">
+          <div class="text-op">CVC:</div>
+          <div class="card-cvc">{{p.cvcCode}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-side-bar></app-side-bar>

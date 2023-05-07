@@ -5,6 +5,7 @@
     --title-color:#ce6666;
     --title-color-2:#c33636;
     --link-color:rgb(40, 28, 133);
+    --teacher-color:#252525;
 }
 html{font-size:10px;scroll-behavior: smooth;box-sizing: border-box;
 font-family:'Tw Cen MT',sans-serif,Verdana;
@@ -90,4 +91,26 @@ input{
 }
 .warning-border{
     border: 1px solid red!important;
+}
+.success-message{
+    color: rgb(47, 173, 47);
+    background-color: rgba(0, 255, 0, 0.3);
+    border:1px green solid;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 20px;
+}
+.forms{
+    display: block;
+    width: 320px!important;
+    height: 40px!important;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px rgb(198, 198, 198) solid;
+}
+.forms-title{
+    font-size: 16px;
+    margin-left:60px ;
+    margin-bottom: 5px;
 }

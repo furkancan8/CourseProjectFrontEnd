@@ -21,6 +21,13 @@ import { UserCoursesComponent } from './Components/Users/user-courses/user-cours
 import { UserPaymentComponent } from './Components/Users/user-payment/user-payment.component';
 import { UserMenuComponent } from './Components/Users/user-menu/user-menu.component';
 import { ChangePasswordComponent } from './Components/Users/change-password/change-password.component';
+import { TeacherPageComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-page/teacher-page.component';
+import { CourseAddComponent } from './Components/Teacher/course-add/course-add.component';
+import { CourseUpdateComponent } from './Components/Teacher/course-update/course-update.component';
+import { SideBarComponent } from './Components/Teacher/Teacher-Page-Cap/side-bar/side-bar.component';
+import { TeacherPaymentComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-payment/teacher-payment.component';
+import { TeacherStudentComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-student/teacher-student.component';
+import { TeacherContactComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-contact/teacher-contact.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +46,13 @@ import { ChangePasswordComponent } from './Components/Users/change-password/chan
     UserPaymentComponent,
     UserMenuComponent,
     ChangePasswordComponent,
+    TeacherPageComponent,
+    CourseAddComponent,
+    CourseUpdateComponent,
+    SideBarComponent,
+    TeacherPaymentComponent,
+    TeacherStudentComponent,
+    TeacherContactComponent,
   ],
   imports: [
     BrowserModule,

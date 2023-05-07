@@ -1,5 +1,6 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { SupportContactService } from '../services/support-contact.service';
 import { AuthService } from '../services/User/auth.service';
 import { UserService } from '../services/User/user.service';
 
@@ -13,7 +14,7 @@ export class UpdateDirective {
   @Input() entityFormGroup:FormGroup
   @Input() changePasswordFormGroup:FormGroup
   @Input() verifypPasswordFormGroup:FormGroup
-  constructor(private userService:UserService,private authService:AuthService) { }
+  constructor(private userService:UserService,private authService:AuthService,private supportService:SupportContactService) { }
   @HostListener("click")
   update()
   {
@@ -36,6 +37,13 @@ export class UpdateDirective {
            this.authService.IsChangePassword=res.success
        })
       }, 500)
+    }
+    else if(this.entity=="supportcontact")
+    {
+      let registerModel=Object.assign({},this.changePasswordFormGroup.value)
+      this.supportService.update(registerModel).subscribe(res=>{
+        console.log(res.success)
+      })
     }
   }
 }

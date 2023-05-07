@@ -15,20 +15,6 @@
     margin-bottom: 20px;
     font-family:'Tw Cen MT';
   }
-  .forms{
-    display: block;
-    width: 320px!important;
-    height: 40px!important;
-    margin-left: 60px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    border: 1px rgb(198, 198, 198) solid;
-  }
-  .forms-title{
-    font-size: 16px;
-    margin-left:60px ;
-    margin-bottom: 5px;
-  }
   #form-eposta-cap{
     padding-top: 10px;
     margin-bottom: 50px;

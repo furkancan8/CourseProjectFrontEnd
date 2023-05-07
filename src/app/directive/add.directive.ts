@@ -1,8 +1,10 @@
-import { ThisReceiver } from '@angular/compiler';
+import { CssSelector, ThisReceiver } from '@angular/compiler';
 import { Directive, HostListener, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { LoginModel } from '../models/Admin/loginModel';
+import { SupportContact } from '../models/Public/supportContact';
 import { ResponseModel } from '../models/responseModel';
+import { SupportContactService } from '../services/support-contact.service';
 import { AuthService } from '../services/User/auth.service';
 import { PaymentService } from '../services/User/payment.service';
 import { UserService } from '../services/User/user.service';
@@ -15,7 +17,8 @@ export class AddDirective {
   @Input() entityAddForm:FormGroup;
   @Input() entity:string;
   @Output() counter:string
-  constructor(private userService:UserService,private paymentService:PaymentService,private verifyService:VerifyService) { }
+  constructor(private userService:UserService,private paymentService:PaymentService,private verifyService:VerifyService,
+    private authService:AuthService,private supportContact:SupportContactService) { }
   @HostListener("click")
   add()
   {
@@ -44,6 +47,20 @@ export class AddDirective {
       }
       this.verifyService.IsMailMassage=res.massage
       this.verifyService.IsMailSuccess=res.success
+    })
+   }else if(this.entity=="verifyemail")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.verifyService.verifyEmailUserAdd(entityModel,this.authService.userId).subscribe(res=>{
+      console.log(res.success)
+    })
+   }
+   else if(this.entity=="supportcontact")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.supportContact.add(entityModel).subscribe(res=>{
+      console.log(res.success)
+      this.supportContact.AddPostSuccess=res.success
     })
    }
   }

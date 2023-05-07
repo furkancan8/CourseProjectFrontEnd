@@ -25,9 +25,27 @@
             </div>
            </form>
           </div>
-          <div class="mail-varify-warning" *ngIf="this.IsVerifyMail==false">
-            <div>Lütfen güvenliğiniz için E-posta dogrulamayı gerçekleştirin</div>
-            <div><button class="button">Dogrula</button></div>
+          <div class="mail-varify-warning" *ngIf="this.IsVerifyMail">
+            <div class="flex">
+              <div>Lütfen güvenliğiniz için E-posta dogrulamayı gerçekleştirin</div>
+              <form>
+                <div><button (click)="ActiveCodeInput()" appAdd [entity]="'verifyemail'" [entityAddForm]="this.verifyEmailFormGroup" class="button">Dogrula</button></div>
+              </form>
+            </div>
+            <div class="verify-code-div" *ngIf="this.IsVerifyCodeInput">
+              <div>
+                <input type="text"
+                [class.warning-border]="this.ISuccessVerifyCode==false"
+                 [(ngModel)]="this.userInputCode"
+                 class="forms"
+                 id="verify-code-form"
+                 placeholder="Dogrulama kodunu giriniz">
+               </div>
+               <div class="verify-code-button"><button (click)="VerifyCodeButton()" class="button">Dogrula</button></div>
+            </div>
+          </div>
+          <div class="show-success-verify success-message" *ngIf="this.showSuccessVerify">
+            <p>E-posta dogrulama başarılı,Teşekkürler</p>
           </div>
           <div class="button-div">
             <button appUpdate [entityId]="this.userId" [entity]="'user'" [entityFormGroup]="this.userFormGroup">Güncelle</button>

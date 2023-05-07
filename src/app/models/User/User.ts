@@ -4,6 +4,9 @@ export interface User{
     email:string,
     number:string,
     isSendMail:boolean,
+    verifyEmail:boolean,
     imageUrl:string,
-    verifyMail:boolean,
+    linkedln:string,
+    github:string,
+    userName:string
   }

@@ -50,13 +50,7 @@ position: relative;
 .message-contact-cap{
     display: none;
     position: absolute;
-    font-size: 18px;
-    color: rgb(47, 173, 47);
-    background-color: rgba(0, 255, 0, 0.3);
     width:79.3%;
-    padding: 10px;
-    border:1px green solid;
-    border-radius: 3px;
     bottom: 15px;
     left: 45px;
 }

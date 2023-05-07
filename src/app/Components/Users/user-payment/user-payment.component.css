@@ -12,12 +12,67 @@
     height: 110px;
     position: relative;
 }
+.card{
+    position: relative;
+    cursor: pointer;
+    background-image: url("https://localhost:44350/Uploads/Images/card-visa.jpg");
+    color: white!important;
+    width: 180px;
+    height: 210px;
+    border-radius:10px;
+    background-position:top left ;
+    margin-top: 50px;
+    z-index: 0;
+}
+.card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+.card-number-cap{
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom:60px;
+}
+.text-op{
+    opacity: .6;
+}
 .card-number{
-    margin-bottom: 30px;
+    font-size: 25px;
+    margin-left: 10px;
+    letter-spacing: 1.5px;
+}
+.card-name-cap{
+    font-size: 16px;
+    margin-left: 30px;
 }
 .card-name{
     font-size: 18px;
     margin-bottom: 30px;
+    margin-left: 5px;
+}
+.card-expiration-cap{
+    font-size: 16px;
+    margin-left: 30px;
+}
+.card-expiration{
+    font-size: 18px;
+    margin-left: 5px;
+}
+.card-cvc-cap{
+    margin-left: 30px;
+    font-size: 16px;
+}
+.card-cvc{
+    font-size: 18px;
+    margin-left: 5px;
 }
 .delete-icon{
   position: absolute;
@@ -35,18 +90,21 @@
   bottom: -28px;
   right: -50px;
 }
+.new-card-cap{
+  margin-left: 15px;
+}
 .new-card{
- font-size: 15px;
- transform: translate(23%,230%);
+ font-size: 27px;
+ transform: translate(25%,275%);
 }
 /* -------------------------- */
 .add-card-cap{
   display: none;
-  width: 550px!important;
+  width: 650px!important;
   height: 250px;
   position: absolute;
-  top: 20%;
-  right: 30%;
+  top: 24%;
+  right: 20%;
   padding: 30px;
 }
 .add-card{
@@ -144,9 +202,6 @@ input{
 .new-card-button button:disabled{
     background-color: rgba(25, 162, 4, 0.608)!important;
     cursor:auto;
-}
-.card{
-    cursor: pointer;
 }
 .delete-icon-cap{
     position: absolute;

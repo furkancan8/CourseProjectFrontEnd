@@ -1,0 +1,138 @@
+#teacher-contact-cap{
+    height: 490px;
+}
+#teacher-contact{
+    margin-left:50px;
+    padding-top: 50px;
+}
+#contact-side-bar{
+    margin-right:100px ;
+    border: 1px solid rgb(120, 120, 120);
+    width: 300px;
+    height: 475px;
+    overflow-y:scroll;
+}
+#contact-side-bar-title{
+    font-size:30px!important;
+    margin-top: 17px;
+    font-weight: 300;
+    border-bottom: 1px solid rgb(120, 120, 120);
+    text-align: center;
+}
+#side-bar_message{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+.bar-message{
+    position: relative;
+    margin-top: 10px;
+    border-bottom: 1px solid rgb(120, 120, 120);
+    padding-bottom: 5px;
+    cursor:pointer;
+}
+.bar-subject{
+font-size: 17px;
+margin-bottom: 5px;
+}
+.bar-description{
+    font-size: 12px;
+    width: 265px;
+    height: 15px;
+    overflow:hidden;
+    margin-left: 3px;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+.bar-datetime{
+    font-size: 12px;
+    margin-top: 5px;
+    margin-right: 2px;
+    float: right;
+}
+.bar-message-warning{
+ content: " ";
+ background-color: rgb(255, 0, 0);
+ border-radius: 500px;
+ width: 11px;
+ height: 11px;
+ position: absolute;
+ top: 7px;
+ right: 5px;
+}
+.bar-have-message{
+    font-size: 15px;
+    color: var(--teacher-color);
+}
+/* Contact Main */
+#contact-main-cap{
+    position: relative;
+    border: 2px solid rgb(120, 120, 120);
+    /* background-color: rgb(229, 209, 202); */
+    height: 400px;
+    width: 70%;
+    border-radius: 20px;
+}
+#contact-main-message{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 30px;
+    opacity: .4;
+}
+.support-message{
+    margin: 30px;
+    position: relative;
+}
+.support-message-subject{
+ font-size: 20px;
+ margin-bottom: 15px;
+
+}
+.support-message-description{
+font-size: 12px;
+}
+.support-message-datetime{
+    position:absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 14px;
+}
+.contact-main-teacher{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width:27.3cm;
+}
+#form-message{
+    width:87%;
+    padding: 15px;
+    border-bottom-left-radius: 18px;
+    font-size: 15px;
+    text-align: left;
+    vertical-align: text-top;
+}
+#form-subject{
+    font-size: 20px;
+    width: 350px;
+    padding: 15px;
+}
+.support-message-button{
+  display: inline-block;
+  width: 103px;
+  height: 52px;
+  font-size: 14px;
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  border-bottom-right-radius: 18px!important;
+  border-radius: 0;
+}
+#success-message-cap{
+    position: absolute;
+    bottom: 133px;
+    left: 450px;
+}
+#success-message-cap div{
+    width: 600px;
+    text-align: center;
+}

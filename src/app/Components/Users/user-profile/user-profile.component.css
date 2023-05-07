@@ -79,6 +79,25 @@ input::placeholder{
   line-height: 35px;
   margin-right: 20px;
 }
+.verify-code-div{
+  position: absolute;
+  top: 94px;
+  right: 0;
+  background-color: rgb(234, 234, 234);
+  padding: 10px;
+  border-radius: 10px;
+}
+#verify-code-form{
+  height: 20px!important;
+  margin: 0;
+  margin-left: 17px;
+  margin-bottom: 15px;
+}
+.show-success-verify{
+  width: 550px;
+  height: 25px;
+  margin-top: 10px;
+}
 input{
     font-size: 17px;
 }

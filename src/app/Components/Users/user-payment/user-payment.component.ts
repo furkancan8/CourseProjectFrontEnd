@@ -14,6 +14,7 @@ export class UserPaymentComponent implements OnInit{
   payment:Payment[]=[]
   cardName:string
   delteUrl:string="https://localhost:44350/Uploads/Images/delete.png";
+  cardUrl:string="https://localhost:44350/Uploads/Images/card-visa.jpg";
   checkUrl:string="https://localhost:44350/Uploads/Images/check.png";
   zirratIcon:string="https://localhost:44350/Uploads/Images/zirrat-logo.png";
   entityFormGroup:FormGroup;

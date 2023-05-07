@@ -1,0 +1,43 @@
+<div id="cap">
+  <!-- <div><div class="title">Ögrenciler</div></div> -->
+ <div id="main-cap">
+  <div id="student-list-cap">
+   <div id="student-list">
+    <table>
+        <thead>
+          <tr>
+            <th>Resim</th>
+            <th>İsim</th>
+            <th>Github</th>
+            <th>Linkedln</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  class="student" *ngFor="let u of user">
+            <td><div><img class="image" [src]="this.imageUrl+u.imageUrl"></div></td>
+            <td><div class="student-name">{{u.fullName | uppercase}}</div></td>
+            <td><div class="student-name">{{u.github}}</div></td>
+            <td><div class="student-name">{{u.linkedln}}</div></td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+  </div>
+  <div id="course-list-cap">
+    <div id="course-list">
+     <div class="course" *ngFor="let c of teacherCourse">
+      <div class="course-image">
+        <img [src]="this.imageUrl+c.image">
+      </div>
+      <div class="course-name">
+        <p>{{c.name}}</p>
+      </div>
+      <div class="course-button">
+        <button class="button" (click)="changeUserOfCourse(c.courseId)"><span>Ögrenciler</span></button>
+      </div>
+     </div>
+    </div>
+   </div>
+ </div>
+</div>
+<app-side-bar></app-side-bar>

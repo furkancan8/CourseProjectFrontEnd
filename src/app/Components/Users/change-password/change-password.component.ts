@@ -25,4 +25,13 @@ export class ChangePasswordComponent implements OnInit{
       password:new FormControl("",Validators.required)
     })
   }
+  ChangePassword()
+  {
+    setTimeout(() => {
+      if(this.authService.IsChangePassword==true)
+      {
+        localStorage.removeItem('i_u_c-p');
+      }
+    }, 1000);
+  }
 }

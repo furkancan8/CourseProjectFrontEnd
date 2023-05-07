@@ -5,13 +5,28 @@
     </div>
     <div class="col-11">
       <div class="flex">
-        <div class="light-cap col-6 card" *ngFor="let p of payment">
-          <div class="card-number">{{p.cardNumber}}</div>
-          <div class="card-name">{{p.cardName}}</div>
-          <div class="back-icon"><img [src]="this.zirratIcon"></div>
+        <div class="col-6 card" *ngFor="let p of payment">
+          <div class="card-number-cap">
+            <div class="text-op">Kart Numarası:</div>
+            <div class="card-number">{{p.cardNumber}}</div>
+          </div>
+          <div class="flex">
+            <div class="card-name-cap">
+              <div class="text-op">Kart sahibi:</div>
+              <div class="card-name">{{p.cardName}}</div>
+            </div>
+            <div class="card-expiration-cap">
+              <div class="text-op">Tarih:</div>
+              <div class="card-expiration">{{p.expiration}}</div>
+            </div>
+            <div class="card-cvc-cap">
+              <div class="text-op">CVC:</div>
+              <div class="card-cvc">{{p.cvcCode}}</div>
+            </div>
+          </div>
           <div (click)="refreshPayment()" class="delete-icon"  appDelete [entityId]="p.id" [entity]="'payment'"><img [src]="this.delteUrl"></div>
         </div>
-        <div (click)="activeCard()" class="light-cap col-6 card" *ngIf="this.payment.length<2">
+        <div (click)="activeCard()" class="new-card-cap col-6 card " *ngIf="this.payment.length<2">
           <div class="new-card">+ Yeni kart ekleyin</div>
         </div>
       </div>

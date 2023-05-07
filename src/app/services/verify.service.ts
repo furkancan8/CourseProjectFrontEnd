@@ -27,7 +27,11 @@ export class VerifyService {
   }
   getUserByMail(userMail:string):Observable<SingleResponseModel<UserVerify>>
   {
-    // ÇALIŞMIYOR
     return this.httpClient.get<SingleResponseModel<UserVerify>>(this.apiUrl+"getbymail?userMail="+userMail);
+  }
+  verifyEmailUserAdd(userverify:UserVerify,userId:number):Observable<ResponseModel>
+  {
+    var nawPath=this.apiUrl+"verifyemailuseradd?userId="+userId;
+    return this.httpClient.post<ResponseModel>(nawPath,userverify)
   }
 }
