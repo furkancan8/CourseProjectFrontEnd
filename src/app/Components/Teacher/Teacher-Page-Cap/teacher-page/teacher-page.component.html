@@ -1,7 +1,44 @@
-<div class="cap">
+<div id="cap">
  <div>
-  <div class="teache">
-
+  <div id="teacher-profile-cap">
+   <div *ngFor="let u of user" class="flex">
+    <div id="profile-img"><img class="image" [src]="this.imageUrl+u.imageUrl"></div>
+    <div class="profile-info-cap">
+     <div id="profile-info-top">
+      <div>Ad:{{u.fullName}}</div>
+      <div>Email:{{u.email}}</div>
+      <div>Ögrenci Sayısı=3</div>
+     </div>
+     <div id="profile-info-bottom">
+        <div>Numara:{{u.number}}</div>
+        <div>Toplam kurs sayısı=3</div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div id="message-comment-cap">
+   <div class="message" *ngFor="let m of userMessageShow">
+    <div *ngIf="m.message" class="message-title">Yeni bir mesajınız var</div>
+    <div *ngIf="m.message==null" class="message-title">Şuanlık mesajınız yok</div>
+    <div *ngIf="m.message" class="message_message-div">{{m.message}} asdasd asdasd asdsd sds dsadas asdas sds sdssdaaaaaaaaaaaaaaaaaa asddddddddddddddd sad ddsaaaaaaaaaaaaaaaaaaa asdasdas adasddassssssssssssssssssssssss sdaaaaaaaaa  sadddddddddd sad dsa   sdaaaaaaaaaa sdaaaaaaaaaaaaasdsdsdadsadddddddddddddddddddddddddddddd...</div>
+   </div>
+   <div class="comment" *ngFor="let c of userCommentShow">
+    <div class="comment-title">Kurslarınıza yapılan son yorum</div>
+    <div class="comment_comment-div">{{c.commentText}}</div>
+   </div>
+  </div>
+  <div id="course-sell-info-cap">
+   <div id="day-week-sell">
+    <div id="day-sell"></div>
+    <div id="week-sell"></div>
+   </div>
+   <div id="month-sell"></div>
+  </div>
+  <div id="add-course-cap">
+    <!-- kurs varsa Yeni bir kurs oluşturmak istermisiniz? -->
+    <!-- kursu yoksa İlk kursunuzu oluşturmak istermisiniz? -->
+    <div id="add-course-title"></div>
+    <!-- <div id="add-course-button">Oluştur</div> -->
   </div>
  </div>
 </div>

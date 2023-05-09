@@ -1,6 +1,7 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SupportContactService } from '../services/support-contact.service';
+import { SupportContactService } from '../services/Public/support-contact.service';
+
 import { AuthService } from '../services/User/auth.service';
 import { UserService } from '../services/User/user.service';
 

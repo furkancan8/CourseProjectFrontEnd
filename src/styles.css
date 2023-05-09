@@ -114,3 +114,10 @@ input{
     margin-left:60px ;
     margin-bottom: 5px;
 }
+.image{
+    display: inline-block;
+    width:181px!important;
+    height:181px!important;
+    margin: 10px;
+    border-radius: 130px;
+}

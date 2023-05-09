@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ListResponseModel } from '../models/listResponseModel';
-import { SupportContact } from '../models/Public/supportContact';
-import { ResponseModel } from '../models/responseModel';
+import { ListResponseModel } from 'src/app/models/listResponseModel';
+import { SupportContact } from 'src/app/models/Public/supportContact';
+import { ResponseModel } from 'src/app/models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class SupportContactService {
   AddPostSuccess:boolean=false
   constructor(private httpClient:HttpClient) { }
 
-  getAllTeacher(teacherId:number):Observable<ListResponseModel<SupportContact>>
+  getAllTeacherMessage(teacherId:number):Observable<ListResponseModel<SupportContact>>
   {
     return this.httpClient.get<ListResponseModel<SupportContact>>(this.apiUrl+"getallteacher?teacherId="+teacherId);
   }

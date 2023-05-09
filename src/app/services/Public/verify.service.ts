@@ -1,11 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserVerify } from '../models/Public/userVerify';
 import { Observable } from 'rxjs';
-import { ResponseModel } from '../models/responseModel';
-import { SingleResponseModel } from '../models/singleResponseModel';
-import { User } from '../models/User/User';
-
+import { UserVerify } from 'src/app/models/Public/userVerify';
+import { ResponseModel } from 'src/app/models/responseModel';
+import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 @Injectable({
   providedIn: 'root'
 })

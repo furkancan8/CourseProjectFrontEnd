@@ -1,3 +1,68 @@
-.cap{
-    height:490px ;
+#cap{
+    height:470px!important;
+}
+#profile-img{
+    background-color: var(--main-color);
+}
+#teacher-profile-cap{
+    width:10in;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    margin-left: 7.5cm;
+}
+#profile-info-top div{
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 75px;
+}
+#profile-info-bottom{
+    margin-top: 50px;
+}
+#profile-info-bottom div{
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 75px;
+}
+/* Message-Comment */
+#message-comment-cap{
+    border: 1px solid black;
+    width: 450px;
+    height: 170px;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+.message{
+    border:1px solid black;
+    height: 85px;
+}
+.message-title{
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.message_message-div{
+    font-size: 13px;
+    margin-left: 10px;
+    width: 430px;
+    height: 45px;
+    overflow-y: hidden;
+}
+.comment{
+    border: 1px solid red;
+    height: 82px;
+}
+.comment-title{
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.comment_comment-div{
+    font-size: 13px;
+    margin-left: 10px;
+    width: 430px;
+    height: 45px;
+    overflow-y: hidden;
 }

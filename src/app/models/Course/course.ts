@@ -3,7 +3,6 @@ export interface Course{
     name:string,
     description:string,
     image:string,
-    completed:number,
     teacherId:number,
     categoryId:number
 }

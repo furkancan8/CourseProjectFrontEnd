@@ -19,10 +19,10 @@
     font-weight: 500;
 }
 .image img{
-    display: inline;
+    display: inline-block;
     width:181px!important;
     height:181px!important;
-    margin-left: 15px;
+    margin-left: 5px;
     margin-bottom: 50px;
     border-radius:130px ;
 }

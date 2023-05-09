@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { connect } from 'rxjs';
 import { AddDirective } from 'src/app/directive/add.directive';
 import { UserVerify } from 'src/app/models/Public/userVerify';
+import { VerifyService } from 'src/app/services/Public/verify.service';
 import { AuthService } from 'src/app/services/User/auth.service';
 import { UserService } from 'src/app/services/User/user.service';
-import { VerifyService } from 'src/app/services/verify.service';
 
 @Component({
   selector: 'app-login',

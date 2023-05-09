@@ -1,7 +1,7 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { SupportContact } from 'src/app/models/Public/supportContact';
-import { SupportContactService } from 'src/app/services/support-contact.service';
+import { SupportContactService } from 'src/app/services/Public/support-contact.service';
 
 @Component({
   selector: 'app-teacher-contact',
@@ -27,7 +27,7 @@ export class TeacherContactComponent implements OnInit{
   getAllTeacherId(teacherId:number)
   {
     var dateObject=new Date();
-   this.supportService.getAllTeacher(teacherId).subscribe(res=>{
+   this.supportService.getAllTeacherMessage(teacherId).subscribe(res=>{
       res.data.forEach(element => {
            var teacherId=element.teacherId.toString()
           this.teacherId=teacherId

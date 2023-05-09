@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { VerifyService } from 'src/app/services/Public/verify.service';
 import { AuthService } from 'src/app/services/User/auth.service';
-import { VerifyService } from 'src/app/services/verify.service';
 
 @Component({
   selector: 'app-change-password',

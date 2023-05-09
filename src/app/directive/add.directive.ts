@@ -4,11 +4,11 @@ import { FormGroup } from '@angular/forms';
 import { LoginModel } from '../models/Admin/loginModel';
 import { SupportContact } from '../models/Public/supportContact';
 import { ResponseModel } from '../models/responseModel';
-import { SupportContactService } from '../services/support-contact.service';
+import { SupportContactService } from '../services/Public/support-contact.service';
+import { VerifyService } from '../services/Public/verify.service';
 import { AuthService } from '../services/User/auth.service';
 import { PaymentService } from '../services/User/payment.service';
 import { UserService } from '../services/User/user.service';
-import { VerifyService } from '../services/verify.service';
 
 @Directive({
   selector: '[appAdd]'
