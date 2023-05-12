@@ -14,4 +14,8 @@ export class CommentService {
   {
     return this.httpClient.get<ListResponseModel<Comment>>(this.apiUrl+"getallusercomment?userId="+userId)
   }
+  getAllCommentByCourse(courseId:number):Observable<ListResponseModel<Comment>>
+  {
+    return this.httpClient.get<ListResponseModel<Comment>>(this.apiUrl+"getallcommentbycourse?courseId="+courseId);
+  }
 }

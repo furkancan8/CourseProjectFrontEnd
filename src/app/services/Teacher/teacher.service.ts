@@ -15,13 +15,8 @@ export class TeacherService {
   constructor(private httpClient:HttpClient) { }
   getTeacherOfCourse(teacherId:number):Observable<ListResponseModel<TeacherCourse>>
   {
-    var newPath=this.apiUrl+"getteachercourse?teacherId="+teacherId;
+    var newPath=this.apiUrl+"getteacher?teacherId="+teacherId;
     return this.httpClient.get<ListResponseModel<TeacherCourse>>(newPath);
-  }
-  getAllTeacher():Observable<ListResponseModel<Teacher>>
-  {
-    var newPath=this.apiUrl+"getallteacher";
-    return this.httpClient.get<ListResponseModel<Teacher>>(newPath);
   }
   getAllTeacherOfStudent(teacherId:number):Observable<ListResponseModel<TeacherStudent>>
   {

@@ -11,10 +11,6 @@ import { ResponseModel } from '../../models/responseModel';
 export class PublicService {
   apiUrl="https://localhost:44350/api/public/"
   constructor(private httpClient:HttpClient) { }
-  getAllCategory():Observable<ListResponseModel<Category>>
-  {
-    return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl+"getallcategory");
-  }
   updateImageFile(userId:number,formData:FormData):Observable<ResponseModel>
   {
     return this.httpClient.post<ResponseModel>(this.apiUrl+"getimagefile?userId="+userId,formData)

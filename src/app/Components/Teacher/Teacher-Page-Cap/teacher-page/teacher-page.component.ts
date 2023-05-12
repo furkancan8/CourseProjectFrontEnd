@@ -1,8 +1,11 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/AngulurApp/app.component';
+import { SoldCourse } from 'src/app/models/Course/soldCourse';
 import { Comment } from 'src/app/models/Public/comment';
 import { SupportContact } from 'src/app/models/Public/supportContact';
 import { User } from 'src/app/models/User/User';
+import { SoldCourseService } from 'src/app/services/Course/sold-course.service';
 import { CommentService } from 'src/app/services/Public/comment.service';
 import { SupportContactService } from 'src/app/services/Public/support-contact.service';
 import { UserService } from 'src/app/services/User/user.service';
@@ -20,14 +23,21 @@ export class TeacherPageComponent implements OnInit{
   userMessageShow:SupportContact[]=[]
   userCommentAll:Comment[]=[]
   userCommentShow:Comment[]=[]
+  soldCourse:SoldCourse[]=[]
+  daySoldCourse:number=0
+  weekSoldCourse:number=0
+  monthSoldCourse:number=0
+
   constructor(private userService:UserService,private contactService:SupportContactService,private commentService:CommentService,
-    ) {
+  private soldCourseService:SoldCourseService,private appComponent:AppComponent) {
 
   }
   ngOnInit(): void {
    this.getUserService(6004);
    this.getUserMessage(6004);
    this.getUserComment(6004);
+   this.getUserForSoldCourse(6004);
+   this.appComponent.hideFooter()
   }
   getUserService(teacherId:number)
   {
@@ -48,7 +58,6 @@ export class TeacherPageComponent implements OnInit{
        prev.id>current.id? prev:current
      );
      this.userMessageShow.push(userMessageShow);
-     console.log(userMessageShow)
     })
   }
   getUserComment(teacherId:number)
@@ -59,7 +68,21 @@ export class TeacherPageComponent implements OnInit{
        prev.id>current.id? prev:current
      );
      this.userCommentShow.push(userCommentAll)
-     console.log(this.userCommentShow)
+    })
+  }
+  getUserForSoldCourse(userId:number)
+  {
+    this.soldCourseService.getAllUserForSoldCourse(userId).subscribe(res=>{
+      this.soldCourse=res.data
+      const date=new Date();
+      const nowDay=date.toLocaleDateString();
+      res.data.forEach(element => {
+        const soldDate=new Date(Date.parse(element.dateTime)).toLocaleDateString();
+        if(nowDay==soldDate)
+        {
+          this.daySoldCourse+=1;
+        }
+      });
     })
   }
 }

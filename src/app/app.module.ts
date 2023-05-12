@@ -28,6 +28,8 @@ import { SideBarComponent } from './Components/Teacher/Teacher-Page-Cap/side-bar
 import { TeacherPaymentComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-payment/teacher-payment.component';
 import { TeacherStudentComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-student/teacher-student.component';
 import { TeacherContactComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-contact/teacher-contact.component';
+import { CourseDetailsComponent } from './Components/Course/course-details/course-details.component';
+import { CourseVideoComponent } from './Components/Course/course-video/course-video.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { TeacherContactComponent } from './Components/Teacher/Teacher-Page-Cap/t
     TeacherPaymentComponent,
     TeacherStudentComponent,
     TeacherContactComponent,
+    CourseDetailsComponent,
+    CourseVideoComponent,
   ],
   imports: [
     BrowserModule,

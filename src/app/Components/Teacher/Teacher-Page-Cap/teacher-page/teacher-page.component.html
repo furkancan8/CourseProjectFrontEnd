@@ -12,6 +12,7 @@
      <div id="profile-info-bottom">
         <div>Numara:{{u.number}}</div>
         <div>Toplam kurs sayısı=3</div>
+        <div>Bugün satılan kurs={{this.daySoldCourse}}</div>
      </div>
     </div>
    </div>
@@ -27,19 +28,19 @@
     <div class="comment_comment-div">{{c.commentText}}</div>
    </div>
   </div>
-  <div id="course-sell-info-cap">
-   <div id="day-week-sell">
-    <div id="day-sell"></div>
-    <div id="week-sell"></div>
-   </div>
-   <div id="month-sell"></div>
-  </div>
   <div id="add-course-cap">
     <!-- kurs varsa Yeni bir kurs oluşturmak istermisiniz? -->
-    <!-- kursu yoksa İlk kursunuzu oluşturmak istermisiniz? -->
-    <div id="add-course-title"></div>
-    <!-- <div id="add-course-button">Oluştur</div> -->
-  </div>
+    <div class="new-course-add-cap">
+      <div class="new-course-add" *ngIf="this.soldCourse.length">
+       Yeni kurs eklemek ister misiniz?
+      </div>
+      <div class="new-course-add" *ngIf="this.soldCourse.length==0">
+        Kursunuz yok kurs eklemek istermisiniz?
+       </div>
+      <div class="new-course-add-button">
+        <button class="button" routerLink="/course/course-add">Kurs Ekle</button>
+      </div>
+    </div>
  </div>
 </div>
 

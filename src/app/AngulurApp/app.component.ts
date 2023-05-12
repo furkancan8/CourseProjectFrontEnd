@@ -9,6 +9,6 @@ export class AppComponent {
   showFooter:boolean=true
   title = 'offal-course';
   hideFooter() {
-    this.showFooter = false;
+      this.showFooter = false;
   }
 }

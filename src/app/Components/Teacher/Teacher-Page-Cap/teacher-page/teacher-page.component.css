@@ -1,5 +1,5 @@
 #cap{
-    height:470px!important;
+    height:650px!important;
 }
 #profile-img{
     background-color: var(--main-color);
@@ -65,4 +65,28 @@
     width: 430px;
     height: 45px;
     overflow-y: hidden;
+}
+/* add-course */
+.new-course-add-cap{
+    width: 96%;
+    margin-left: 30px;
+    margin-top: 40px;
+    height:90px;
+    color: white;
+    background-color: var(--main-color);
+}
+.new-course-add{
+    display: inline-block;
+    font-size: 27px;
+    margin-left: 150px;
+    margin-top: 25px;
+}
+.new-course-add-button{
+    display: inline-block;
+    margin-left: 500px;
+}
+.new-course-add-button button{
+    width: 300px!important;
+    padding: 15px;
+    font-size: 18px!important;
 }

@@ -16,7 +16,7 @@ export class CourseService {
    var newPath=this.apiUrl+"getall";
    return this.httpClient.get<ListResponseModel<Course>>(newPath);
   }
-  getAllTeachingCourse(teacherId:number)
+  getAllTeachingCourse(teacherId:number):Observable<ListResponseModel<Course>>
   {
     var newPath=this.apiUrl+"getallteachingcourse?teacherId="+teacherId;
     return this.httpClient.get<ListResponseModel<Course>>(newPath);

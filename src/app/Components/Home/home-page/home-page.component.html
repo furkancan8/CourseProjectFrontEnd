@@ -15,7 +15,7 @@
       <div (click)="addClassTeacher()" class="teacher-title">Egitmenler <img class="down-arrow" [src]="this.imageUrl+'down-arrow.png'"></div>
       <div (click)="this.allCategoryOfCourse()" [class.d-block]="this.IsActiveTeacher" class="teacher-all">Tümü</div>
       <div [class.flex-class]="this.IsActiveTeacher" class="teacher" *ngFor="let t of teachers">
-         <div (click)="changeTeacherOfCourse(t.teacherId)">{{t.name}}</div>
+         <div (click)="changeTeacherOfCourse(t.id)">{{t.fullName}}</div>
       </div>
     </div>
   </div>
@@ -33,17 +33,17 @@
    </div>
       <div class="flex course-card-bottom">
         <div class="course-complated">
-            <span>{{c.completed}}%</span> Tamamlandı
+            <span>50%</span> Tamamlandı
          </div>
          <div class="course-teacher" *ngFor="let t of teachers">
-           <div *ngIf="t.teacherId==c.teacherId">
+           <div *ngIf="t.id==c.teacherId">
             <img class="teacher-image" [src]="this.imageUrl+t.imageUrl">
-            <span>{{t.name}}</span>
+            <span>{{t.fullName}}</span>
            </div>
         </div>
       </div>
      <div class="course-bar-div">
-        <div class="bar" [style.--completed-width]="c.completed+'%'"></div>
+        <div class="bar" [style.--completed-width]="20+'%'"></div>
      </div>
     </div>
    </div>

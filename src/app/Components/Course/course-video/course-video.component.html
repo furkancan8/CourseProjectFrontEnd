@@ -1,0 +1,52 @@
+<div id="cap">
+ <div>
+  <div id="title-category-teacher">
+   <div id="navbar-video-title">
+
+   </div>
+   <div id="navbar-video-teacher-category-cap">
+    <div id="navbar-video-category"></div>
+    <div id="navbar-video-teacher"></div>
+   </div>
+  </div>
+  <div id="video-main-cap">
+    <div id="video-main">
+     <div class="video" ngFor="">
+      <video width="450" height="400" controls>
+        <source [src]="this.videoUrlMain" type="video/mp4">
+      </video>
+     </div>
+    </div>
+  </div>
+  <div id="video-sections-cap">
+   <div id="video-sections">
+    <div id="videos" *ngFor="let v of videos">
+     <video width="150" height="100" controls>
+      <source [src]="this.videoUrl+v.videoUrl" type="video/mp4">
+     </video>
+    </div>
+   </div>
+  </div>
+  <div id="teacher-description-cap">
+   <div id="teacher-description">
+    <div class="teacher-cap">
+     <div class="teacher" >
+
+     </div>
+    </div>
+    <div class="description-cap">
+     <div class="description">
+
+     </div>
+    </div>
+   </div>
+  </div>
+  <div id="comment-cap">
+   <div id="commets-cap">
+    <div class="comment" >
+
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
