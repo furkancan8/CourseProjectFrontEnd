@@ -237,11 +237,31 @@ background-color: var(--video-color);
 .comment-answer-cap{
     margin-left: 30px!important;
     border-top: 1px solid rgb(185, 185, 185);
-    padding-top: 10px;
+    padding-top: 20px;
+    height: 70px!important;
 }
 .comment-answer-date{
     text-align: right;
     margin-right: 150px;
+    margin-top:10px ;
+}
+.comment-answer-input{
+    width: 600px!important;
+    margin-left: 20px;
+    padding: 5px;
+    font-family:'Tw Cen MT';
+}
+.comment-answer-input::placeholder{
+    font-size: 17px;
+    font-family:'Tw Cen MT';
+}
+.comment-answer-input-cap{
+margin-left: 115px;
+}
+.comment-answer-input-cap button{
+    margin-top:5px;
+    margin-left: 5px;
+    height: 40px!important;
 }
 /* comment input */
 #comment-input-cap{
@@ -252,6 +272,7 @@ font-size: 21px;
 color: var(--link-color);
 font-weight: 500;
 cursor: pointer;
+display: inline-block;
 }
 .comment-input{
     display: flex;
@@ -259,4 +280,28 @@ cursor: pointer;
 }
 .comment-input-title{
     width: 400px!important;
+}
+.comment-input-description{
+    width: 650px!important;
+    height: 150px!important;
+    resize:none;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-family:'Tw Cen MT';
+}
+.comment-input-description::placeholder{
+    font-size: 17px;
+    font-family:'Tw Cen MT';
+}
+.comment-input-button-div button{
+    margin-left: 59px;
+    width: 662px!important;
+}
+.comment-input-message{
+    width: 300px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 35px;
+    margin-right: 15px;
+    margin-top: 15px;
 }

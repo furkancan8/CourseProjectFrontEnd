@@ -32,8 +32,6 @@ import { CourseDetailsComponent } from './Components/Course/course-details/cours
 import { CourseVideoComponent } from './Components/Course/course-video/course-video.component';
 import { OnlyNamePipe } from './pipes/only-name.pipe';
 import { DenemePipePipe } from './pipes/deneme-pipe.pipe';
-import { DescriptionEditorComponent } from './description-editor/description-editor.component';
-import { EditorModule } from '@tinymce/tinymce-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +60,6 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     CourseVideoComponent,
     OnlyNamePipe,
     DenemePipePipe,
-    DescriptionEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +68,6 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    EditorModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}

@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute} from '@angular/router';
 import { Course } from 'src/app/models/Course/course';
 import { CourseVideo } from 'src/app/models/Course/courseVideo';
@@ -38,9 +39,14 @@ export class CourseVideoComponent implements OnInit{
   courseCategoryName:string
   courseCreateDate:Date
   isViewAnswerComment:boolean=false
+  commentFormGroup:FormGroup
+  commentAnswerFormGroup:FormGroup
+  courseId:number
+  canComment:boolean=true
+  successAddCommentMessage:boolean=false
   constructor(private videoService:VideoService,private commentService:CommentService,private userService:UserService,
     private courseService:CourseService,private route:ActivatedRoute,private categoryService:CategoryService,
-    private teacherService:TeacherService
+    private teacherService:TeacherService,private formBuilder:FormBuilder
     ) {
   }
   ngOnInit(): void {
@@ -49,6 +55,7 @@ export class CourseVideoComponent implements OnInit{
       const updatedCourseName = courseName.replace(/#/g,'sharp').replace('+','plus');
      this.getCourseByName(updatedCourseName)
     })
+      this.createFormGroup()
   }
   getAllVideoLine(courdeId:number)
   {
@@ -91,14 +98,6 @@ export class CourseVideoComponent implements OnInit{
          this.teacherDescription=teacher.data.description
 
       })
-      this.commentService.getAllCommentByCourse(course.data.courseId).subscribe(comment=>{
-        comment.data.forEach(commentElement => {
-          this.userService.getAllUserById(commentElement.userId).subscribe(userCourse=>{
-              this.commentUsers=userCourse.data
-
-          })
-        });
-      })
      })
   }
   getCourseByName(name:string)
@@ -113,8 +112,22 @@ export class CourseVideoComponent implements OnInit{
       this.getCommentByCourse(res.data.courseId)
       this.getCategoryById(res.data.categoryId)
       this.courseName=res.data.name
+      this.courseId=res.data.courseId
+      this.createFormGroup()
       this.courseCreateDate=res.data.createDate
+      this.commentService.getAllCommentByCourse(res.data.courseId).subscribe(comment=>{
+        comment.data.forEach(commentElement => {
+          this.userService.getbyId(commentElement.userId).subscribe(userCourse=>{
+
+            if (!this.commentUsers.some(user => user.id === userCourse.data.id))
+             {
+              this.commentUsers.push(userCourse.data);
+            }
+          });
+        });
+      })
     });
+
   }
   getCommentByCourse(courseId:number)
   {
@@ -144,5 +157,38 @@ export class CourseVideoComponent implements OnInit{
     {
       this.isViewAnswerComment=true
     }
+  }
+  changeViewCanComment()
+  {
+    if(this.canComment==true)
+    {
+      this.canComment=false
+    }else{
+      this.canComment=true
+    }
+  }
+  successAddComment()
+  {
+   setTimeout(() => {
+    if(this.commentService.successAddComment==true)
+    {
+      this.canComment=true
+      this.successAddCommentMessage=true
+    }
+   }, 1000);
+  }
+  createFormGroup()
+  {
+    this.commentFormGroup=this.formBuilder.group({
+        title:["",Validators.required],
+        commentText:["",Validators.required],
+        userId:[2],
+        courseId:[]
+    })
+    this.commentFormGroup.get('courseId').setValue(this.courseId)
+
+    this.commentAnswerFormGroup=this.formBuilder.group({
+        comment:["",Validators.required]
+    })
   }
 }

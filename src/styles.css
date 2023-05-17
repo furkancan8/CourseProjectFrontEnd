@@ -94,8 +94,8 @@ input{
     border: 1px solid red!important;
 }
 .success-message{
-    color: rgb(47, 173, 47);
-    background-color: rgba(0, 255, 0, 0.3);
+    color: rgb(90, 243, 105);
+    background-color: rgb(5, 101, 5);
     border:1px green solid;
     border-radius: 3px;
     padding: 10px;
@@ -109,6 +109,9 @@ input{
     margin-bottom: 10px;
     border-radius: 3px;
     border: 1px rgb(198, 198, 198) solid;
+    resize: none;
+    font-family:'Tw Cen MT';
+    font-size: 15px!important;
 }
 .forms-title{
     font-size: 16px;

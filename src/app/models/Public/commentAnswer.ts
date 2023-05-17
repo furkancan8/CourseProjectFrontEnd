@@ -3,5 +3,5 @@ export interface CommentAnswer{
     commentId:number,
     userId:number,
     dateTime:Date,
-    commentText:string,
+    comment:string,
 }

@@ -65,13 +65,17 @@
 
   <div id="comment-section-cap">
    <div id="comment-title">Kurs içi Sorular</div>
-   <div id="comment-input-cap">
-    <!-- <div id="comment-input-active">Soru sor</div> -->
-    <div class="comment-input">
-      <input class="comment-input-title forms" placeholder="Başlık">
-      <input class="comment-input-description forms" placeholder="Açıklama">
-
+   <div id="comment-input-cap" >
+    <div (click)="changeViewCanComment()" id="comment-input-active" *ngIf="this.canComment">Soru sor</div>
+    <div class="success-message comment-input-message" *ngIf="this.successAddCommentMessage">Yorum başarıyla eklendi</div>
+    <div class="comment-input"*ngIf="this.canComment==false">
+      <form [formGroup]="this.commentFormGroup">
+      <input formControlName="title" class="comment-input-title forms" placeholder="Başlık">
+      <textarea formControlName="commentText" class="comment-input-description forms" placeholder="Lütfen detaylı bir açıklama yapın"></textarea>
+      </form>
+      <div (click)="successAddComment()" class="comment-input-button-div"><button class=" button" appAdd [entity]="'comment'" [entityAddForm]="this.commentFormGroup">Gönder</button></div>
     </div>
+
    </div>
    <div id="commets-section">
     <div class="comment" *ngFor="let c of courseComment">
@@ -83,43 +87,49 @@
        </div>
        <div class="comment_title-comment col-13">
         <div class="comment-title">{{c.title}}</div>
-        <div class="comment_comment">{{c.commentText}} Lorem ipsum dolor sit amet consectetur adsdadsasadadssadasasipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio repellat Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio </div>
+        <div class="comment_comment">{{c.commentText}} Lorem ipsum dolor sit amet consectetur adsdadsasadadssadasasipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum qfae adipisci numquam magni iste voluptate beatae distinctio repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio repellat Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio </div>
        </div>
       </div>
-      <div  class="flex comment-footer">
-       <div class="col-2 footer_left">Ders 1</div>
-       <div class="col-6 footer_down-icon" (click)="viewCommentAnswer(c.id)">
-        <span>Cevapları göster</span>
-        <img [src]="this.downIcon">
-      </div>
-       <div class="col-6 footer-right" >
-        <div class="footer_answer-count">
-            <div>{{c.totalAnswerComment}}<img class="comment-footer_comment-img" [src]="this.commentIcon"></div>
+    </div>
+      <div  class="flex comment-footer" *ngIf="commentUsers.length-1">
+        <div class="col-2 footer_left">Ders 1</div>
+        <div class="col-6 footer_down-icon" (click)="viewCommentAnswer(c.id)">
+         <span>Cevapları göster</span>
+         <img [src]="this.downIcon">
+       </div>
+        <div class="col-6 footer-right" >
+         <div class="footer_answer-count">
+             <div>{{c.totalAnswerComment}}<img class="comment-footer_comment-img" [src]="this.commentIcon"></div>
+         </div>
+         <div class="footer-comment-date">{{c.dateTime|date:'dd.MM.yyyy'}}</div>
         </div>
-        <div class="footer-comment-date">{{c.dateTime|date:'dd.MM.yyyy'}}</div>
        </div>
-      </div>
       <div *ngIf="this.isViewAnswerComment">
-      <div *ngFor="let ca of answerComment;let i = index">
-      <div   *ngIf="ca.commentId==c.id">
-      <div *ngFor="let caU of answerCommentUser;let j = index">
-        <div *ngIf="ca.userId==caU.id&&i==j" class="flex comment-answer-cap">
-          <div class="comment-img-name col-1">
-           <div class="comment-user-img"><img class="image" [src]="this.imageUrl+caU.imageUrl"></div>
-           <div class="comment-user-name">{{caU.fullName|onlyName}}</div>
+      <ng-container *ngFor="let ca of answerComment;let i = index">
+       <ng-container   *ngIf="ca.commentId==c.id">
+       <ng-container  *ngFor="let caU of answerCommentUser;let j = index">
+         <div *ngIf="ca.userId==caU.id&&i==j" class="flex comment-answer-cap">
+           <div class="comment-img-name col-1">
+            <div class="comment-user-img"><img class="image" [src]="this.imageUrl+caU.imageUrl"></div>
+            <div class="comment-user-name">{{caU.fullName|onlyName}}</div>
+           </div>
+           <div class="comment_title-comment col-13">
+            <div class="comment_comment">{{ca.comment}} </div>
+           </div>
           </div>
-          <div class="comment_title-comment col-13">
-           <div class="comment_comment">{{ca.commentText}} </div>
+          <div class="comment-answer-date" *ngIf="i==j">
+            <div class="footer-comment-date">{{ca.dateTime|date:'dd.MM.yyyy'}}</div>
           </div>
-         </div>
-         <div class="comment-answer-date" *ngIf="i==j">
-           <div class="footer-comment-date">{{ca.dateTime|date:'dd.MM.yyyy'}}</div>
-         </div>
+       </ng-container>
+       <div class="comment-answer-input-cap flex" *ngIf="i===answerComment.length-1">
+        <form [formGroup]="this.commentAnswerFormGroup">
+          <textarea formControlName="comment" class="forms comment-answer-input" placeholder="Cevap ver"></textarea>
+        </form>
+        <button class="button" appAdd [entity]="'commentAnswer'" [entityAddForm]="this.commentAnswerFormGroup">Gönder</button>
       </div>
+       </ng-container>
+      </ng-container>
       </div>
-      </div>
-      </div>
-     </div>
     </div>
    </div>
   </div>
