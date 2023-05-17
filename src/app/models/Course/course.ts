@@ -5,4 +5,5 @@ export interface Course{
     image:string,
     teacherId:number,
     categoryId:number
+    createDate:Date
 }

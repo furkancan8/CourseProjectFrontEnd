@@ -21,7 +21,7 @@
   </div>
   <div class="col-12">
    <div class="flex">
-    <div class="course " *ngFor="let c of course" >
+    <div routerLink="/course/{{c.name}}" class="course" *ngFor="let c of course" >
      <div class="course-image-div">
         <img class="course-image" [src]="this.imageUrl+c.image">
      </div>

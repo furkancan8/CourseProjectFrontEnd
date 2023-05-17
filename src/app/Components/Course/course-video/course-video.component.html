@@ -1,50 +1,125 @@
 <div id="cap">
  <div>
   <div id="title-category-teacher">
-   <div id="navbar-video-title">
-
+    <div id="navbar-video-logo" >
+      <!-- <div>LOGO</div> -->
+    </div>
+   <div id="navbar-video-title" class="col-7">
+     <div>Character Animation Demystified: Blender Edition</div>
    </div>
-   <div id="navbar-video-teacher-category-cap">
-    <div id="navbar-video-category"></div>
-    <div id="navbar-video-teacher"></div>
+   <div id="navbar-video-teacher-category-cap" class="col-7">
+    <div id="navbar-video-teacher">{{this.teacherName|uppercase}}</div>
+    <div id="navbar-video-category">{{this.courseCategoryName|uppercase}}</div>
    </div>
   </div>
+
   <div id="video-main-cap">
-    <div id="video-main">
-     <div class="video" ngFor="">
-      <video width="450" height="400" controls>
-        <source [src]="this.videoUrlMain" type="video/mp4">
+     <div class="main-video" *ngFor="let mv of mainVideo">
+      <video controls id="video">
+        <source [src]="this.videoUrl+mv.videoUrl" type="video/mp4">
       </video>
-     </div>
     </div>
   </div>
+
   <div id="video-sections-cap">
    <div id="video-sections">
-    <div id="videos" *ngFor="let v of videos">
-     <video width="150" height="100" controls>
-      <source [src]="this.videoUrl+v.videoUrl" type="video/mp4">
-     </video>
+    <div class="col-3 videos" *ngFor="let v of videos|denemePipe">
+     <div style="cursor: pointer;">
+      <div>
+      <div class="videos-count">{{v.videoLine}}</div>
+      <video>
+       <source [src]="this.videoUrl+v.videoUrl" type="video/mp4">
+      </video>
+      <div class="videos-title" >{{v.title}}</div>
+      <div class="videos-time">{{v.time}} min</div>
+     </div>
+    </div>
     </div>
    </div>
   </div>
+
   <div id="teacher-description-cap">
    <div id="teacher-description">
-    <div class="teacher-cap">
-     <div class="teacher" >
-
+    <div class="teacher-cap col-7">
+     <div class="teacher" *ngFor="let t of teacher">
+      <div class="teacher-image"><img class="image" [src]="this.imageUrl+t.imageUrl"></div>
+      <div class="teacher-info">
+        <div class="teacher-name">{{t.fullName|uppercase}}</div>
+        <div class="teacher-role">{{t.role}}</div>
+      </div>
+     </div>
+     <div class="teacher-about-cap">
+      <div class="teacher-about">
+        {{this.teacherDescription}}dsa sadas das dask asdk jasda askdjlasdjas asdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasd  asdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasd asdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasd
+      </div>
      </div>
     </div>
-    <div class="description-cap">
-     <div class="description">
-
+    <div class="description-cap col-8">
+     <div class="description" *ngFor="let c of course">
+     <div id="description-title">KURS HAKKINDA</div>
+     <div id="description">{{this.teacherDescription}}dsa sadas das dask asdk jasda askdjlasdjas asdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasd  asdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasd asdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasdasdjasd asdkjlasdkasj asdkasjda asdkasjd asdas jaskldj asdkalşsdkşlasd oasıdpoasd asdkjlja asldşkasd kaslşdkasd</div>
      </div>
     </div>
    </div>
   </div>
-  <div id="comment-cap">
-   <div id="commets-cap">
-    <div class="comment" >
 
+  <div id="comment-section-cap">
+   <div id="comment-title">Kurs içi Sorular</div>
+   <div id="comment-input-cap">
+    <!-- <div id="comment-input-active">Soru sor</div> -->
+    <div class="comment-input">
+      <input class="comment-input-title forms" placeholder="Başlık">
+      <input class="comment-input-description forms" placeholder="Açıklama">
+
+    </div>
+   </div>
+   <div id="commets-section">
+    <div class="comment" *ngFor="let c of courseComment">
+     <div *ngFor="let u of commentUsers">
+      <div *ngIf="c.userId==u.id" class="flex">
+       <div class="comment-img-name col-1">
+        <div class="comment-user-img"><img class="image" [src]="this.imageUrl+u.imageUrl"></div>
+        <div class="comment-user-name">{{u.fullName|onlyName}}</div>
+       </div>
+       <div class="comment_title-comment col-13">
+        <div class="comment-title">{{c.title}}</div>
+        <div class="comment_comment">{{c.commentText}} Lorem ipsum dolor sit amet consectetur adsdadsasadadssadasasipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio repellat Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio </div>
+       </div>
+      </div>
+      <div  class="flex comment-footer">
+       <div class="col-2 footer_left">Ders 1</div>
+       <div class="col-6 footer_down-icon" (click)="viewCommentAnswer(c.id)">
+        <span>Cevapları göster</span>
+        <img [src]="this.downIcon">
+      </div>
+       <div class="col-6 footer-right" >
+        <div class="footer_answer-count">
+            <div>{{c.totalAnswerComment}}<img class="comment-footer_comment-img" [src]="this.commentIcon"></div>
+        </div>
+        <div class="footer-comment-date">{{c.dateTime|date:'dd.MM.yyyy'}}</div>
+       </div>
+      </div>
+      <div *ngIf="this.isViewAnswerComment">
+      <div *ngFor="let ca of answerComment;let i = index">
+      <div   *ngIf="ca.commentId==c.id">
+      <div *ngFor="let caU of answerCommentUser;let j = index">
+        <div *ngIf="ca.userId==caU.id&&i==j" class="flex comment-answer-cap">
+          <div class="comment-img-name col-1">
+           <div class="comment-user-img"><img class="image" [src]="this.imageUrl+caU.imageUrl"></div>
+           <div class="comment-user-name">{{caU.fullName|onlyName}}</div>
+          </div>
+          <div class="comment_title-comment col-13">
+           <div class="comment_comment">{{ca.commentText}} </div>
+          </div>
+         </div>
+         <div class="comment-answer-date" *ngIf="i==j">
+           <div class="footer-comment-date">{{ca.dateTime|date:'dd.MM.yyyy'}}</div>
+         </div>
+      </div>
+      </div>
+      </div>
+      </div>
+     </div>
     </div>
    </div>
   </div>

@@ -30,7 +30,10 @@ import { TeacherStudentComponent } from './Components/Teacher/Teacher-Page-Cap/t
 import { TeacherContactComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-contact/teacher-contact.component';
 import { CourseDetailsComponent } from './Components/Course/course-details/course-details.component';
 import { CourseVideoComponent } from './Components/Course/course-video/course-video.component';
-
+import { OnlyNamePipe } from './pipes/only-name.pipe';
+import { DenemePipePipe } from './pipes/deneme-pipe.pipe';
+import { DescriptionEditorComponent } from './description-editor/description-editor.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +60,9 @@ import { CourseVideoComponent } from './Components/Course/course-video/course-vi
     TeacherContactComponent,
     CourseDetailsComponent,
     CourseVideoComponent,
+    OnlyNamePipe,
+    DenemePipePipe,
+    DescriptionEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +71,7 @@ import { CourseVideoComponent } from './Components/Course/course-video/course-vi
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    EditorModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}

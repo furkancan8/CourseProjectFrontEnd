@@ -9,3 +9,4 @@ router yönlendirme=this.router.navigate(['/login/change_password'])
 
 local stroge=localStorage.setItem('i_u_c-p',userId);
 tarih biçimi:<div class="bar-datetime">{{s.dateTime |date:"dd.MM.yyyy"}}</div>
+

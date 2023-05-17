@@ -6,30 +6,30 @@
      <div class="col-11">
         <div class="profile light-cap">
           <div class="profile-title">
-            <p>Hesap Bilgileri</p>
+            <p>Account Info</p>
           </div>
           <div class="profile-main">
            <form [formGroup]="this.userFormGroup">
             <div><input placeholder="Ad-Soyad" formControlName="fullName"></div>
             <div><input placeholder="Email" formControlName="email"></div>
             <div class="input-number">
-             <input placeholder="Numara" formControlName="number">
-             <p>Hesabınızı güvende tutmak için önemli !</p>
+             <input placeholder="Number" formControlName="number">
+             <p>Important to keep your account secure!</p>
             </div>
             <div class="input-checkbox">
                 <label class="switch">
                   <input type="checkbox" formControlName="isSendMail">
                   <span class="slider round"></span>
                 </label>
-                <p>Course den Haber içerikli e-postalar almak istiyorum</p>
+                <p>I would like to receive emails with News content from the Course</p>
             </div>
            </form>
           </div>
           <div class="mail-varify-warning" *ngIf="this.IsVerifyMail">
             <div class="flex">
-              <div>Lütfen güvenliğiniz için E-posta dogrulamayı gerçekleştirin</div>
+              <div>Please perform Email verification for your safety</div>
               <form>
-                <div><button (click)="ActiveCodeInput()" appAdd [entity]="'verifyemail'" [entityAddForm]="this.verifyEmailFormGroup" class="button">Dogrula</button></div>
+                <div><button (click)="ActiveCodeInput()" appAdd [entity]="'verifyemail'" [entityAddForm]="this.verifyEmailFormGroup" class="button">Verify</button></div>
               </form>
             </div>
             <div class="verify-code-div" *ngIf="this.IsVerifyCodeInput">
@@ -41,14 +41,14 @@
                  id="verify-code-form"
                  placeholder="Dogrulama kodunu giriniz">
                </div>
-               <div class="verify-code-button"><button (click)="VerifyCodeButton()" class="button">Dogrula</button></div>
+               <div class="verify-code-button"><button (click)="VerifyCodeButton()" class="button">Verify</button></div>
             </div>
           </div>
           <div class="show-success-verify success-message" *ngIf="this.showSuccessVerify">
             <p>E-posta dogrulama başarılı,Teşekkürler</p>
           </div>
           <div class="button-div">
-            <button appUpdate [entityId]="this.userId" [entity]="'user'" [entityFormGroup]="this.userFormGroup">Güncelle</button>
+            <button appUpdate [entityId]="this.userId" [entity]="'user'" [entityFormGroup]="this.userFormGroup">Update</button>
          </div>
         </div>
      </div>

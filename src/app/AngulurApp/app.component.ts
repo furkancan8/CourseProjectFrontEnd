@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   showFooter:boolean=true
+  showNavbar:boolean=true
   title = 'offal-course';
   hideFooter() {
       this.showFooter = false;
+  }
+  hideNavbar()
+  {
+    this.showNavbar=false;
   }
 }

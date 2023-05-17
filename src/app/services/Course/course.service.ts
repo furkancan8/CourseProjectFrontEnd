@@ -26,4 +26,8 @@ export class CourseService {
     var newPath=this.apiUrl+"getcourse?courseId="+courseId;
     return this.httpClient.get<SingleResponseModel<Course>>(newPath);
   }
+  getCourseByName(courseName:string):Observable<SingleResponseModel<Course>>
+  {
+    return this.httpClient.get<SingleResponseModel<Course>>(this.apiUrl+"getcoursebyname?name="+courseName);
+  }
 }

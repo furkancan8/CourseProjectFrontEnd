@@ -21,4 +21,8 @@ export class VideoService {
   {
     return this.httpClient.get<ListResponseModel<CourseVideo>>(this.apiUrl+"getallvideobycourse?courseId="+courseId);
   }
+  getAllLineVideos(courseId:number):Observable<ListResponseModel<VideoDetails>>
+  {
+    return this.httpClient.get<ListResponseModel<VideoDetails>>(this.apiUrl+"getallvideoline?courseId="+courseId);
+  }
 }

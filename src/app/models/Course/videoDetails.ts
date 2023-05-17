@@ -1,6 +1,8 @@
 export interface VideoDetails{
-    Id:number,
-    videoUrl:number
+    id:number,
+    videoUrl:string
     time:number,
-    title:string
+    title:string,
+    videoCount:number
+    videoLine:number
 }

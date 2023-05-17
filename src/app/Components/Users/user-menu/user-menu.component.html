@@ -1,15 +1,15 @@
 <div class="light-cap cap">
   <div class="image"><img [src]="this.imageUrl"></div>
   <div class="image-upload">
-    <label for="fileInput">Profil fotografını degiştir</label>
+    <label for="fileInput">Changing profile photo</label>
     <input id="fileInput" type="file" (change)="uploadFile($event)" accept="image/*">
   </div>
   <div id="">
     <ul>
         <li routerLink="/user/user_profile">Profil</li>
-        <li routerLink="/user/courses">Kurslarım</li>
-        <li routerLink="/user/payment">Ödeme Bilgilerim</li>
-        <li routerLink="/user/contact">İletişim</li>
+        <li routerLink="/user/courses">My Courses</li>
+        <li routerLink="/user/payment">Payment Info</li>
+        <li routerLink="/user/contact">Contact</li>
     </ul>
   </div>
 </div>

@@ -41,4 +41,8 @@ export class UserService {
   {
     return this.httpClient.get<ListResponseModel<OperationClaim>>(this.apiUrl+"getuserclaim?userId="+userId);
   }
+  getAllUserById(userId:number):Observable<ListResponseModel<User>>
+  {
+    return this.httpClient.get<ListResponseModel<User>>(this.apiUrl+"getalluserbyid?userId="+userId);
+  }
 }

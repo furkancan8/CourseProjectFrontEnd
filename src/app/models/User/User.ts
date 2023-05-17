@@ -8,5 +8,6 @@ export interface User{
     imageUrl:string,
     linkedln:string,
     github:string,
-    userName:string
+    userName:string,
+    role:string
   }

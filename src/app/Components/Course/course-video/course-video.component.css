@@ -1,0 +1,262 @@
+#title-category-teacher{
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--video-color);
+    border-bottom: 1px solid white;
+    color: white;
+}
+#navbar-video-title{
+   margin-left: 55px;
+   font-size: 28px;
+   margin-top: 10px;
+}
+#navbar-video-teacher-category-cap{
+    text-align: right;
+    padding: 7px;
+}
+#navbar-video-teacher{
+ margin-bottom: 10px;
+}
+
+/* Main-Video */
+#video-main-cap{
+width: 100%;
+height:500px;
+padding-bottom: 125px;
+padding-top: 7px;
+background-color: var(--video-color);
+}
+.main-video{
+ padding-left: 325px;
+ padding-top: 50px;
+}
+.main-video video{
+    background-color: rgb(34, 34, 34);
+    padding-top: 3px;
+    border-radius: 3px;
+    width:1000px;
+    height:500px;
+    border: 2px solid rgb(49, 49, 49);
+}
+
+/* Video-Sections */
+#video-sections-cap{
+ color: white;
+ background-color: rgb(52, 52, 52);
+}
+#video-sections{
+    display: flex;
+    flex-wrap:wrap;
+    overflow-y: scroll;
+    max-height:100px;
+}
+.videos{
+    box-sizing: border-box;
+    border: 1px solid rgb(106, 106, 106);
+    background-color: rgb(34, 34, 34);
+    position: relative;
+}
+.videos video{
+    width:95px;
+    height:100px;
+    margin-left: 3px;
+    display: inline-block;
+    border-right: 1px solid white;
+    padding-right:5px;
+}
+.videos-title{
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 13px;
+    margin-left: 3px;
+    width:180px;
+    height: 46px;
+    overflow-y: hidden;
+}
+.videos-time{
+    position: absolute;
+    bottom: 10px;
+    left: 125px;
+    font-size: 15px;
+}
+.videos-count{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3px;
+    font-size: 15px;
+    margin-top: 3px;
+}
+/* TEACHER-SECTİON */
+#teacher-description-cap{
+   width: 99%;
+   height:500px;
+   margin-top:127px;
+}
+#teacher-description{
+    display: flex;
+}
+.teacher-image{
+    margin-top: 30px;
+    margin-left: 30px;
+    display: inline-block;
+}
+.teacher-image img{
+    width: 101px!important;
+    height:101px!important;
+}
+.teacher-info{
+    display: inline-block;
+    vertical-align:top;
+    margin-top: 50px;
+    margin-left: 10px;
+    font-size: 17px;
+}
+.teacher-name{
+    color: black;
+    font-size: 23px;
+    margin-bottom: 3px;
+    font-weight: 500;
+}
+.teacher-role{
+    opacity: .8;
+    font-size: 19px;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-bottom:11px ;
+}
+.teacher-about-cap{
+    font-size: 15px;
+    margin-top: 10px;
+    height: 330px;
+    overflow-y: hidden;
+}
+.teacher-about{
+    margin-left: 15px;
+}
+.description-cap{
+    border-left: 2px solid rgb(198, 198, 198);
+    margin-top: 5px;
+    height: 490px;
+    overflow-y: hidden;
+}
+#description-title{
+   font-size: 25px;
+   margin-top: 5px;
+   margin-bottom: 10px;
+   color: var(--title-color);
+   text-align: center;
+}
+#description{
+    font-size: 15px;
+    margin-left: 15px;
+}
+/* Comment-Section */
+#comment-section-cap{
+    font-size: 15px;
+    margin-top: 100px;
+    padding-top: 25px;
+}
+#commets-section{
+    margin-left: 55px;
+}
+#comment-title{
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
+.comment{
+ border-bottom: 1px solid rgb(167, 167, 167);
+ margin-bottom: 20px;
+
+ padding: 10px;
+ padding-bottom:15px;
+ margin-right: 5px;
+}
+.comment-img-name{
+    margin-left: 15px;
+}
+.comment-user-img img{
+ width: 36px!important;
+ height: 36px!important;
+}
+.comment-user-name{
+    margin-left: 5px;
+    margin-top: -5px;
+}
+.comment_title-comment{
+ height: 100px;
+}
+.comment-title{
+    font-weight: 500;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+.comment_comment{
+    height: 74px!important;
+    overflow-y: hidden;
+}
+/* COMMENT-FOOTER */
+.comment-footer{
+    padding: 5px;
+    margin-top: 10px;
+}
+.comment-footer div{
+  text-align: right;
+}
+.footer_left{
+    margin-left:-45px;
+    color: var(--link-color);
+}
+.footer_down-icon img{
+    width: 23px;
+    height: 23px;
+    margin-left: 3px;
+    vertical-align:middle;
+}
+.footer_down-icon{
+    cursor: pointer;
+}
+.footer_answer-count{
+    display: inline-block;
+    font-size: 20px!important;
+    font-weight: 500;
+}
+.footer-comment-date{
+    display: inline-block;
+    margin-left: 35px;
+}
+.comment-footer_comment-img{
+    width: 18px;
+    height: 18px;
+    margin-left: 3px;
+}
+.comment-answer-cap{
+    margin-left: 30px!important;
+    border-top: 1px solid rgb(185, 185, 185);
+    padding-top: 10px;
+}
+.comment-answer-date{
+    text-align: right;
+    margin-right: 150px;
+}
+/* comment input */
+#comment-input-cap{
+ margin-left: 75px;
+}
+#comment-input-active{
+font-size: 21px;
+color: var(--link-color);
+font-weight: 500;
+cursor: pointer;
+}
+.comment-input{
+    display: flex;
+    flex-direction: column;
+}
+.comment-input-title{
+    width: 400px!important;
+}

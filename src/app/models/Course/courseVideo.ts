@@ -1,5 +1,6 @@
 export interface CourseVideo{
     id:number,
-    videoId:number,
+    videoDetailsId:number,
     courseId:number
+    videoLine:number
 }

@@ -1,16 +1,12 @@
-import { Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit,ViewChild } from '@angular/core';
+import { CategoryService } from 'src/app/services/Public/category.service';
 import { Course } from 'src/app/models/Course/course';
 import { Category } from 'src/app/models/Public/category';
-import { OperationClaim } from 'src/app/models/Public/operationClaim';
 import { UserOperationClaim } from 'src/app/models/Public/userOperationClaim';
-import { Teacher } from 'src/app/models/Teacher/teacher';
 import { TeacherCourse } from 'src/app/models/Teacher/teacherCourse';
 import { User } from 'src/app/models/User/User';
 import { CourseService } from 'src/app/services/Course/course.service';
-import { PublicService } from 'src/app/services/Public/public.service';
 import { TeacherService } from 'src/app/services/Teacher/teacher.service';
-import { AuthService } from 'src/app/services/User/auth.service';
-import { CategoryService } from 'src/app/services/User/category.service';
 import { OperationClaimService } from 'src/app/services/User/operation-claim.service';
 import { UserService } from 'src/app/services/User/user.service';
 

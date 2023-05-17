@@ -32,7 +32,7 @@ const routes: Routes = [
   {path:"teacher/student",component:TeacherStudentComponent},
   {path:"course/course-add",component:CourseAddComponent},
   {path:"course/course-details",component:CourseDetailsComponent},
-  {path:"course/course-video",component:CourseVideoComponent},
+  {path:"course/:name",component:CourseVideoComponent},
 ];
 
 @NgModule({

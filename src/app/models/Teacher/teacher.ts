@@ -1,6 +1,7 @@
 export interface Teacher{
+    id:number,
     teacherId:number,
-    name:string,
-    imageUrl:string,
-    description:string
+    description:string,
+    youtubeUrl:string
+    webUrl:string
 }
