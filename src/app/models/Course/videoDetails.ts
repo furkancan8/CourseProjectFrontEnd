@@ -3,6 +3,6 @@ export interface VideoDetails{
     videoUrl:string
     time:number,
     title:string,
-    videoCount:number
     videoLine:number
+    videoRouteId:string
 }

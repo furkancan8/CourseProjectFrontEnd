@@ -30,4 +30,8 @@ export class CourseService {
   {
     return this.httpClient.get<SingleResponseModel<Course>>(this.apiUrl+"getcoursebyname?name="+courseName);
   }
+  getCourseByRouteId(routeId:string):Observable<SingleResponseModel<Course>>
+  {
+    return this.httpClient.get<SingleResponseModel<Course>>(this.apiUrl+"getcoursebyroute?routeId="+routeId);
+  }
 }

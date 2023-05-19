@@ -21,32 +21,35 @@
   </div>
   <div class="col-12">
    <div class="flex">
-    <div routerLink="/course/{{c.name}}" class="course" *ngFor="let c of course" >
-     <div class="course-image-div">
-        <img class="course-image" [src]="this.imageUrl+c.image">
-     </div>
-     <div class="course-name">
-        <span>{{c.name}}</span>
-     </div>
-     <div class="course-description">
-      <span>{{c.description}}</span>
-   </div>
-      <div class="flex course-card-bottom">
-        <div class="course-complated">
-            <span>50%</span> Tamamlandı
+     <div (click)="routeLinkCourse(c)" class="course" *ngFor="let c of course">
+       <div class="course-image-div">
+         <img class="course-image" [src]="this.imageUrl + c.image">
+       </div>
+       <div class="course-name">
+         <span>{{c.name}}</span>
+       </div>
+       <div class="course-description">
+         <span>{{c.description}}</span>
+       </div>
+       <div class="flex course-card-bottom">
+         <div class="course-complated" *ngIf="c.IsCourseHaveUser">
+           <span>50%</span> Tamamlandı
          </div>
-         <div class="course-teacher" *ngFor="let t of teachers">
-           <div *ngIf="t.id==c.teacherId">
-            <img class="teacher-image" [src]="this.imageUrl+t.imageUrl">
-            <span>{{t.fullName}}</span>
+         <div class="course-price" *ngIf="!c.IsCourseHaveUser">
+           <div>{{c.price}} TL</div>
+         </div>
+         <div class="course-teacher">
+           <div *ngIf="getTeacherById(c.teacherId) as teacher">
+             <img class="teacher-image" [src]="this.imageUrl + teacher.imageUrl">
+             <span>{{teacher.fullName}}</span>
            </div>
-        </div>
-      </div>
-     <div class="course-bar-div">
-        <div class="bar" [style.--completed-width]="20+'%'"></div>
+         </div>
+       </div>
+       <div class="course-bar-div" *ngIf="c.IsCourseHaveUser">
+         <div class="bar" [style.--completed-width]="20 + '%'"></div>
+       </div>
      </div>
-    </div>
    </div>
-  </div>
+ </div>
  </div>
 </div>

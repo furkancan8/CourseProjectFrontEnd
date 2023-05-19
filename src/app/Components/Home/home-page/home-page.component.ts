@@ -9,6 +9,11 @@ import { CourseService } from 'src/app/services/Course/course.service';
 import { TeacherService } from 'src/app/services/Teacher/teacher.service';
 import { OperationClaimService } from 'src/app/services/User/operation-claim.service';
 import { UserService } from 'src/app/services/User/user.service';
+import { AppComponent } from 'src/app/AngulurApp/app.component';
+import { CourseUserService } from 'src/app/services/Course/course-user.service';
+import { Router } from '@angular/router';
+import { VideoService } from 'src/app/services/Course/video.service';
+import { VideoDetails } from 'src/app/models/Course/videoDetails';
 
 @Component({
   selector: 'app-home-page',
@@ -31,7 +36,8 @@ export class HomePageComponent implements OnInit{
   TeacherClaim:UserOperationClaim[]=[]
   categories:Category[]=[]
   constructor(private courseService:CourseService,private teacherService:TeacherService,private userService:UserService
-   ,private categoryService:CategoryService,private claimService:OperationClaimService) {
+   ,private categoryService:CategoryService,private claimService:OperationClaimService,private appComponent:AppComponent,
+   private userCourseUser:CourseUserService,private route:Router,private videoService:VideoService) {
 
   }
   ngOnInit(): void {
@@ -42,13 +48,48 @@ export class HomePageComponent implements OnInit{
     this.teacherCount=document.querySelectorAll('.teacher').length;
     this.categoryCount=document.querySelectorAll('.category').length;
     }, 300);
+    this.appComponent.hideNavbar()
   }
   getCourse()
   {
-     this.courseService.getAll().subscribe(res=>{
-      this.course=res.data
-      this.fullCourse=res.data
+     this.courseService.getAll().subscribe(course=>{
+      this.course=course.data
+      this.fullCourse=course.data
+      this.userCourseUser.getCourseByUserId(6004).subscribe(userCourse=>{
+        course.data.forEach(element => {
+          userCourse.data.forEach(userCourseElement => {
+             if(element.courseId==userCourseElement.courseId)
+             {
+               element.IsCourseHaveUser=true
+               console.log(element)
+             }
+            //  console.log(element)
+            //  if(userCourseElement.courseId!=element.courseId){
+            //   element.IsCourseHaveUser=false
+            //  }
+          });
+        });
+      })
      })
+  }
+  routeLinkCourse(course:Course)
+  {
+    this.videoService.getAllVideoByCourse(course.courseId).subscribe(videoCourse=>{
+      videoCourse.data.forEach(vCourse => {
+          this.videoService.getAllLineVideos(vCourse.videoDetailsId).subscribe(videoDetails=>{
+            videoDetails.data.forEach(videoElement => {
+              if(course.IsCourseHaveUser==true)
+              {
+                this.route.navigate(["/course/have/"+course.courseRouteId+"/lesson/"+videoElement.videoRouteId])
+              }
+           });
+          })
+        });
+    })
+    if(course.IsCourseHaveUser!=true)
+    {
+      this.route.navigate(["/course/"+course.name])
+    }
   }
   addClassCategory()
   {
@@ -96,16 +137,26 @@ export class HomePageComponent implements OnInit{
   {
     this.claimService.getAllTeacherByClaim().subscribe(res=>{
       this.TeacherClaim=res.data
-      this.getAllTeacher()
+      this.getTeacher()
     })
   }
-  getAllTeacher()
+  getTeacher()
   {
+    var tryTeacher:User[]=[]
+    var promises:Promise<any>[]=[]
+
     this.TeacherClaim.forEach(element => {
+    var promise=new Promise<void>((resolve,reject)=>{
       this.userService.getbyId(element.userId).subscribe(res=>{
-        this.teachers.push(res.data)
+        tryTeacher.push(res.data)
+        resolve();
       })
+     })
+     promises.push(promise)
     });
+    Promise.all(promises).then(()=>{
+      this.teachers=tryTeacher
+    })
   }
   getAllCategory()
   {
@@ -153,4 +204,8 @@ export class HomePageComponent implements OnInit{
       this.categoryCapElement.nativeElement.style.height = 40 + 'px';
     }, 100);
   }
+  getTeacherById(teacherId: number): User | undefined {
+    return this.teachers.find(teacher => teacher.id === teacherId);
+  }
+
 }

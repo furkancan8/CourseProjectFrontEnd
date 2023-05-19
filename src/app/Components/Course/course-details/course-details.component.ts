@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-details',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseDetailsComponent implements OnInit{
 
-  constructor() {
+  constructor(private activetedRoute:ActivatedRoute) {
 
 
   }
   ngOnInit(): void {
-
+    this.activetedRoute.params.subscribe(params=>{
+      const courseName=decodeURIComponent(params["name"])
+      const updatedCourseName = courseName.replace(/#/g,'sharp').replace('+','plus');
+    //  this.getCourseByName(updatedCourseName)
+    })
   }
 }

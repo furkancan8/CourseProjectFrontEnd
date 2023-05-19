@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute} from '@angular/router';
+import { AppComponent } from 'src/app/AngulurApp/app.component';
 import { Course } from 'src/app/models/Course/course';
 import { CourseVideo } from 'src/app/models/Course/courseVideo';
 import { VideoDetails } from 'src/app/models/Course/videoDetails';
@@ -44,18 +45,20 @@ export class CourseVideoComponent implements OnInit{
   courseId:number
   canComment:boolean=true
   successAddCommentMessage:boolean=false
+  commentWhiceVideo:number
   constructor(private videoService:VideoService,private commentService:CommentService,private userService:UserService,
     private courseService:CourseService,private route:ActivatedRoute,private categoryService:CategoryService,
-    private teacherService:TeacherService,private formBuilder:FormBuilder
+    private teacherService:TeacherService,private formBuilder:FormBuilder,private appComponent:AppComponent
     ) {
   }
   ngOnInit(): void {
-    this.route.params.subscribe(params=>{
-      const courseName=decodeURIComponent(params["name"])
-      const updatedCourseName = courseName.replace(/#/g,'sharp').replace('+','plus');
-     this.getCourseByName(updatedCourseName)
+    var routeId
+    this.route.paramMap.subscribe(params=>{
+      routeId=params.get('routeId');
     })
+      this.getCourseByRouteId(routeId)
       this.createFormGroup()
+      this.appComponent.hideNavbar()
   }
   getAllVideoLine(courdeId:number)
   {
@@ -65,6 +68,8 @@ export class CourseVideoComponent implements OnInit{
         if(element.videoLine==1&&this.mainVideo.length==0)
         {
           this.mainVideo.push(element)
+          this.commentWhiceVideo=element.videoLine
+          this.createFormGroup()
         }
       });
     })
@@ -83,7 +88,13 @@ export class CourseVideoComponent implements OnInit{
      });
     })
   }
-
+  changeMainVideo(video:VideoDetails)
+  {
+     this.mainVideo=[]
+     this.mainVideo.push(video)
+     this.commentWhiceVideo=video.videoLine
+     this.createFormGroup()
+  }
   getTeacherById(courseId:number)
   {
      this.courseService.getCourseById(courseId).subscribe(course=>{
@@ -100,9 +111,9 @@ export class CourseVideoComponent implements OnInit{
       })
      })
   }
-  getCourseByName(name:string)
+  getCourseByRouteId(routeId:string)
   {
-    this.courseService.getCourseByName(name).subscribe(res=>{
+    this.courseService.getCourseByRouteId(routeId).subscribe(res=>{
 
       if(this.course.length==0)
       {
@@ -183,10 +194,11 @@ export class CourseVideoComponent implements OnInit{
         title:["",Validators.required],
         commentText:["",Validators.required],
         userId:[2],
-        courseId:[]
+        courseId:[this.courseId],
+        nowVideo:[this.commentWhiceVideo]
     })
     this.commentFormGroup.get('courseId').setValue(this.courseId)
-
+    this.commentFormGroup.get('nowVideo').setValue(this.commentWhiceVideo)
     this.commentAnswerFormGroup=this.formBuilder.group({
         comment:["",Validators.required]
     })

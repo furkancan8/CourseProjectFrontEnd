@@ -6,4 +6,7 @@ export interface Course{
     teacherId:number,
     categoryId:number
     createDate:Date
+    price:number
+    IsCourseHaveUser:boolean
+    courseRouteId:string
 }

@@ -55,10 +55,9 @@
     margin-left: 15px;
 }
 .course-teacher{
-    text-align: center;
     font-size: 17px;
     font-weight: 200;
-    margin-right: 15px;
+    margin-right: 13px;
 }
 .teacher-image{
     margin-bottom: -7px;
@@ -77,6 +76,11 @@
 .course-complated span{
     color:rgb(0, 0, 0);
     font-size: 15px;
+}
+.course-price{
+    font-weight: 500;
+    font-size: 21px;
+
 }
 .course-card-bottom{
     margin-top: 5px;

@@ -10,3 +10,32 @@ router yönlendirme=this.router.navigate(['/login/change_password'])
 local stroge=localStorage.setItem('i_u_c-p',userId);
 tarih biçimi:<div class="bar-datetime">{{s.dateTime |date:"dd.MM.yyyy"}}</div>
 
+Asycn işlemlerde bitişini dinlemek için
+{
+   var promises:Promise<any>[]=[]
+
+    this.TeacherClaim.forEach(element => {
+    var promise=new Promise<void>((resolve,reject)=>{
+      this.userService.getbyId(element.userId).subscribe(res=>{
+        tryTeacher.push(res.data)
+        resolve();
+      })
+     })
+     promises.push(promise)
+    });
+    Promise.all(promises).then(()=>{
+      this.teachers=tryTeacher
+    })
+}
+dizi içinde tek div oluşturma{
+   <div *ngIf="getTeacherById(c.teacherId) as teacher">
+     getTeacherById(teacherId: number): User | undefined {
+    return this.teachers.find(teacher => teacher.id === teacherId);
+  }
+}
+routeden özellik alma{
+  this.route.paramMap.subscribe(params => {
+      this.routeId = params.get('routeId');
+      console.log(this.routeId); // RouteId'yi konsola yazdırabilirsiniz
+    });
+}

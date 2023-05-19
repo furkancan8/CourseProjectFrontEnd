@@ -6,4 +6,5 @@ export interface Comment{
     courseId:number,
     dateTime:Date,
     totalAnswerComment:number
+    nowVideo:number
 }

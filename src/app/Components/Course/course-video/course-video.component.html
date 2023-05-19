@@ -12,29 +12,29 @@
     <div id="navbar-video-category">{{this.courseCategoryName|uppercase}}</div>
    </div>
   </div>
-
-  <div id="video-main-cap">
-     <div class="main-video" *ngFor="let mv of mainVideo">
-      <video controls id="video">
-        <source [src]="this.videoUrl+mv.videoUrl" type="video/mp4">
-      </video>
-    </div>
-  </div>
-
-  <div id="video-sections-cap">
-   <div id="video-sections">
-    <div class="col-3 videos" *ngFor="let v of videos|denemePipe">
-     <div style="cursor: pointer;">
-      <div>
-      <div class="videos-count">{{v.videoLine}}</div>
-      <video>
-       <source [src]="this.videoUrl+v.videoUrl" type="video/mp4">
-      </video>
-      <div class="videos-title" >{{v.title}}</div>
-      <div class="videos-time">{{v.time}} min</div>
+  <div class="flex">
+    <div id="video-sections-cap" class="col-3">
+      <div id="video-sections">
+       <div class="videos" *ngFor="let v of videos|denemePipe">
+        <div class="videos-count">{{v.videoLine}}.</div>
+         <div class="videos-source">
+          <video (click)="changeMainVideo(v)">
+            <source [src]="this.videoUrl+v.videoUrl" type="video/mp4">
+           </video>
+         </div>
+         <div class="videos-title-time">
+          <div class="videos-title" >"{{v.title}}"</div>
+          <div class="videos-time">{{v.time}} min</div>
+         </div>
+       </div>
+      </div>
      </div>
-    </div>
-    </div>
+    <div id="video-main-cap " class="col-12">
+      <div class="main-video" *ngFor="let mv of mainVideo">
+       <video controls id="video">
+         <source [src]="this.videoUrl+mv.videoUrl" type="video/mp4">
+       </video>
+     </div>
    </div>
   </div>
 
@@ -92,7 +92,7 @@
       </div>
     </div>
       <div  class="flex comment-footer" *ngIf="commentUsers.length-1">
-        <div class="col-2 footer_left">Ders 1</div>
+        <div class="col-2 footer_left">{{c.nowVideo}}.Ders</div>
         <div class="col-6 footer_down-icon" (click)="viewCommentAnswer(c.id)">
          <span>Cevapları göster</span>
          <img [src]="this.downIcon">
