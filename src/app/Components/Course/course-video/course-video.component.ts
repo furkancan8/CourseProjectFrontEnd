@@ -5,22 +5,21 @@ import { AppComponent } from 'src/app/AngulurApp/app.component';
 import { Course } from 'src/app/models/Course/course';
 import { CourseVideo } from 'src/app/models/Course/courseVideo';
 import { VideoDetails } from 'src/app/models/Course/videoDetails';
-import { Comment } from 'src/app/models/Public/comment';
-import { CommentAnswer } from 'src/app/models/Public/commentAnswer';
 import { User } from 'src/app/models/User/User';
 import { CourseService } from 'src/app/services/Course/course.service';
 import { VideoService } from 'src/app/services/Course/video.service';
 import { CategoryService } from 'src/app/services/Public/category.service';
-import { CommentService } from 'src/app/services/Public/comment.service';
+import { QuestionService } from 'src/app/services/Course/question.service';
 import { TeacherService } from 'src/app/services/Teacher/teacher.service';
 import { UserService } from 'src/app/services/User/user.service';
+import { QuestionAnswer } from 'src/app/models/Public/questionAnswer';
+import { CourseQuestion } from 'src/app/models/Public/courseQuestion';
 @Component({
   selector: 'app-course-video',
   templateUrl: './course-video.component.html',
   styleUrls: ['./course-video.component.css'],
 })
 export class CourseVideoComponent implements OnInit{
-  videoUrlMain="https://localhost:44350/Uploads/Videos/Ihlas-2.mp4";
   videoUrl="https://localhost:44350/Uploads/Videos/";
   imageUrl="https://localhost:44350/Uploads/Images/";
   commentIcon="https://localhost:44350/Uploads/Images/comment-Icon.png";
@@ -34,8 +33,8 @@ export class CourseVideoComponent implements OnInit{
   teacherName:string
   teacherDescription:string;
   course:Course[]=[]
-  courseComment:Comment[]=[]
-  answerComment:CommentAnswer[]=[]
+  courseComment:CourseQuestion[]=[]
+  answerComment:QuestionAnswer[]=[]
   courseName:string
   courseCategoryName:string
   courseCreateDate:Date
@@ -46,7 +45,7 @@ export class CourseVideoComponent implements OnInit{
   canComment:boolean=true
   successAddCommentMessage:boolean=false
   commentWhiceVideo:number
-  constructor(private videoService:VideoService,private commentService:CommentService,private userService:UserService,
+  constructor(private videoService:VideoService,private questionService:QuestionService,private userService:UserService,
     private courseService:CourseService,private route:ActivatedRoute,private categoryService:CategoryService,
     private teacherService:TeacherService,private formBuilder:FormBuilder,private appComponent:AppComponent
     ) {
@@ -126,7 +125,7 @@ export class CourseVideoComponent implements OnInit{
       this.courseId=res.data.courseId
       this.createFormGroup()
       this.courseCreateDate=res.data.createDate
-      this.commentService.getAllCommentByCourse(res.data.courseId).subscribe(comment=>{
+      this.questionService.getAllCommentByCourse(res.data.courseId).subscribe(comment=>{
         comment.data.forEach(commentElement => {
           this.userService.getbyId(commentElement.userId).subscribe(userCourse=>{
 
@@ -142,7 +141,7 @@ export class CourseVideoComponent implements OnInit{
   }
   getCommentByCourse(courseId:number)
   {
-    this.commentService.getAllCommentByCourse(courseId).subscribe(comment=>{
+    this.questionService.getAllCommentByCourse(courseId).subscribe(comment=>{
      this.courseComment=comment.data
     })
   }
@@ -155,7 +154,7 @@ export class CourseVideoComponent implements OnInit{
   viewCommentAnswer(commentId:number)
   {
     this.answerCommentUser=[]
-    this.commentService.getAllAnswerForComment(commentId).subscribe(commentAnswer=>{
+    this.questionService.getAllAnswerForComment(commentId).subscribe(commentAnswer=>{
      this.answerComment=commentAnswer.data
      commentAnswer.data.forEach(element => {
       this.userService.getbyId(element.userId).subscribe(user=>{
@@ -181,7 +180,7 @@ export class CourseVideoComponent implements OnInit{
   successAddComment()
   {
    setTimeout(() => {
-    if(this.commentService.successAddComment==true)
+    if(this.questionService.successAddComment==true)
     {
       this.canComment=true
       this.successAddCommentMessage=true

@@ -2,11 +2,11 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/AngulurApp/app.component';
 import { SoldCourse } from 'src/app/models/Course/soldCourse';
-import { Comment } from 'src/app/models/Public/comment';
+import { CourseQuestion } from 'src/app/models/Public/courseQuestion';
 import { SupportContact } from 'src/app/models/Public/supportContact';
 import { User } from 'src/app/models/User/User';
 import { SoldCourseService } from 'src/app/services/Course/sold-course.service';
-import { CommentService } from 'src/app/services/Public/comment.service';
+import { QuestionService } from 'src/app/services/Course/question.service';
 import { SupportContactService } from 'src/app/services/Public/support-contact.service';
 import { UserService } from 'src/app/services/User/user.service';
 
@@ -21,14 +21,14 @@ export class TeacherPageComponent implements OnInit{
   user:User[]=[]
   userMessageAll:SupportContact[]=[]
   userMessageShow:SupportContact[]=[]
-  userCommentAll:Comment[]=[]
-  userCommentShow:Comment[]=[]
+  userCommentAll:CourseQuestion[]=[]
+  userCommentShow:CourseQuestion[]=[]
   soldCourse:SoldCourse[]=[]
   daySoldCourse:number=0
   weekSoldCourse:number=0
   monthSoldCourse:number=0
 
-  constructor(private userService:UserService,private contactService:SupportContactService,private commentService:CommentService,
+  constructor(private userService:UserService,private contactService:SupportContactService,private questionService:QuestionService,
   private soldCourseService:SoldCourseService,private appComponent:AppComponent) {
 
   }
@@ -62,7 +62,7 @@ export class TeacherPageComponent implements OnInit{
   }
   getUserComment(teacherId:number)
   {
-    this.commentService.getAllUserComment(teacherId).subscribe(res=>{
+    this.questionService.getAllUserComment(teacherId).subscribe(res=>{
       this.userCommentAll=res.data
       const userCommentAll=this.userCommentAll.reduce((prev,current)=>
        prev.id>current.id? prev:current

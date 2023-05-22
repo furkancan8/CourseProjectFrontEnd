@@ -1,6 +1,6 @@
-export interface Comment{
+export interface CourseQuestion{
     id:number,
-    commentText:string,
+    questionText:string,
     title:string,
     userId:number,
     courseId:number,

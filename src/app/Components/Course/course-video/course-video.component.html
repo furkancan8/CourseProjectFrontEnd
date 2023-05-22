@@ -87,7 +87,7 @@
        </div>
        <div class="comment_title-comment col-13">
         <div class="comment-title">{{c.title}}</div>
-        <div class="comment_comment">{{c.commentText}} Lorem ipsum dolor sit amet consectetur adsdadsasadadssadasasipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum qfae adipisci numquam magni iste voluptate beatae distinctio repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio repellat Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio </div>
+        <div class="comment_comment">{{c.questionText}} Lorem ipsum dolor sit amet consectetur adsdadsasadadssadasasipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum qfae adipisci numquam magni iste voluptate beatae distinctio repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio repellat Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestiae a reprehenderit tempore aliquam iusto optio non, officiis dolor facilis, dolorum quae adipisci numquam magni iste voluptate beatae distinctio </div>
        </div>
       </div>
     </div>
@@ -106,7 +106,7 @@
        </div>
       <div *ngIf="this.isViewAnswerComment">
       <ng-container *ngFor="let ca of answerComment;let i = index">
-       <ng-container   *ngIf="ca.commentId==c.id">
+       <ng-container   *ngIf="ca.questionId==c.id">
        <ng-container  *ngFor="let caU of answerCommentUser;let j = index">
          <div *ngIf="ca.userId==caU.id&&i==j" class="flex comment-answer-cap">
            <div class="comment-img-name col-1">
@@ -114,7 +114,7 @@
             <div class="comment-user-name">{{caU.fullName|onlyName}}</div>
            </div>
            <div class="comment_title-comment col-13">
-            <div class="comment_comment">{{ca.comment}} </div>
+            <div class="comment_comment">{{ca.question}} </div>
            </div>
           </div>
           <div class="comment-answer-date" *ngIf="i==j">

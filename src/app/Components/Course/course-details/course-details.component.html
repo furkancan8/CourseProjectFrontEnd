@@ -1,1 +1,75 @@
-<p>course-details works!</p>
+<div id="cap">
+ <div id="header" class="flex">
+  <div class="course-main-video" *ngFor="let v of trailerVideo">
+   <video width="600" height="300" controls>
+    <source [src]="this.videoUrl+v.videoUrl">
+   </video>
+  </div>
+  <div id="course-property-cap">
+   <div id="course-property">
+    <div><span>Başlık</span></div>
+    <div><p>Açıklama</p></div>
+    <div class="side-by-div" id="teacher-student-count">
+     <div class="course-teacher">
+
+     </div>
+     <div class="student-count">
+
+     </div>
+    </div>
+    <div class="side-by-div" id="course-date-info">
+     <div id="course-date">
+
+     </div>
+     <div id="course-info">
+
+     </div>
+    </div>
+    <div class="side-by-div" id="course-price-button">
+      <div id="course-price">
+
+      </div>
+      <div id="course-button">
+
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div id="course-videos-cap">
+  <div id="course-videos">
+   <div class="section side-by-div" *ngFor="let s of sectionCourse" (click)="getVideoBySection(s.id)">
+    <div class="section-title">{{s.sectionLine}}.Bölüm:{{s.title}}</div>
+    <div class="section-icon">></div>
+   </div>
+   <div class="video" *ngFor="let v of videos">
+    <div class="video-title">{{v.title}}</div>
+    <div class="video-time">{{v.time}}dk</div>
+   </div>
+  </div>
+ </div>
+ <div id="course-description-cap">
+  <div id="course-description" *ngFor="let c of course">
+   <div id="description-title">Açıklama</div>
+   <div id="description">
+   {{c.description}}
+   </div>
+  </div>
+ </div>
+ <div id="course-comment-course-cap" class="flex">
+  <div id="course-comment-course">
+   <div class="comment" *ngFor="let c of courseComment">
+   <div *ngFor="let u of commentUser">
+    <div *ngIf="c.userId==u.id">
+    <div class="comment-user col-2">
+     <div><img class="image" [src]="this.imageUrl+u.imageUrl"></div>
+     <div>{{u.fullName}}</div>
+    </div>
+    </div>
+    </div>
+     <div class="this-comment col-11"><div>{{c.comment}}</div></div>
+     <div class="comment-report col-2"><div>Bildir</div></div>
+   </div>
+  </div>
+ </div>
+</div>

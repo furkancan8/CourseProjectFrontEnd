@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppRoutingModule } from './AngulurApp/app-routing.module';
 import { AppComponent } from './AngulurApp/app.component';
 import { AuthInterceptor } from './Components/interceptor/auth.interceptor';
