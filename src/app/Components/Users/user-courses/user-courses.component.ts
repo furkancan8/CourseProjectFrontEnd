@@ -23,7 +23,7 @@ export class UserCoursesComponent implements OnInit{
   }
   getCourseByUserId(userId:number)
   {
-      this.courseUserService.getCourseByUserId(userId).subscribe(res=>{
+      this.courseUserService.getAllCourseByUserId(userId).subscribe(res=>{
           this.courseUser=res.data
           console.log(this.courseUser)
           res.data.forEach(element => {

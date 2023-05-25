@@ -1,50 +1,52 @@
 <div id="cap">
  <div id="header" class="flex">
   <div class="course-main-video" *ngFor="let v of trailerVideo">
-   <video width="600" height="300" controls>
+   <video width="500" height="300" controls>
     <source [src]="this.videoUrl+v.videoUrl">
    </video>
   </div>
   <div id="course-property-cap">
-   <div id="course-property">
-    <div><span>Başlık</span></div>
-    <div><p>Açıklama</p></div>
-    <div class="side-by-div" id="teacher-student-count">
-     <div class="course-teacher">
-
+   <div id="course-property" *ngFor="let c of course">
+    <div class="course-title"><span>{{c.name}}</span></div>
+    <div class="couse-description"><p>{{c.description}}</p></div>
+    <div id="teacher-student-count">
+     <div class="course-teacher" *ngFor="let u of courseUser">
+       <span>Kurs Sahibi: <span class="course_special-span">{{u.fullName|uppercase}}</span></span>
      </div>
      <div class="student-count">
-
+      <span>Toplam ögrenci sayısı:<span class="course_special-span">2323{{this.courseStudentCount}} Adet</span></span>
      </div>
     </div>
-    <div class="side-by-div" id="course-date-info">
+    <div id="course-date-info">
      <div id="course-date">
-
+       <span>Kurs yayın tarihi:<span class="course_special-span">{{c.createDate|date:'dd.MM.yyyy'}}</span></span>
      </div>
      <div id="course-info">
-
+      <span>Kurs Uzunluğu:<span class="course_special-span">44 sa 7 dk</span></span>
      </div>
     </div>
     <div class="side-by-div" id="course-price-button">
       <div id="course-price">
-
+       <span>{{c.price}}₺</span>
       </div>
       <div id="course-button">
-
+       <div><button class="button">Satın Al</button></div>
       </div>
     </div>
    </div>
   </div>
  </div>
  <div id="course-videos-cap">
-  <div id="course-videos">
+  <div id="course-section-cap">
    <div class="section side-by-div" *ngFor="let s of sectionCourse" (click)="getVideoBySection(s.id)">
     <div class="section-title">{{s.sectionLine}}.Bölüm:{{s.title}}</div>
     <div class="section-icon">></div>
    </div>
+  </div>
+  <div id="course-video-cap">
    <div class="video" *ngFor="let v of videos">
-    <div class="video-title">{{v.title}}</div>
-    <div class="video-time">{{v.time}}dk</div>
+    <div class="video-title col-14">{{v.title}}</div>
+    <div class="video-time col-1">{{v.time}}dk</div>
    </div>
   </div>
  </div>
@@ -73,3 +75,7 @@
   </div>
  </div>
 </div>
+
+<ckeditor name="PageContent" required
+     [config]="ckeConfig" debounce="500">
+</ckeditor>

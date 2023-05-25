@@ -55,7 +55,7 @@ export class HomePageComponent implements OnInit{
      this.courseService.getAll().subscribe(course=>{
       this.course=course.data
       this.fullCourse=course.data
-      this.userCourseUser.getCourseByUserId(6004).subscribe(userCourse=>{
+      this.userCourseUser.getAllCourseByUserId(6004).subscribe(userCourse=>{
         course.data.forEach(element => {
           userCourse.data.forEach(userCourseElement => {
              if(element.courseId==userCourseElement.courseId)

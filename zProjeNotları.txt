@@ -1,1 +1,3 @@
       // '|+()[]-:'izin verilicek karakterler
+
+Video-Details=videolar için logo

@@ -43,7 +43,7 @@ export class TeacherStudentComponent implements OnInit{
         this.teacherCourse.push(course)
         console.log(this.teacherCourse)
 
-        this.courseUserService.getAllCourseIdByUser(course.courseId).subscribe(courseUserRes=>{
+        this.courseUserService.getAllCourseId(course.courseId).subscribe(courseUserRes=>{
           this.courseUser=courseUserRes.data
           courseUserRes.data.forEach(courseUser => {
             this.userService.getbyId(courseUser.userId).subscribe(userRes=>{
@@ -57,7 +57,7 @@ export class TeacherStudentComponent implements OnInit{
   changeUserOfCourse(courseId:number)
   {
     this.user=[]
-    this.courseUserService.getAllCourseIdByUser(courseId).subscribe(courseUserRes=>{
+    this.courseUserService.getAllCourseId(courseId).subscribe(courseUserRes=>{
       this.courseUser=courseUserRes.data
       courseUserRes.data.forEach(courseUser => {
         this.userService.getbyId(courseUser.userId).subscribe(userRes=>{

@@ -1,22 +1,137 @@
-.side-by-div{
-    font-size: 0;
-}
-.side-by-div>div{
-    display: inline-block;
-    width: 50%;
-    font-size: 16px;
-}
 #header{
-    border: 1px solid black;
     margin-bottom: 50px;
     height: 325px;
-    margin-right: 15px;
-    margin-left: 15px;
+
+}
+.course-main-video {
+
+    width: 607px;
+    background-color: rgb(182, 182, 182);
+}
+.course-main-video video{
+    margin-left: 50px;
 }
 #course-property-cap{
     border: 1px solid black;
-    width: 59%;
+    width: 59.3%;
     background-color: rgb(47, 47, 47);
     color: white;
     font-size:15px ;
+}
+#course-info{
+    text-align: right!important;
+}
+.course-title{
+    font-size: 28px;
+    margin: 7px;
+    text-align: center;
+    margin-left: 5px;
+}
+.couse-description{
+    font-size: 20px;
+    margin: 3px;
+    margin-left: 15px;
+    color: rgb(209, 209, 209);
+    margin-bottom:30px ;
+}
+#teacher-student-count{
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+.student-count{
+    text-align: right!important;
+}
+#teacher-student-count>div{
+    display: inline-block;
+    width: 49%;
+    font-size: 16px;
+}
+#course-date-info>div{
+    display: inline-block;
+    width: 49%;
+    font-size: 16px;
+}
+#course-date{
+    margin-left: 5px;
+}
+.course_special-span{
+    color:#e8a2a2;
+    font-size: 17px;
+    text-decoration:underline;
+    margin-left:5px;
+}
+#course-price-button{
+    margin-top: 50px;
+    height: 80px;
+}
+#course-price{
+    font-size: 35px;
+    margin-top:0px;
+    margin-left: 10px;
+    vertical-align:middle;
+}
+#course-button{
+    text-align: right;
+    margin-left:60px!important;
+}
+#course-button button{
+    width: 250px;
+    padding:18px;
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+/* VİDEO-Section */
+#course-videos-cap{
+    display: flex;
+    margin-bottom: 100px;
+}
+#course-section-cap{
+    width: 50%;
+}
+.section{
+    background-color: rgb(47, 47, 47);
+    color: white;
+    border: 1px solid rgb(102, 102, 102);
+    margin: 3px;
+    height: 40px;
+}
+.section-title{
+    font-size: 19px;
+    margin-top: 7px;
+    margin-left: 7px;
+}
+.section-icon{
+    text-align: right;
+    margin-left: 50px;
+    font-weight: 500;
+    font-size: 20px;
+}
+#course-video-cap{
+    width: 50%;
+    margin-top:3px;
+}
+.video{
+    height: 30px;
+    color: black;
+    font-size: 13px;
+    display: flex;
+    margin-bottom: 2px;
+    background-color: white;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.video-title{
+    padding: 7px;
+    margin-top: 3px;
+}
+.video-time{
+    text-align: left;
+    vertical-align: top;
+    margin-top: 10px;
+}
+/* Description-Section */
+#course-description-cap{
+ border: 1px solid black;
+
 }

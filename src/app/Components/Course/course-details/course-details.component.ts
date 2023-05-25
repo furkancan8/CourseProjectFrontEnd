@@ -8,6 +8,7 @@ import { VideoDetails } from 'src/app/models/Course/videoDetails';
 import { User } from 'src/app/models/User/User';
 import { CommentService } from 'src/app/services/Course/comment.service';
 import { CourseService } from 'src/app/services/Course/course.service';
+import { CourseUserService } from 'src/app/services/Course/course-user.service';
 import { VideoService } from 'src/app/services/Course/video.service';
 import { UserService } from 'src/app/services/User/user.service';
 
@@ -26,8 +27,11 @@ export class CourseDetailsComponent implements OnInit{
   videos:VideoDetails[]=[]
   courseComment:CourseComment[]=[]
   commentUser:User[]=[]
+  courseUser:User[]=[]
+  courseStudentCount:number=0
+  ckeConfig: any;
   constructor(private activetedRoute:ActivatedRoute,private courseService:CourseService,private videoService:VideoService
-    ,private commentService:CommentService,private userService:UserService) {
+    ,private commentService:CommentService,private userService:UserService,private courseUserService:CourseUserService) {
 
 
   }
@@ -37,14 +41,24 @@ export class CourseDetailsComponent implements OnInit{
       const updatedCourseName = courseName.replace(/#/g,'sharp').replace('+','plus');
       this.getCourseByName(updatedCourseName)
     })
+    25
+    this.ckeConfig = {
+      allowedContent: false,
+      extraPlugins: 'divarea',
+      forcePasteAsPlainText: true
+    };
   }
   getCourseByName(courseName:string)
   {
     this.courseService.getCourseByName(courseName).subscribe(res=>{
       this.course.push(res.data)
+      this.userService.getbyId(res.data.teacherId).subscribe(res=>{
+        this.courseUser.push(res.data)
+      })
       this.getCourseIfTrailer(res.data.courseId)
       this.getSectionByCourseId(res.data.courseId)
       this.getAllCourseOfComment(res.data.courseId)
+      this.getCourseStudentCount(res.data.courseId)
     })
   }
   getCourseIfTrailer(courseId:number)
@@ -90,7 +104,6 @@ export class CourseDetailsComponent implements OnInit{
       this.courseComment=res.data
       this.courseComment.forEach(element => {
         this.getCommentOfUser(element.userId)
-        console.log(element.userId)
       });
     })
   }
@@ -99,5 +112,15 @@ export class CourseDetailsComponent implements OnInit{
     this.userService.getbyId(userId).subscribe(res=>{
         this.commentUser.push(res.data)
     })
+  }
+  getCourseStudentCount(courseId:number)
+  {
+    this.courseUserService.getAllCourseId(courseId).subscribe(res=>{
+      res.data.forEach(element => {
+          this.courseStudentCount+=1;
+          console.log(this.courseStudentCount)
+      });
+    })
+    console.log(this.courseStudentCount)
   }
 }

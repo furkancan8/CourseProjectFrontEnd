@@ -13,12 +13,12 @@ export class CourseUserService {
   apiUrl="https://localhost:44350/api/courseuser/";
   constructor(private httpClient:HttpClient) { }
 
-  getCourseByUserId(userId:number):Observable<ListResponseModel<CourseUser>>
+  getAllCourseByUserId(userId:number):Observable<ListResponseModel<CourseUser>>
   {
-    var newPath=this.apiUrl+"getuserbycourse?userId="+userId;
+    var newPath=this.apiUrl+"getalluserbycourse?userId="+userId;
     return this.httpClient.get<ListResponseModel<CourseUser>>(newPath);
   }
-  getAllCourseIdByUser(courseId:number):Observable<ListResponseModel<CourseUser>>
+  getAllCourseId(courseId:number):Observable<ListResponseModel<CourseUser>>
   {
     var newPath=this.apiUrl+"getallcourseidbyuser?courseId="+courseId;
     return this.httpClient.get<ListResponseModel<CourseUser>>(newPath);
