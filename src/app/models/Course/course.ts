@@ -1,6 +1,7 @@
 export interface Course{
     courseId:number,
     name:string,
+    title:string,
     description:string,
     image:string,
     teacherId:number,

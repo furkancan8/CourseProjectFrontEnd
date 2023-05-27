@@ -1,0 +1,86 @@
+<div class="cap">
+ <div id="verify-step-cap">
+  <div id="verify-step" class="flex">
+   <div id="one-step">1 --------</div>
+   <div id="two-step">2 --------</div>
+   <div id="three-step">3</div>
+  </div>
+ </div>
+ <div id="one-step-course-section">
+  <div class="flex">
+   <div id="course-form" class="col-9">
+    <form>
+     <div id="form-name-cap">
+        <div class="form-rules-div">
+          <div>1-Kurs ismi dikkat çekici ve kurs hakkında bilgilendirici olmalı</div>
+          <div>2-Kurs isminde sadece bu semboller içerebilir / ' | + ( ) [ ]  - :</div>
+        </div>
+        <input (input)="girilenDegeriGuncelle($event)" [(ngModel)]="this.courseName" class="forms" id="form-name" placeholder="Kurs ismi">
+     </div>
+     <div id="form-description-cap">
+      <div class="form-rules-div">
+         <div>1-Açıklamanız uzun ve kurs hakkında bilgilendirici olmalı.</div>
+         <div>2-Etkileyici bir açıklama kurs satışını etkiliyecektir.</div>
+         <div>2-Kurs un kime hitap ettiğini,hangi seviyede olduğunu belirtin.</div>
+       </div>
+        <input class="forms" id="form-description" placeholder="Açıklama">
+     </div>
+     <div id="form-title-cap">
+      <div class="form-rules-div">
+         <div>1-Başlık kısmı kursunuzun içeriği ile alakalı olmalı.</div>
+         <div>2-Kursunuz ile ilgili anahtar kelime içermeli</div>
+       </div>
+        <input class="forms" id="form-title" placeholder="Başlık">
+     </div>
+     <div id="form-category-cap">
+      <div class="form-rules-div">
+         <div>Size uygun kategori yok ise bizimle<a routerLink="/user/contact"> iletişime </a>geçin</div>
+      </div>
+        <select id="category">
+            <option *ngFor="let c of categories">{{c.name}}</option>
+        </select>
+     </div>
+     <div id="form-image-cap">
+      <div class="form-rules-div" id="form-image-rules">
+         <div>1-Dosyanız png,jpg veya jpeg formatında olmalıdır.</div>
+         <div>2-Resimler kurs içeriği ile alakalı olmalıdır.</div>
+         <div>3-Resimler size ait olmalı,başkasına ait olmamalı.</div>
+      </div>
+      <div id="form-image-label-div"><label for="form-image">Dosya Yükle</label></div>
+      <input type="file" id="form-image" accept="image/*">
+     </div>
+     <div id="form-price-cap">
+      <div class="form-rules-div">
+         <div>Farklı bir fiyata ihtiyacınız var ise sebebi ile birlikte bize <a routerLink="/user/contact">ulaşın</a></div>
+      </div>
+       <select id="form-price" placeholder="Kurs fiyatı">
+         <option>19.99</option>
+         <option>29.99</option>
+         <option>49.99</option>
+         <option>69.99</option>
+         <option>89.99</option>
+       </select>
+     </div>
+    </form>
+   </div>
+   <div id="course-preview-cap" class="col-5">
+    <div id="course-preview">
+     <div class="course">
+      <div class="course-img"><img src=""></div>
+      <div class="course-name">{{this.courseName}}</div>
+      <div class="course-title"></div>
+      <div class="course-price-teacher">
+       <div class="course-price">
+
+       </div>
+       <div class="course-teacher">
+
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+

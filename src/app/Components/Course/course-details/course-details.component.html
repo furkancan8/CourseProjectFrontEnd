@@ -8,7 +8,7 @@
   <div id="course-property-cap">
    <div id="course-property" *ngFor="let c of course">
     <div class="course-title"><span>{{c.name}}</span></div>
-    <div class="couse-description"><p>{{c.description}}</p></div>
+    <div class="couse-description"><p>{{c.title}}</p></div>
     <div id="teacher-student-count">
      <div class="course-teacher" *ngFor="let u of courseUser">
        <span>Kurs Sahibi: <span class="course_special-span">{{u.fullName|uppercase}}</span></span>
@@ -54,28 +54,59 @@
   <div id="course-description" *ngFor="let c of course">
    <div id="description-title">Açıklama</div>
    <div id="description">
-   {{c.description}}
+    <p>Sızma Testleri &amp; Yetki Yükseltme Eğitimi'ne Hoşgeldiniz!</p>
+    <p>Eğer siber güvenlik uzmanı olmak istiyorsanız, etik hacker'lık maceranızda yepyeni bir seviyeye ulaşmak istiyorsanız, OSCP vb. sertifikalara hazırlanıyorsanız doğru yerdesiniz. Bu eğitim ileri seviye bir eğitimdir. Eğitimden fayda sağlamak için hali hazırda siber güvenlik ve Python konusunda bilginiz olması gerekmektedir.</p>
+    <p>Eğitim boyunca bol miktarda zaafiyetli makine çözümü olacaktır. Vulnhub, TryHackMe ve HackTheBox başta olmak üzere birçok platformdan örnekler işlenecektir. Özellikle OSCP vb. sınavlarda sıklıkla karşınıza çıkabilecek Privilege Escalation (Yetki Yükseltme) konusu detayıyla işlenecektir. Aynı zamanda eğitimde sadece Linux değil, Windows zafiyetli makinelerin sömürülmesi de işlenecektir.</p>
+    <p>Eğitim Udemy'de 200.000+ öğrenciye Etik Hacker'lık &amp; Mobil Geliştirme dersleri veren ve aynı zamanda Boğaziçi Üniversitesi'nde Mobil Geliştirme Eğitmeni olan Atıl Samancıoğlu tarafından veriliyor! Siz de bilişim güvenliği konusunda bilgilerinizi bir ileri seviyeye taşımak istiyorsanız aşağıdaki detaylı açıklamayı inceleyip kursa hemen kayıt olabilirsiniz.</p>
+    <h2>Konular:</h2>
+    <ul>
+      <li>İleri seviye Linux</li>
+      <li>CTF Çözümleri</li>
+      <li>Linux Yetki Yükseltme</li>
+      <li>Windows Yetki Yükseltme</li>
+      <li>Kernel Exploit</li>
+      <li>Suid</li>
+      <li>Sudo</li>
+      <li>Cronjobs</li>
+      <li>Metasploit</li>
+      <li>Potato Saldırıları</li>
+      <li>Brute Force</li>
+      <li>Meterpreter Shells</li>
+    </ul>
+    <h2>İçerik</h2>
+    <p>Bu eğitim ile birlikte CTF alıştırmaları yaparken teorik kısımları da atlamadan işlenecek bir müfredat ile karşılaşacaksınız. Zaafiyetli makine çözümleri sırasında hem gerçek sızma testlerinde hem de sertifika sınavlarında karşınıza çıkabilecek birçok senaryoyu işleyeceğiz. Bu şekilde profesyonel Siber Güvenlik Uzmanı olma yolunda çok büyük bir adım atacaksınız.</p>
+    <p>Eğitimi alabilmek için önceden Etik Hacker Olma Kursu vb. eğitimleri alıp tamamlamış olmanız gerekmektedir. Orta seviye üstünde siber güvenlik bilgisi ve temel düzeyde de olsa Python bilgisine sahip olmanız beklenmektedir. Aynı zamanda çalışan bir Kali Linux işletim sisteminiz (sanal veya gerçek) ya da muadil bir işletim sisteminiz olmak durumundadır. Kali Linux kurulumu vb. temel konulara eğitim boyunca değinilmeyecektir.</p>
+    <p>Eğitimin Windows kısmında lisans sorunlarından ötürü Vulnhub vb. ücretsiz platformlar kullanılamayacaktır. Bu durumdan ötürü son iki bölümde HackTheBox üzerinden zaafiyetli makine çözümü yapılacaktır. HackTheBox'ta bu makineleri çözmek için ücretli üye olmanız gerekmektedir fakat bu tamamen opsiyoneldir. Eğer hali hazırda bir üyeliğiniz yoksa sırf bu eğitim için HTB üyeliği almanıza gerek yoktur. Son iki bölümü not alarak takip edebilirsiniz.</p>
+    <p><strong>Önemli Uyarı:</strong> Bu kursta öğretilen tüm bilgilerin amacı etik hacker yetiştirip, kişileri ve kurumları bu saldırılardan korumaktır. Tüm öğrenciler kursta öğrendiği bilgileri yasal çerçeve içerisinde kalarak kullanacaklarını taahhüt ederler.</p>
    </div>
   </div>
  </div>
- <div id="course-comment-course-cap" class="flex">
-  <div id="course-comment-course">
+ <div id="course-comment-course-cap">
+  <div id="course-comment-course-title">Kurs Hakkındaki yorumlar</div>
+  <div id="course-comment-course" >
    <div class="comment" *ngFor="let c of courseComment">
    <div *ngFor="let u of commentUser">
     <div *ngIf="c.userId==u.id">
-    <div class="comment-user col-2">
-     <div><img class="image" [src]="this.imageUrl+u.imageUrl"></div>
-     <div>{{u.fullName}}</div>
+    <div class="comment-user ">
+     <div class="comment-user-div col-1"><img class="image" [src]="this.imageUrl+u.imageUrl"></div>
+     <div class="comment-fullname col-14">{{u.fullName|onlyName|uppercase}}</div>
     </div>
     </div>
     </div>
-     <div class="this-comment col-11"><div>{{c.comment}}</div></div>
-     <div class="comment-report col-2"><div>Bildir</div></div>
+    <div class="side-by-div">
+      <div class="comment_comment col-13">
+        <div>{{c.comment}}
+
+        </div>
+      </div>
+      <div class="comment-report col-1"><div>Bildir</div></div>
+    </div>
    </div>
   </div>
  </div>
 </div>
-
-<ckeditor name="PageContent" required
+<!-- Teacher referans bölümü yap -->
+<!--
+<ckeditor name="editor" required id="#editor"
      [config]="ckeConfig" debounce="500">
-</ckeditor>
+</ckeditor> -->

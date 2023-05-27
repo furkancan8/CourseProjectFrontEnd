@@ -40,3 +40,16 @@ routeden özellik alma{
       console.log(this.routeId); // RouteId'yi konsola yazdırabilirsiniz
     });
 }
+split('') dizi içindeki harfleri ayırır,arada boşluk olursa kelimeleri ayırır/
+join('+')=elemanları + ile birleştirir
+  @ViewChild('productLink',{static:false}) productLink:ElementRef;=html ile baglantı kurmanın başka bir yolu
+//
+default image url:  imageUrl:string="https://localhost:44331/Uploads/Images/";
+//
+  id=localStorage.getItem("i_u");
+  userId=parseInt(this.id);
+//
+  iki döngü hatası:
+  <div class="order" *ngFor="let o of orders</div>
+  <div *ngFor="let p of products">
+  <div *ngIf="p.productId === o.productId">

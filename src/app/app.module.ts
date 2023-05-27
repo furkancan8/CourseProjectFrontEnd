@@ -22,7 +22,6 @@ import { UserPaymentComponent } from './Components/Users/user-payment/user-payme
 import { UserMenuComponent } from './Components/Users/user-menu/user-menu.component';
 import { ChangePasswordComponent } from './Components/Users/change-password/change-password.component';
 import { TeacherPageComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-page/teacher-page.component';
-import { CourseAddComponent } from './Components/Teacher/course-add/course-add.component';
 import { CourseUpdateComponent } from './Components/Teacher/course-update/course-update.component';
 import { SideBarComponent } from './Components/Teacher/Teacher-Page-Cap/side-bar/side-bar.component';
 import { TeacherPaymentComponent } from './Components/Teacher/Teacher-Page-Cap/teacher-payment/teacher-payment.component';
@@ -32,6 +31,7 @@ import { CourseDetailsComponent } from './Components/Course/course-details/cours
 import { CourseVideoComponent } from './Components/Course/course-video/course-video.component';
 import { OnlyNamePipe } from './pipes/only-name.pipe';
 import { DenemePipePipe } from './pipes/deneme-pipe.pipe';
+import { AddCourseComponent } from './Components/Course/add-course/add-course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +50,6 @@ import { DenemePipePipe } from './pipes/deneme-pipe.pipe';
     UserMenuComponent,
     ChangePasswordComponent,
     TeacherPageComponent,
-    CourseAddComponent,
     CourseUpdateComponent,
     SideBarComponent,
     TeacherPaymentComponent,
@@ -60,6 +59,7 @@ import { DenemePipePipe } from './pipes/deneme-pipe.pipe';
     CourseVideoComponent,
     OnlyNamePipe,
     DenemePipePipe,
+    AddCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +68,7 @@ import { DenemePipePipe } from './pipes/deneme-pipe.pipe';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CKEditorModule
+    CKEditorModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}

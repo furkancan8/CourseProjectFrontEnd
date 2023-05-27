@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCourseComponent } from '../Components/Course/add-course/add-course.component';
 import { CourseDetailsComponent } from '../Components/Course/course-details/course-details.component';
 import { CourseVideoComponent } from '../Components/Course/course-video/course-video.component';
 import { HomePageComponent } from '../Components/Home/home-page/home-page.component';
@@ -30,7 +31,7 @@ const routes: Routes = [
   {path:"teacher/contact",component:TeacherContactComponent},
   {path:"teacher/payment",component:TeacherPaymentComponent},
   {path:"teacher/student",component:TeacherStudentComponent},
-  {path:"course/course-add",component:CourseAddComponent},
+  {path:"course/course-add",component:AddCourseComponent},
   {path:"course/course-details",component:CourseDetailsComponent},
   {path:"course/:name",component:CourseDetailsComponent},
   {path:"course/have/:routeId/lesson/:videoId",component:CourseVideoComponent},
