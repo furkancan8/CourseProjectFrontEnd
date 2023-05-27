@@ -15,7 +15,7 @@
           <div>1-Kurs ismi dikkat çekici ve kurs hakkında bilgilendirici olmalı</div>
           <div>2-Kurs isminde sadece bu semboller içerebilir / ' | + ( ) [ ]  - :</div>
         </div>
-        <input (input)="coruseFormValue($event,'courseName')" [(ngModel)]="this.courseName" class="forms" id="form-name" placeholder="Kurs ismi">
+        <input (input)="coruseFormValue($event,'courseName')" (ngModel)="this.courseName" class="forms" id="form-name" placeholder="Kurs ismi">
      </div>
      <div id="form-description-cap">
       <div class="form-rules-div">
@@ -30,7 +30,7 @@
          <div>1-Başlık kısmı kursunuzun içeriği ile alakalı olmalı.</div>
          <div>2-Kursunuz ile ilgili anahtar kelime içermeli</div>
        </div>
-        <input (change)="coruseFormValue($event,'courseTitle')" [(ngModel)]="this.courseTitle" class="forms" id="form-title" placeholder="Başlık">
+        <input (change)="coruseFormValue($event,'courseTitle')" (ngModel)="this.courseTitle" class="forms" id="form-title" placeholder="Başlık">
      </div>
      <div id="form-category-cap">
       <div class="form-rules-div">
@@ -47,7 +47,7 @@
          <div>3-Resimler size ait olmalı,başkasına ait olmamalı.</div>
       </div>
       <label for="form-image"><div id="form-image-label-div">Dosya Yükle</div></label>
-      <input [(ngModel)]="this.courseImage" type="file" id="form-image" accept="image/*" (input)="coruseFormValue($event,'courseImage')">
+      <input (ngModel)="this.courseImage" type="file" id="form-image" accept="image/*" (input)="coruseFormValue($event,'courseImage')">
      </div>
      <div id="form-price-cap">
       <div class="form-rules-div">
@@ -94,3 +94,7 @@
    </div>
   </div>
  </div>
+ <editor
+
+
+></editor>
