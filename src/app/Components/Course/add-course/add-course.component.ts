@@ -3,13 +3,17 @@ import { Category } from 'src/app/models/Public/category';
 import { User } from 'src/app/models/User/User';
 import { CategoryService } from 'src/app/services/Public/category.service';
 import { UserService } from 'src/app/services/User/user.service';
-
+import { Editor } from '@tinymce/tinymce-angular';
 @Component({
   selector: 'app-add-course',
   templateUrl: './add-course.component.html',
   styleUrls: ['./add-course.component.css']
 })
 export class AddCourseComponent implements OnInit{
+  editorConfig = {
+
+  };
+
   categories:Category[]=[]
   courseName:string=''
   courseTitle:string=''
