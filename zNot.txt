@@ -53,3 +53,19 @@ default image url:  imageUrl:string="https://localhost:44331/Uploads/Images/";
   <div class="order" *ngFor="let o of orders</div>
   <div *ngFor="let p of products">
   <div *ngIf="p.productId === o.productId">
+
+////////////////////
+anlık image gösterme
+  courseImage:File|null=null
+  courseImageUrl:string
+
+  const reader=new FileReader()
+  reader.onload=(a:any)=>{
+    this.courseImageUrl=a.target.result
+   }
+  reader.readAsDataURL(this.courseImage)
+
+        resim yükleme bitince gerçekleşir
+        reader.onloadend=()=>{
+          this.courseImageUrl=this.courseImageUrl
+        }

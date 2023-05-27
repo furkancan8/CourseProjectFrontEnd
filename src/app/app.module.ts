@@ -11,7 +11,6 @@ import { LoginComponent } from './Components/Users/login/login.component';
 import { RegisterComponent } from './Components/Users/register/register.component';
 import { UserContactComponent } from './Components/Users/user-contact/user-contact.component';
 import { AddDirective } from './directive/add.directive';
-import { CKEditorModule } from 'ng2-ckeditor';
 import { DeleteDirective } from './directive/delete.directive';
 import { UpdateDirective } from './directive/update.directive';
 import { FooterComponent } from './Components/Navbar-Footer/footer/footer.component';
@@ -68,7 +67,6 @@ import { AddCourseComponent } from './Components/Course/add-course/add-course.co
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CKEditorModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
