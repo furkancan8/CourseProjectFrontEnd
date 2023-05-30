@@ -23,14 +23,30 @@
          <div>2-Etkileyici bir açıklama kurs satışını etkiliyecektir.</div>
          <div>2-Kurs un kime hitap ettiğini,hangi seviyede olduğunu belirtin.</div>
        </div>
-        <input  class="forms" id="form-description" placeholder="Açıklama">
+       <editor
+       formControlName="description"
+        class="editor"
+       [init]="{
+         tinycomments_mode: 'embedded',
+         tinycomments_author: 'Author name',
+         height: 500,
+         max_height: 500,
+         min_height: 500,
+         width:800,
+         menubar: false,
+         toolbar:
+           'undo redo | formatselect | bold italic backcolor | \
+           alignleft aligncenter alignright alignjustify | \
+           bullist numlist outdent indent |fontsize'
+       }"
+      ></editor>
      </div>
      <div id="form-title-cap">
       <div class="form-rules-div">
          <div>1-Başlık kısmı kursunuzun içeriği ile alakalı olmalı.</div>
          <div>2-Kursunuz ile ilgili anahtar kelime içermeli</div>
        </div>
-        <input (change)="coruseFormValue($event,'courseTitle')" (ngModel)="this.courseTitle" class="forms" id="form-title" placeholder="Başlık">
+        <input (input)="coruseFormValue($event,'courseTitle')" (ngModel)="this.courseTitle" class="forms" id="form-title" placeholder="Başlık">
      </div>
      <div id="form-category-cap">
       <div class="form-rules-div">
@@ -46,7 +62,7 @@
          <div>2-Resimler kurs içeriği ile alakalı olmalıdır.</div>
          <div>3-Resimler size ait olmalı,başkasına ait olmamalı.</div>
       </div>
-      <label for="form-image"><div id="form-image-label-div">Dosya Yükle</div></label>
+      <label for="form-image"><div id="form-image-label-div">Resim Yükle</div></label>
       <input (ngModel)="this.courseImage" type="file" id="form-image" accept="image/*" (input)="coruseFormValue($event,'courseImage')">
      </div>
      <div id="form-price-cap">
@@ -65,8 +81,8 @@
     </form>
    </div>
    <div id="course-preview-cap" class="col-5">
-    <div id="course-preview">
-      <div class="course">
+    <div id="course-preview" class="constant-div">
+      <div class="course" >
          <div class="course-image-div">
            <div class="course-image-ghost-div" *ngIf="this.courseImageUrl==null"></div>
            <img *ngIf="this.courseImageUrl" class="course-image" [src]="this.courseImageUrl">
@@ -93,8 +109,33 @@
     </div>
    </div>
   </div>
+  <div id="two-step-course-section">
+     <div id="add-section-video-cap" class="side-by-div">
+       <div id="add-section-video">
+         <div class="section" style="cursor:pointer">
+          <div class="section_div-add">Yeni Bölüm Ekle +</div>
+         </div>
+         <div class="section side-by-div">
+          <div class="section-name col-13">1-C# daki Veri tipleri</div>
+          <div class="col-1 section_arrow-icon">></div>
+         </div>
+       </div>
+       <div>
+        <div id="video-cap">
+          <div class="video">
+            <div id="video_div-add">Yeni video ekle +</div>
+          </div>
+         <div class="video">
+          <div class="video_div side-by-div">
+            <div class="video-name">1-İnt veri tipi nedir</div>
+            <div class="video-time ">20.23 dak</div>
+          </div>
+         </div>
+        </div>
+       </div>
+     </div>
+     <div id="video-preview" >
+      önzile
+     </div>
+  </div>
  </div>
- <editor
-
-
-></editor>

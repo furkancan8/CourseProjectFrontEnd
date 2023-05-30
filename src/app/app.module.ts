@@ -14,7 +14,6 @@ import { AddDirective } from './directive/add.directive';
 import { DeleteDirective } from './directive/delete.directive';
 import { UpdateDirective } from './directive/update.directive';
 import { FooterComponent } from './Components/Navbar-Footer/footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './Components/Users/user-profile/user-profile.component';
 import { UserCoursesComponent } from './Components/Users/user-courses/user-courses.component';
 import { UserPaymentComponent } from './Components/Users/user-payment/user-payment.component';
@@ -67,7 +66,6 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     EditorModule
   ],
   providers: [

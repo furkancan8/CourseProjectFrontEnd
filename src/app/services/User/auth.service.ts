@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { LoginModel } from 'src/app/models/Admin/loginModel';
 import { RegisterModel } from 'src/app/models/Admin/registerModel';
 import { TokenModel } from 'src/app/models/Admin/tokenModel';
+import { ListResponseModel } from 'src/app/models/listResponseModel';
+import { OperationClaim } from 'src/app/models/Public/operationClaim';
 import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 
 @Injectable({
@@ -31,6 +33,10 @@ export class AuthService {
   {
     return this.httpClient.post<SingleResponseModel<LoginModel>>(this.apiUrl+"verifypassword",loginModel)
   }
+  getDecodeToken(token:string):Observable<ListResponseModel<OperationClaim>>
+  {
+    return this.httpClient.get<ListResponseModel<OperationClaim>>(this.apiUrl+"decodetoken?userToken="+token);
+  }
   isAuthenticate(){
     if(localStorage.getItem("token")){
      return true;
@@ -48,3 +54,5 @@ export class AuthService {
     }
   }
 }
+//tokenları çerezlerde tut,token süresini 3 ay olarak kullanıcı çıkış yapınca token sil
+//tokendan bilgileri al

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { CourseComment } from 'src/app/models/Course/comment';
 import { Course } from 'src/app/models/Course/course';
 import { SectionCourse } from 'src/app/models/Course/sectionCourse';
