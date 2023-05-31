@@ -6,6 +6,7 @@ import { SectionCourse } from 'src/app/models/Course/sectionCourse';
 import { SectionVideo } from 'src/app/models/Course/sectionVideo';
 import { VideoDetails } from 'src/app/models/Course/videoDetails';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
+import { ResponseModel } from 'src/app/models/responseModel';
 import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 
 @Injectable({
@@ -32,12 +33,29 @@ export class VideoService {
   {
     return this.httpClient.get<SingleResponseModel<VideoDetails>>(this.apiUrl+"getcourseoftrailer?courseId="+courseId);
   }
-  getVideoBySectionVideo(sectionCourseId:number):Observable<ListResponseModel<SectionVideo>>
+  videoDetailsAdd(video:VideoDetails):Observable<ResponseModel>
   {
-    return this.httpClient.get<ListResponseModel<SectionVideo>>(this.sectionUrl+"getvideoidofId?sectionCourseId="+sectionCourseId);
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"videodetailsadd",video);
   }
-  getSectionByCourse(courseId:number):Observable<ListResponseModel<SectionCourse>>
+  videoDetailsUpdate(video:VideoDetails):Observable<ResponseModel>
   {
-    return this.httpClient.get<ListResponseModel<SectionCourse>>(this.sectionUrl+"getsectionbycourseid?courseId="+courseId);
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"videodetailsupdate",video);
+  }
+  videoDetailsDelete(videoId:number):Observable<ResponseModel>
+  {
+    return this.httpClient.delete<ResponseModel>(this.apiUrl+"videodetailsdelete?id="+videoId);
+  }
+  // -------------------COURSE VİDEO------
+  courseVideoAdd(courseVideo:CourseVideo):Observable<ResponseModel>
+  {
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"coursevideoadd",courseVideo);
+  }
+  courseVideoUpdate(courseVideo:CourseVideo):Observable<ResponseModel>
+  {
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"coursevideoupdate",courseVideo);
+  }
+  courseVideoDelete(id:number):Observable<ResponseModel>
+  {
+    return this.httpClient.delete<ResponseModel>(this.apiUrl+"coursevideodelete?id="+id);
   }
 }

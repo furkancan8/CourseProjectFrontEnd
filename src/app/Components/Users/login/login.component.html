@@ -6,7 +6,7 @@
       <div *ngIf="this.loginError" id="warning-error-login">
         <h6>E-posta adresiniz ve/veya şifreniz hatalı.</h6>
       </div>
-      <form [formGroup]="loginForm">
+      <form [formGroup]="loginFormGroup">
         <div id="form-eposta-cap">
           <input type="email"
           formControlName="email"

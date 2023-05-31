@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginModel } from 'src/app/models/Admin/loginModel';
 import { RegisterModel } from 'src/app/models/Admin/registerModel';
+import { Session } from 'src/app/models/Admin/sessionModel';
 import { TokenModel } from 'src/app/models/Admin/tokenModel';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
 import { OperationClaim } from 'src/app/models/Public/operationClaim';
+import { ResponseModel } from 'src/app/models/responseModel';
 import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 
 @Injectable({
@@ -36,6 +38,10 @@ export class AuthService {
   getDecodeToken(token:string):Observable<ListResponseModel<OperationClaim>>
   {
     return this.httpClient.get<ListResponseModel<OperationClaim>>(this.apiUrl+"decodetoken?userToken="+token);
+  }
+  sessionAdd(session:Session):Observable<ResponseModel>
+  {
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"sessionadd",session);
   }
   isAuthenticate(){
     if(localStorage.getItem("token")){

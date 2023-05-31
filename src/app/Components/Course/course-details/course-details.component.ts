@@ -11,6 +11,7 @@ import { CourseService } from 'src/app/services/Course/course.service';
 import { CourseUserService } from 'src/app/services/Course/course-user.service';
 import { VideoService } from 'src/app/services/Course/video.service';
 import { UserService } from 'src/app/services/User/user.service';
+import { SectionService } from 'src/app/services/Course/section.service';
 
 @Component({
   selector: 'app-course-details',
@@ -31,7 +32,8 @@ export class CourseDetailsComponent implements OnInit{
   courseStudentCount:number=0
   ckeConfig: any;
   constructor(private activetedRoute:ActivatedRoute,private courseService:CourseService,private videoService:VideoService
-    ,private commentService:CommentService,private userService:UserService,private courseUserService:CourseUserService) {
+    ,private commentService:CommentService,private userService:UserService,private courseUserService:CourseUserService,
+    private sectionService:SectionService) {
 
 
   }
@@ -69,7 +71,7 @@ export class CourseDetailsComponent implements OnInit{
   }
   getSectionByCourseId(courseId:number)
   {
-    this.videoService.getSectionByCourse(courseId).subscribe(res=>{
+    this.sectionService.getSectionByCourse(courseId).subscribe(res=>{
       this.sectionCourse=res.data
       this.sectionCourse.forEach(element => {
         this.getVideoIdOfSectionVideoId(element.id)
@@ -78,7 +80,7 @@ export class CourseDetailsComponent implements OnInit{
   }
   getVideoIdOfSectionVideoId(sectionCourseId:number)
   {
-   this.videoService.getVideoBySectionVideo(sectionCourseId).subscribe(res=>{
+   this.sectionService.getVideoBySectionVideo(sectionCourseId).subscribe(res=>{
     res.data.forEach(element => {
       this.sectionVideo.push(element)
     });

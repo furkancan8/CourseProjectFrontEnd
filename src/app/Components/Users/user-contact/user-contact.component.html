@@ -6,7 +6,7 @@
   <div class="col-11">
      <div id="contact-cap" class="light-cap">
        <div class="form-cap">
-        <form [formGroup]="this.entityFormGroup">
+        <form [formGroup]="entityFormGroup">
          <div class="form-subject">
            <input formControlName="subject" required [class.warning-border]="entityFormGroup.controls['subject'].errors" minlength="3" type="text" placeholder="Konu">
          </div>

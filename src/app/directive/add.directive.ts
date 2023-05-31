@@ -5,8 +5,11 @@ import { LoginModel } from '../models/Admin/loginModel';
 import { SupportContact } from '../models/Public/supportContact';
 import { ResponseModel } from '../models/responseModel';
 import { QuestionService } from '../services/Course/question.service';
+import { SectionService } from '../services/Course/section.service';
+import { VideoService } from '../services/Course/video.service';
 import { SupportContactService } from '../services/Public/support-contact.service';
 import { VerifyService } from '../services/Public/verify.service';
+import { TeacherService } from '../services/Teacher/teacher.service';
 import { AuthService } from '../services/User/auth.service';
 import { PaymentService } from '../services/User/payment.service';
 import { UserService } from '../services/User/user.service';
@@ -20,6 +23,7 @@ export class AddDirective {
   @Output() counter:string
   constructor(private userService:UserService,private paymentService:PaymentService,private verifyService:VerifyService,
     private authService:AuthService,private supportContact:SupportContactService,private questionService:QuestionService,
+    private teacherService:TeacherService,private sectionService:SectionService,private videoService:VideoService,
     ) { }
   @HostListener("click")
   add()
@@ -79,6 +83,37 @@ export class AddDirective {
    {
     let entityModel=Object.assign({},this.entityAddForm.value);
     this.questionService.addAnswer(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
+   }else if(this.entity=="sectionCourse")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.sectionService.courseAdd(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
+   }else if(this.entity=="sectionVideo")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.sectionService.videoAdd(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
+   }else if(this.entity=="teacherCourse")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.teacherService.teacherCourseAdd(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
+   }else if(this.entity=="courseVideo")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.videoService.courseVideoAdd(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
+   }
+   else if(this.entity=="videoDetails")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value);
+    this.videoService.videoDetailsAdd(entityModel).subscribe(res=>{
       console.log(res.success)
     })
    }

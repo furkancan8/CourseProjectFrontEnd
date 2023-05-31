@@ -65,8 +65,9 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    EditorModule
+    EditorModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}

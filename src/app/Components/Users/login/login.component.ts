@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { connect } from 'rxjs';
-import { AddDirective } from 'src/app/directive/add.directive';
+import { Session } from 'src/app/models/Admin/sessionModel';
 import { UserVerify } from 'src/app/models/Public/userVerify';
 import { VerifyService } from 'src/app/services/Public/verify.service';
 import { AuthService } from 'src/app/services/User/auth.service';
@@ -11,15 +10,13 @@ import { UserService } from 'src/app/services/User/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit{
-  writeUserId:string;
-  loginForm:FormGroup
+  loginFormGroup:FormGroup
   verifyFormGroup:FormGroup
   changePasswordGroup:FormGroup
   userVerfiy:UserVerify[]=[]
-  userId:number
   getMailOfUserId:string=''
   loginError:boolean=false;
   IsrememberPassword:boolean=false;
@@ -39,7 +36,7 @@ export class LoginComponent implements OnInit{
     this.createVerifyForm();
   }
   createloginForm(){
-    this.loginForm=this.formBuilder.group({
+    this.loginFormGroup=this.formBuilder.group({
       email:["",Validators.required],
       password:["",Validators.required]
     })
@@ -52,13 +49,12 @@ export class LoginComponent implements OnInit{
     })
   }
   login(email:string){
-    if(this.loginForm.valid){
-      let loginModel=Object.assign({},this.loginForm.value)
+    if(this.loginFormGroup.valid){
+      let loginModel=Object.assign({},this.loginFormGroup.value)
 
       this.authService.login(loginModel).subscribe({
         next:(response)=>{
-         localStorage.setItem("token",response.data.token)
-         console.log(response.success)
+
         },
          error:(errorResponse)=>{
           console.log(errorResponse)
@@ -68,17 +64,15 @@ export class LoginComponent implements OnInit{
           window.location.replace('http://localhost:4200/products')
          }
       })
+      this.userService.getUser(email).subscribe(res=>{
+        console.log("asd")
+        var sessionUser:Session
+        sessionUser.userId=res.data.id
+        this.authService.sessionAdd(sessionUser).subscribe(res=>{
+          console.log(res.success)
+        })
+      })
     }
-
-    this.userService.getUser(email).subscribe({
-      next:(res)=>{
-        if(res.data.id)
-        {
-          this.writeUserId=res.data.id.toString();
-        }
-        localStorage.setItem("i_u",this.writeUserId)
-      }
-    })
   }
   changeRemmberPasword()
   {
@@ -106,14 +100,12 @@ export class LoginComponent implements OnInit{
    const userInputCode=this.verifyFormGroup.get('randomCode').value
    this.getVerifyCode(userMail)
    this.getUserOfMail(userMail)
-   console.log(this.userVerfiy)
    setTimeout(() => {
     if(this.userVerfiy)
     {
       this.userVerfiy.forEach(element => {
         if(element.randomCode==userInputCode)
         {
-          localStorage.setItem('i_u_c-p',this.getMailOfUserId);
           this.router.navigate(['/login/change_password'])
         }else{
           this.mailWarningCodeError=true
