@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { Course } from 'src/app/models/Course/course';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
+import { ResponseModel } from 'src/app/models/responseModel';
 import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 
 @Injectable({
@@ -11,6 +13,11 @@ import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 export class CourseService {
   apiUrl="https://localhost:44350/api/course/";
   constructor(private httpClient:HttpClient) { }
+  add(course:Course):Observable<ResponseModel>
+  {
+    const newPath=this.apiUrl+"add";
+    return this.httpClient.post<ResponseModel>(newPath,course);
+  }
   getAll():Observable<ListResponseModel<Course>>
   {
    var newPath=this.apiUrl+"getall";

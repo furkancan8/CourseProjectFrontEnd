@@ -1,9 +1,8 @@
-import { Component,ElementRef,HostListener,OnInit, Renderer2 } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Category } from 'src/app/models/Public/category';
 import { User } from 'src/app/models/User/User';
 import { CategoryService } from 'src/app/services/Public/category.service';
-import { AuthService } from 'src/app/services/User/auth.service';
 import { UserService } from 'src/app/services/User/user.service';
 @Component({
   selector: 'app-add-course',
@@ -20,39 +19,16 @@ export class AddCourseComponent implements OnInit{
   teacher:User[]=[]
   imageUrl:string="https://localhost:44350/Uploads/Images/";
   isStopped: boolean = false;
-  sectionCourseFormGroup:FormGroup
-  sectionVideoFormGroup:FormGroup
-  videoDetailsFormGroup:FormGroup
-  teacherCourseFormGroup:FormGroup
-  courseVideoFormGroup:FormGroup
-  constructor(private categoryService:CategoryService,private userService:UserService,private formBuilder:FormBuilder) {
+  courseFormGroup:FormGroup
+  constructor(private categoryService:CategoryService,private userService:UserService,private formBuilder:FormBuilder,
+  ) {
 
   }
   ngOnInit(): void {
    this.getAllCategory()
    this.getTeacher(6004)
    this.getUser()
-   const token=this.getCokkie("auth_token");
-   console.log(token);
    this.createFormGroup()
-  }
-  private getCokkie(name:string):string{
-      const cookieValue=document.cookie.split(';')
-      .map(cookie =>cookie.trim()).find(cookie=>cookie.startsWith(name+'='));
-
-      if(cookieValue)
-      {
-        return cookieValue.split('=')[1];
-      }
-      return '';
-  }
-  getUser()
-  {
-    var token=localStorage.getItem("token");
-    console.log(token)
-    // this.authService.getDecodeToken(token).subscribe(res=>{
-    //   console.log(res.data)
-    // })
   }
   getAllCategory()
   {
@@ -97,34 +73,22 @@ export class AddCourseComponent implements OnInit{
   }
   createFormGroup()
   {
-    this.courseVideoFormGroup=this.formBuilder.group({
-      id:new FormControl(""),
-      videoDetailsId:new FormControl(""),
-      courseId:new FormControl("")
+    this.courseFormGroup=this.formBuilder.group({
+      name:new FormControl(""),
+      image:new FormControl(""),
+      teacherId:new FormControl(2),
+      categoryId:new FormControl(""),
+      description:new FormControl(""),
+      price:new FormControl(""),
+      title:new FormControl("")
     })
-    this.sectionVideoFormGroup=this.formBuilder.group({
-      id:new FormControl(""),
-      sectionCourseId:new FormControl(""),
-      videoId:new FormControl("")
-    })
-    this.videoDetailsFormGroup=this.formBuilder.group({
-      id:new FormControl(""),
-      videoUrl:new FormControl(""),
-      time:new FormControl(""),
-      title:new FormControl(""),
-      videoLine:new FormControl(""),
-      videoRouteId:new FormControl("")
-    })
-    this.sectionCourseFormGroup=this.formBuilder.group({
-      id:new FormControl(""),
-      courseId:new FormControl(""),
-      title:new FormControl(""),
-      sectionLine:new FormControl("")
-    })
-    this.teacherCourseFormGroup=this.formBuilder.group({
-      id:new FormControl(""),
-      teacherId:new FormControl(""),
-      courseId:new FormControl(""),
-    })
+  }
+  getUser()
+  {
+    // var token=localStorage.getItem("token");
+    // console.log(token)
+    // this.authService.getDecodeToken(token).subscribe(res=>{
+    //   console.log(res.data)
+    // })
   }
 }

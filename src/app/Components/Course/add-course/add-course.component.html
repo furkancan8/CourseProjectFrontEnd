@@ -1,21 +1,14 @@
 <div class="cap">
- <div id="verify-step-cap">
-  <div id="verify-step" class="flex">
-   <div id="one-step">1 --------</div>
-   <div id="two-step">2 --------</div>
-   <div id="three-step">3</div>
-  </div>
- </div>
- <div id="one-step-course-section">
+ <div id="course-add-cap">
   <div class="flex">
    <div id="course-form" class="col-9">
-    <form>
+    <form [formGroup]="this.courseFormGroup">
      <div id="form-name-cap">
         <div class="form-rules-div">
           <div>1-Kurs ismi dikkat çekici ve kurs hakkında bilgilendirici olmalı</div>
           <div>2-Kurs isminde sadece bu semboller içerebilir / ' | + ( ) [ ]  - :</div>
         </div>
-        <input (input)="coruseFormValue($event,'courseName')" (ngModel)="this.courseName" class="forms" id="form-name" placeholder="Kurs ismi">
+        <input formControlName="name" (input)="coruseFormValue($event,'courseName')" (ngModel)="this.courseName" class="forms" id="form-name" placeholder="Kurs ismi">
      </div>
      <div id="form-description-cap">
       <div class="form-rules-div">
@@ -46,13 +39,13 @@
          <div>1-Başlık kısmı kursunuzun içeriği ile alakalı olmalı.</div>
          <div>2-Kursunuz ile ilgili anahtar kelime içermeli</div>
        </div>
-        <input (input)="coruseFormValue($event,'courseTitle')" (ngModel)="this.courseTitle" class="forms" id="form-title" placeholder="Başlık">
+        <input formControlName="title" (input)="coruseFormValue($event,'courseTitle')" (ngModel)="this.courseTitle" class="forms" id="form-title" placeholder="Başlık">
      </div>
      <div id="form-category-cap">
       <div class="form-rules-div">
          <div>Size uygun kategori yok ise bizimle<a routerLink="/user/contact"> iletişime </a>geçin</div>
       </div>
-        <select id="category">
+        <select id="category" formControlName="categoryId">
             <option *ngFor="let c of categories">{{c.name}}</option>
         </select>
      </div>
@@ -63,14 +56,14 @@
          <div>3-Resimler size ait olmalı,başkasına ait olmamalı.</div>
       </div>
       <label for="form-image"><div id="form-image-label-div">Resim Yükle</div></label>
-      <input (ngModel)="this.courseImage" type="file" id="form-image" accept="image/*" (input)="coruseFormValue($event,'courseImage')">
+      <input formControlName="image" (ngModel)="this.courseImage" type="file" id="form-image" accept="image/*" (input)="coruseFormValue($event,'courseImage')">
      </div>
      <div id="form-price-cap">
       <div class="form-rules-div">
          <div>Farklı bir fiyata ihtiyacınız var ise sebebi ile birlikte bize <a routerLink="/user/contact">ulaşın</a></div>
       </div>
-       <select id="form-price" placeholder="Kurs fiyatı" (input)="coruseFormValue($event,'coursePrice')">
-         <option disabled selected>Fiyat</option>
+       <select formControlName="price" id="form-price" placeholder="Kurs fiyatı" (input)="coruseFormValue($event,'coursePrice')">
+         <option disabled>Fiyat</option>
          <option>19.99</option>
          <option>29.99</option>
          <option>49.99</option>
@@ -79,6 +72,7 @@
        </select>
      </div>
     </form>
+    <button appAdd [entityAddForm]="this.courseFormGroup" [entity]="'course'" class="button">Kurs oluştur</button>
    </div>
    <div id="course-preview-cap" class="col-5">
     <div id="course-preview" class="constant-div">
@@ -108,34 +102,5 @@
      </div>
     </div>
    </div>
-  </div>
-  <div id="two-step-course-section">
-     <div id="add-section-video-cap" class="side-by-div">
-       <div id="add-section-video">
-         <div class="section" style="cursor:pointer">
-          <div class="section_div-add">Yeni Bölüm Ekle +</div>
-         </div>
-         <div class="section side-by-div">
-          <div class="section-name col-13">1-C# daki Veri tipleri</div>
-          <div class="col-1 section_arrow-icon">></div>
-         </div>
-       </div>
-       <div>
-        <div id="video-cap">
-          <div class="video">
-            <div id="video_div-add">Yeni video ekle +</div>
-          </div>
-         <div class="video">
-          <div class="video_div side-by-div">
-            <div class="video-name">1-İnt veri tipi nedir</div>
-            <div class="video-time ">20.23 dak</div>
-          </div>
-         </div>
-        </div>
-       </div>
-     </div>
-     <div id="video-preview">
-      önzile
-     </div>
   </div>
  </div>

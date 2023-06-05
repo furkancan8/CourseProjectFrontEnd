@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Session } from 'src/app/models/Admin/sessionModel';
 import { UserVerify } from 'src/app/models/Public/userVerify';
 import { VerifyService } from 'src/app/services/Public/verify.service';
 import { AuthService } from 'src/app/services/User/auth.service';
@@ -16,6 +15,7 @@ export class LoginComponent implements OnInit{
   loginFormGroup:FormGroup
   verifyFormGroup:FormGroup
   changePasswordGroup:FormGroup
+  sessionFormGroup:FormGroup
   userVerfiy:UserVerify[]=[]
   getMailOfUserId:string=''
   loginError:boolean=false;
@@ -61,19 +61,24 @@ export class LoginComponent implements OnInit{
           this.loginError=true
          },
          complete:()=>{
-          window.location.replace('http://localhost:4200/products')
+          // window.location.replace('http://localhost:4200')
          }
       })
-      this.userService.getUser(email).subscribe(res=>{
-        console.log("asd")
-        var sessionUser:Session
-        sessionUser.userId=res.data.id
-        this.authService.sessionAdd(sessionUser).subscribe(res=>{
+    }
+    this.userService.getUser(email).subscribe(res=>{
+      this.sessionFormGroup=this.formBuilder.group(
+        {
+          userId:new FormControl(res.data.id)
+        }
+      )
+        let loginModel=Object.assign({},this.sessionFormGroup.value)
+        this.authService.sessionAdd(loginModel).subscribe(res=>{
           console.log(res.success)
         })
+
       })
-    }
   }
+
   changeRemmberPasword()
   {
     this.IsrememberPassword=true

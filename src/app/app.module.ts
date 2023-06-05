@@ -31,6 +31,7 @@ import { OnlyNamePipe } from './pipes/only-name.pipe';
 import { DenemePipePipe } from './pipes/deneme-pipe.pipe';
 import { AddCourseComponent } from './Components/Course/add-course/add-course.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { CourseEditComponent } from './Components/Course/course-edit/course-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     OnlyNamePipe,
     DenemePipePipe,
     AddCourseComponent,
+    CourseEditComponent,
   ],
   imports: [
     BrowserModule,

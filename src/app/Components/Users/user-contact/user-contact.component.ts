@@ -22,7 +22,7 @@ export class UserContactComponent implements OnInit{
     this.entityFormGroup=this.formBuilder.group({
       subject:[""],
       description:[""],
-      userId:[this.authService.userId]
+      userId:[2]
     })
   }
   asd()

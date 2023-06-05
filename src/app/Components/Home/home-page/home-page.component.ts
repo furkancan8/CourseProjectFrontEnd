@@ -49,6 +49,9 @@ export class HomePageComponent implements OnInit{
     this.categoryCount=document.querySelectorAll('.category').length;
     }, 300);
     this.appComponent.hideNavbar()
+    console.log()
+    const cookies = document.cookie;
+    console.log(cookies);
   }
   getCourse()
   {

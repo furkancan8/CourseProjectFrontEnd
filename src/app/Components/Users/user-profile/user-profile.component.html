@@ -28,9 +28,7 @@
           <div class="mail-varify-warning" *ngIf="this.IsVerifyMail">
             <div class="flex">
               <div>Please perform Email verification for your safety</div>
-              <form>
                 <div><button (click)="ActiveCodeInput()" appAdd [entity]="'verifyemail'" [entityAddForm]="this.verifyEmailFormGroup" class="button">Verify</button></div>
-              </form>
             </div>
             <div class="verify-code-div" *ngIf="this.IsVerifyCodeInput">
               <div>

@@ -1,3 +1,15 @@
       // '|+()[]-:'izin verilicek karakterler
 
 Video-Details=videolar için logo
+Cookie kontrol={
+        getCokkie(name:string){
+      const cookieValue=document.cookie.split(';')
+      .map(cookie =>cookie.trim()).find(cookie=>cookie.startsWith(name+'='));
+
+      if(cookieValue)
+      {
+         console.log(cookieValue.split('=')[1]);
+      }
+      console.log(cookieValue.split('=')[1]);
+  }
+}

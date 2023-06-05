@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { LoginModel } from '../models/Admin/loginModel';
 import { SupportContact } from '../models/Public/supportContact';
 import { ResponseModel } from '../models/responseModel';
+import { CourseService } from '../services/Course/course.service';
 import { QuestionService } from '../services/Course/question.service';
 import { SectionService } from '../services/Course/section.service';
 import { VideoService } from '../services/Course/video.service';
@@ -24,6 +25,7 @@ export class AddDirective {
   constructor(private userService:UserService,private paymentService:PaymentService,private verifyService:VerifyService,
     private authService:AuthService,private supportContact:SupportContactService,private questionService:QuestionService,
     private teacherService:TeacherService,private sectionService:SectionService,private videoService:VideoService,
+    private courseService:CourseService
     ) { }
   @HostListener("click")
   add()
@@ -34,6 +36,12 @@ export class AddDirective {
      this.paymentService.add(entityModel).subscribe(res=>{
       console.log(res.success)
      })
+   }else if(this.entity=="course")
+   {
+    let entityModel=Object.assign({},this.entityAddForm.value)
+    this.courseService.add(entityModel).subscribe(res=>{
+      console.log(res.success)
+    })
    }
    else if(this.entity=="contact"&&this.entityAddForm.valid)
    {
